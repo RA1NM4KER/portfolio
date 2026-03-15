@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { experience } from "@/data/portfolio";
 
 export function ExperienceSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section id="experience" className="content-section">

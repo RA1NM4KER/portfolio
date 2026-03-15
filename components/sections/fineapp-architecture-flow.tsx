@@ -528,6 +528,8 @@ export function FineAppArchitectureFlow() {
             nodeTypes={nodeTypes}
             fitView
             fitViewOptions={{ padding: 0.12 }}
+            minZoom={0.2}
+            maxZoom={2}
             panOnDrag
             zoomOnScroll={false}
             zoomOnPinch
