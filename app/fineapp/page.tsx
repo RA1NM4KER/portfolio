@@ -2,13 +2,13 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { fineAppCaseStudy } from "@/data/fineapp";
 import { Navbar } from "@/components/layout/navbar";
-import { FineAppArchitectureFlow } from "@/components/sections/fineapp-architecture-flow";
 import { CaseStudyHero } from "@/components/sections/fineapp/case-study-hero";
 import { FineAppScreenshotsSection } from "@/components/sections/fineapp/fineapp-screenshots-section";
 import { CaseStudySection } from "@/components/sections/fineapp/case-study-section";
 import { fineAppNavLinks } from "@/data/navigation";
 import { CaseStudyDisclosureSection } from "@/components/sections/fineapp/case-study-disclosure-section";
 import { ContentSection } from "@/components/ui/content-section";
+import { FineAppArchitectureFlow } from "@/components/sections/fineapp-architecture/fineapp-architecture-flow";
 
 export default function FineAppPage() {
   const data = fineAppCaseStudy;
