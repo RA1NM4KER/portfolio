@@ -1,16 +1,11 @@
+import { hero } from "@/data/portfolio";
+
 export function HeroSection() {
   return (
     <section className="hero">
-      <h1 className="hero__title">
-        Software developer building real systems across product, backend, data,
-        and infrastructure.
-      </h1>
+      <h1 className="hero__title">{hero.title}</h1>
 
-      <p className="hero__intro">
-        I work best where product flow meets backend logic, operational reality,
-        and clean implementation, with experience across fintech, embedded
-        systems, and founder-led platform development.
-      </p>
+      <p className="hero__intro">{hero.intro}</p>
 
       <div className="hero__links">
         <a href="https://github.com/RA1NM4KER" target="_blank" rel="noreferrer">

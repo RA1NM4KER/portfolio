@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { ContentSection } from "@/components/ui/content-section";
 
 type ScreenshotItem = {
   title: string;
@@ -17,12 +17,8 @@ export function FineAppScreenshotsSection({
   items,
 }: FineAppScreenshotsSectionProps) {
   return (
-    <section className="content-section">
-      <SectionHeading label="/screens" />
-
-      <div className="case-study-copy">
-        <h2 className="case-study-subtitle">{title}</h2>
-      </div>
+    <ContentSection label="/screens">
+      <h2 className="case-study-subtitle">{title}</h2>
 
       <div className="screenshot-grid">
         {items.map((item) => (
@@ -42,6 +38,6 @@ export function FineAppScreenshotsSection({
           </div>
         ))}
       </div>
-    </section>
+    </ContentSection>
   );
 }

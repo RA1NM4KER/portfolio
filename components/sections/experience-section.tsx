@@ -2,16 +2,14 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { experience } from "@/data/portfolio";
+import { ContentSection } from "@/components/ui/content-section";
 
 export function ExperienceSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="experience" className="content-section">
-      <SectionHeading label="/work-experience" />
-
+    <ContentSection id="experience" label="/work-experience">
       <div className="list">
         {experience.map((item, index) => {
           const isOpen = openIndex === index;
@@ -64,6 +62,6 @@ export function ExperienceSection() {
           );
         })}
       </div>
-    </section>
+    </ContentSection>
   );
 }

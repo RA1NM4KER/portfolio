@@ -1,8 +1,8 @@
 export const hero = {
   title:
-    "Software developer building reliable systems across frontend, backend, data, and infrastructure.",
+    "Software developer building real systems across product, backend, data, and infrastructure.",
   intro:
-    "Experience spanning fintech, embedded systems, and founder-led platform development, with hands-on work across modern web apps, backend services, and data-driven systems.",
+    "I work best where product flow meets backend logic, operational reality, and clean implementation, with experience across fintech, embedded systems, and founder-led platform development.",
 };
 
 export const projects = [
@@ -55,17 +55,6 @@ export const experience = [
     stack: "C · C++ · MQTT · ESP32 · Arduino",
   },
 ] as const;
-
-export const stack = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Java",
-  "Spring Boot",
-  "MySQL",
-  "SQL",
-  "GCP",
-];
 
 export const contact = {
   email: "kefasa112@gmail.com",

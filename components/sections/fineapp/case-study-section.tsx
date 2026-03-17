@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { ContentSection } from "@/components/ui/content-section";
 
 type CaseStudySectionProps = {
   id?: string;
@@ -7,6 +7,7 @@ type CaseStudySectionProps = {
   title: string;
   body?: string[];
   children?: ReactNode;
+  fullWidthChildren?: ReactNode;
 };
 
 export function CaseStudySection({
@@ -15,11 +16,10 @@ export function CaseStudySection({
   title,
   body,
   children,
+  fullWidthChildren,
 }: CaseStudySectionProps) {
   return (
-    <section id={id} className="content-section">
-      <SectionHeading label={label} />
-
+    <ContentSection id={id} label={label}>
       <div className="case-study-copy">
         <h2 className="case-study-subtitle">{title}</h2>
 
@@ -31,6 +31,8 @@ export function CaseStudySection({
 
         {children}
       </div>
-    </section>
+
+      {fullWidthChildren}
+    </ContentSection>
   );
 }

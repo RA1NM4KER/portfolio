@@ -2,13 +2,13 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { fineAppCaseStudy } from "@/data/fineapp";
 import { Navbar } from "@/components/layout/navbar";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { FineAppArchitectureFlow } from "@/components/sections/fineapp-architecture-flow";
 import { CaseStudyHero } from "@/components/sections/fineapp/case-study-hero";
 import { FineAppScreenshotsSection } from "@/components/sections/fineapp/fineapp-screenshots-section";
 import { CaseStudySection } from "@/components/sections/fineapp/case-study-section";
 import { fineAppNavLinks } from "@/data/navigation";
 import { CaseStudyDisclosureSection } from "@/components/sections/fineapp/case-study-disclosure-section";
+import { ContentSection } from "@/components/ui/content-section";
 
 export default function FineAppPage() {
   const data = fineAppCaseStudy;
@@ -46,12 +46,12 @@ export default function FineAppPage() {
           items={data.flows.items}
         />
 
-        <CaseStudySection
-          id="architecture"
-          label="/architecture"
-          title={data.architecture.title}
-          body={[data.architecture.description]}
-        >
+        <ContentSection id="architecture" label="/architecture">
+          <div className="case-study-copy">
+            <h2 className="case-study-subtitle">{data.architecture.title}</h2>
+            <p className="body-copy">{data.architecture.description}</p>
+          </div>
+
           <FineAppArchitectureFlow />
 
           <div className="architecture-domain-block">
@@ -64,7 +64,7 @@ export default function FineAppPage() {
               ))}
             </div>
           </div>
-        </CaseStudySection>
+        </ContentSection>
 
         <CaseStudySection
           label="/backend"
@@ -150,8 +150,7 @@ export default function FineAppPage() {
           body={data.reflection.body}
         />
 
-        <section className="content-section">
-          <SectionHeading label="/back" />
+        <ContentSection label="/back">
           <div className="hero__links">
             <Link href="/">Back to portfolio</Link>
             <a
@@ -166,7 +165,7 @@ export default function FineAppPage() {
               />
             </a>
           </div>
-        </section>
+        </ContentSection>
       </main>
     </>
   );

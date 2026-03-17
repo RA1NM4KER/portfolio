@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { projects } from "@/data/portfolio";
+import { ContentSection } from "@/components/ui/content-section";
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="content-section">
-      <SectionHeading label="/projects" />
+    <ContentSection id="projects" label="/projects">
       <div className="list">
         {projects.map((project) => {
           const isInternal = project.href.startsWith("/");
@@ -38,6 +37,6 @@ export function ProjectsSection() {
           );
         })}
       </div>
-    </section>
+    </ContentSection>
   );
 }

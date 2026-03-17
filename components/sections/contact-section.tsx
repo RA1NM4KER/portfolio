@@ -1,11 +1,9 @@
-import { SectionHeading } from "@/components/ui/section-heading";
 import { contact } from "@/data/portfolio";
+import { ContentSection } from "@/components/ui/content-section";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="content-section">
-      <SectionHeading label="/contact" />
-
+    <ContentSection id="contact" label="/contact">
       <div className="section-block">
         <p className="body-copy body-copy--muted">
           Open to software roles, technical conversations, and interesting
@@ -42,6 +40,6 @@ export function ContactSection() {
           </a>
         </div>
       </div>
-    </section>
+    </ContentSection>
   );
 }

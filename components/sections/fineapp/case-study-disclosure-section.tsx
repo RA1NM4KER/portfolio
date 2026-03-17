@@ -1,5 +1,5 @@
-import { SectionHeading } from "@/components/ui/section-heading";
 import { CaseStudyDisclosure } from "@/components/sections/fineapp/case-study-disclosure";
+import { ContentSection } from "@/components/ui/content-section";
 
 type DisclosureItem = {
   title: string;
@@ -19,8 +19,7 @@ export function CaseStudyDisclosureSection({
   items,
 }: CaseStudyDisclosureSectionProps) {
   return (
-    <section id={id} className="content-section">
-      <SectionHeading label={label} />
+    <ContentSection id={id} label={label}>
       <div className="case-study-stack">
         {items.map((item) => (
           <CaseStudyDisclosure
@@ -31,6 +30,6 @@ export function CaseStudyDisclosureSection({
           />
         ))}
       </div>
-    </section>
+    </ContentSection>
   );
 }
