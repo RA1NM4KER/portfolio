@@ -2,7 +2,7 @@
 
 Personal portfolio built with Next.js and TypeScript, showcasing selected projects, experience, and a full-stack FineApp case study.
 
-**Live:** [fineapp.co.za](https://fineapp.co.za)
+**Live:** [kefas.co.za](https://kefas.co.za)
 
 ## Tech
 
