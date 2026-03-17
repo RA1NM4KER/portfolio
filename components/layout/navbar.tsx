@@ -1,16 +1,25 @@
 import Link from "next/link";
 
-const links = [
-  { href: "#experience", label: "/work-experience" },
-  { href: "#projects", label: "/projects" },
-  { href: "#contact", label: "/contact" },
-];
+type NavbarLink = {
+  href: string;
+  label: string;
+};
 
-export function Navbar() {
+type NavbarProps = {
+  links: readonly NavbarLink[];
+  brandName?: string;
+  brandHref?: string;
+};
+
+export function Navbar({
+  links,
+  brandName = "Kefas Manda",
+  brandHref = "/",
+}: NavbarProps) {
   return (
     <header className="navbar">
-      <Link href="/" className="navbar__brand">
-        Kefas Manda
+      <Link href={brandHref} className="navbar__brand">
+        {brandName}
       </Link>
 
       <nav className="navbar__nav" aria-label="Primary">

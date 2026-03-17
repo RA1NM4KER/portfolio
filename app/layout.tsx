@@ -29,7 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="site-shell">
+          <div className="f1-stripe" />
+          {children}
+        </div>
       </body>
     </html>
   );
