@@ -14,6 +14,13 @@ export const projects = [
     href: "/fineapp",
   },
   {
+    name: "fineapp-mcp",
+    description:
+      "MCP server exposing FineApp public creatives, profiles, search, and session packages to AI clients.",
+    stack: "TypeScript · Node.js · MCP SDK · Zod · Codex",
+    href: "https://github.com/RA1NM4KER/fineapp-mcp",
+  },
+  {
     name: "Showcase",
     description:
       "Template-driven showcase pages for portfolios and collections, with editable content and creator-facing customization controls. Currently in development.",
