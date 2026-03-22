@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { experience } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
+import { Reveal } from "@/components/ui/reveal";
 
 export function ExperienceSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -15,50 +16,51 @@ export function ExperienceSection() {
           const isOpen = openIndex === index;
 
           return (
-            <article
-              key={`${item.role}-${item.company}`}
-              className="experience-row"
-            >
-              <button
-                type="button"
-                className="experience-row__trigger"
-                onClick={() => setOpenIndex(isOpen ? null : index)}
-                aria-expanded={isOpen}
-              >
-                <div className="experience-row__main">
-                  <h3 className="list-row__title">{item.role}</h3>
-                  <p className="list-row__text">{item.company}</p>
-                  <p className="list-row__subtext">
-                    {item.location} · {item.mode}
-                  </p>
-                  <p className="list-row__meta">{item.period}</p>
-                </div>
-
-                <span
-                  className={`experience-row__icon ${
-                    isOpen ? "experience-row__icon--open" : ""
-                  }`}
-                  aria-hidden="true"
+            <Reveal key={`${item.role}-${item.company}`} delay={index * 80}>
+              <article className="experience-row">
+                <button
+                  type="button"
+                  className="experience-row__trigger"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  aria-expanded={isOpen}
                 >
-                  <ChevronDown size={18} strokeWidth={2.2} />
-                </span>
-              </button>
+                  <div className="experience-row__main">
+                    <h3 className="list-row__title">{item.role}</h3>
+                    <p className="list-row__text">{item.company}</p>
+                    <p className="list-row__subtext">
+                      {item.location} · {item.mode}
+                    </p>
+                    <p className="list-row__meta">{item.period}</p>
+                  </div>
 
-              {isOpen && (
-                <div className="experience-row__details">
-                  <ul className="experience-row__details-list">
-                    {item.details.map((detail) => (
-                      <li key={detail}>{detail}</li>
-                    ))}
-                  </ul>
+                  <span
+                    className={`experience-row__icon ${
+                      isOpen ? "experience-row__icon--open" : ""
+                    }`}
+                    aria-hidden="true"
+                  >
+                    <ChevronDown size={18} strokeWidth={2.2} />
+                  </span>
+                </button>
 
-                  <p className="experience-row__stack">
-                    <span className="experience-row__stack-label">Stack:</span>{" "}
-                    {item.stack}
-                  </p>
-                </div>
-              )}
-            </article>
+                {isOpen && (
+                  <div className="experience-row__details">
+                    <ul className="experience-row__details-list">
+                      {item.details.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+
+                    <p className="experience-row__stack">
+                      <span className="experience-row__stack-label">
+                        Stack:
+                      </span>{" "}
+                      {item.stack}
+                    </p>
+                  </div>
+                )}
+              </article>
+            </Reveal>
           );
         })}
       </div>
