@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Background, Controls, ReactFlow } from "@xyflow/react";
+import { createPortal } from "react-dom";
+import {
+  Background,
+  Controls,
+  ReactFlow,
+  type ReactFlowInstance,
+} from "@xyflow/react";
 import { Expand, X } from "lucide-react";
 import { ArchitectureNode } from "@/components/sections/fineapp-architecture/architecture-node";
 import {
@@ -19,6 +25,9 @@ const nodeTypes = {
 export function FineAppArchitectureFlow() {
   const [activeFlow, setActiveFlow] = useState<FlowKey>("all");
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [flowInstance, setFlowInstance] = useState<ReactFlowInstance | null>(
+    null,
+  );
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -30,6 +39,34 @@ export function FineAppArchitectureFlow() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+
+    if (isFullscreen) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isFullscreen]);
+
+  useEffect(() => {
+    if (!flowInstance) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      flowInstance.fitView({ padding: 0.12, duration: 250 });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [flowInstance, isFullscreen]);
 
   const nodes = useMemo(() => {
     return baseNodes.map((node) => {
@@ -63,9 +100,18 @@ export function FineAppArchitectureFlow() {
   }, [activeFlow]);
 
   const selectedInfo = flowDescriptions[activeFlow];
+  const canUsePortal = typeof document !== "undefined";
 
-  return (
-    <div className="fineapp-architecture">
+  const panel = (
+    <>
+      {isFullscreen ? (
+        <div
+          className="fineapp-architecture__backdrop"
+          onClick={() => setIsFullscreen(false)}
+          aria-hidden="true"
+        />
+      ) : null}
+
       <div
         className={[
           "fineapp-architecture__panel",
@@ -118,6 +164,7 @@ export function FineAppArchitectureFlow() {
             nodes={nodes}
             edges={edges}
             nodeTypes={nodeTypes}
+            onInit={setFlowInstance}
             fitView
             fitViewOptions={{ padding: 0.12 }}
             minZoom={0.2}
@@ -141,6 +188,14 @@ export function FineAppArchitectureFlow() {
           </ReactFlow>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <div className="fineapp-architecture">
+      {isFullscreen && canUsePortal
+        ? createPortal(panel, document.body)
+        : panel}
     </div>
   );
 }
