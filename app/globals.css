@@ -5,6 +5,7 @@
   --muted: #a8b0bb;
   --line: #324255;
   --accent: #f2b316;
+  --navbar-height: 96px;
 }
 
 * {
@@ -173,6 +174,7 @@ button {
 .content-section {
   padding: 2rem 0 1rem;
   border-bottom: 1px solid var(--line);
+  scroll-margin-top: calc(var(--navbar-height) + 0.5rem);
 }
 
 .section-heading {
@@ -381,10 +383,6 @@ button {
 
 .contact-list__link:hover {
   color: var(--accent);
-}
-
-.case-study-page {
-  padding-top: 2.5rem;
 }
 
 .case-study-hero {
@@ -896,10 +894,6 @@ button {
 
   .contact-list__link {
     font-size: 1rem;
-  }
-
-  .case-study-page {
-    padding-top: 1.5rem;
   }
 
   .case-study-hero__title {

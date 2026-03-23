@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 type NavbarLink = {
@@ -19,60 +19,70 @@ export function Navbar({
   brandName = "Kefas Manda",
   brandHref = "/",
 }: NavbarProps) {
-  const [activeHref, setActiveHref] = useState<string | null>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const [activeHref, setActiveHref] = useState<string>("");
 
   useEffect(() => {
+    const navbar = navRef.current;
+
+    if (!navbar) {
+      return;
+    }
+
     const sectionLinks = links.filter((link) => link.href.startsWith("#"));
 
     if (sectionLinks.length === 0) {
       return;
     }
 
-    const sections = sectionLinks
-      .map((link) => ({
-        href: link.href,
-        element: document.getElementById(link.href.slice(1)),
-      }))
-      .filter(
-        (entry): entry is { href: string; element: HTMLElement } =>
-          entry.element !== null,
+    const syncNavbarHeight = () => {
+      const height = Math.ceil(navbar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty(
+        "--navbar-height",
+        `${height}px`,
       );
+      return height;
+    };
 
-    if (sections.length === 0) {
-      return;
-    }
+    const updateActiveSection = () => {
+      const navbarHeight = syncNavbarHeight();
+      const activationLine = window.scrollY + navbarHeight + 24;
+      const currentHref =
+        sectionLinks.reduce((active, link) => {
+          const section = document.getElementById(link.href.slice(1));
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          if (section && section.offsetTop <= activationLine) {
+            return link.href;
+          }
 
-        if (visibleEntries.length === 0) {
-          return;
-        }
+          return active;
+        }, "") || sectionLinks[0].href;
 
-        const activeSection = sections.find(
-          (section) => section.element === visibleEntries[0].target,
-        );
+      setActiveHref(currentHref);
+    };
 
-        if (activeSection) {
-          setActiveHref(activeSection.href);
-        }
-      },
-      {
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0.2, 0.35, 0.5, 0.7],
-      },
-    );
+    const resizeObserver = new ResizeObserver(() => {
+      updateActiveSection();
+    });
 
-    sections.forEach((section) => observer.observe(section.element));
+    resizeObserver.observe(navbar);
+    syncNavbarHeight();
+    updateActiveSection();
 
-    return () => observer.disconnect();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("hashchange", updateActiveSection);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
+    };
   }, [links]);
 
   return (
-    <header className="navbar">
+    <header ref={navRef} className="navbar">
       <Link href={brandHref} className="navbar__brand">
         {brandName}
       </Link>
@@ -85,6 +95,7 @@ export function Navbar({
             className={`navbar__link ${
               activeHref === link.href ? "navbar__link--active" : ""
             }`.trim()}
+            aria-current={activeHref === link.href ? "location" : undefined}
           >
             {link.label}
           </a>
