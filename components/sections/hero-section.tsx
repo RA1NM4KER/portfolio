@@ -21,7 +21,7 @@ export function HeroSection() {
           <a href={contact.linkedin} target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a href={contact.email}>Email</a>
+          <a href={`mailto:${contact.email}`}>Email</a>
           <a href={contact.resume} target="_blank" rel="noreferrer">
             CV
           </a>
