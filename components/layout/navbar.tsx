@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type NavbarLink = {
   href: string;
@@ -21,6 +22,11 @@ export function Navbar({
 }: NavbarProps) {
   const navRef = useRef<HTMLElement>(null);
   const [activeHref, setActiveHref] = useState<string>("");
+  const pathname = usePathname();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [pathname]);
 
   useEffect(() => {
     const navbar = navRef.current;
@@ -83,7 +89,17 @@ export function Navbar({
 
   return (
     <header ref={navRef} className="navbar">
-      <Link href={brandHref} className="navbar__brand">
+      <Link
+        href={brandHref}
+        scroll
+        className="navbar__brand"
+        onClick={(event) => {
+          if (brandHref === pathname) {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }}
+      >
         {brandName}
       </Link>
 

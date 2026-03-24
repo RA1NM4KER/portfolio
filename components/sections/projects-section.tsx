@@ -22,7 +22,7 @@ export function ProjectsSection() {
 
                 {showLink &&
                   (isInternal ? (
-                    <Link href={project.href} className="list-row__link">
+                    <Link href={project.href} scroll className="list-row__link">
                       view →
                     </Link>
                   ) : (

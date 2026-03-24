@@ -814,7 +814,6 @@ button {
   transition:
     opacity 0.55s ease,
     transform 0.55s ease;
-  transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 
@@ -852,7 +851,7 @@ button {
   }
 
   .hero {
-    padding: 1.5rem 0 2rem;
+    padding: 0 0 2rem;
   }
 
   .hero__title {
