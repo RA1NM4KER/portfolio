@@ -56,7 +56,7 @@ button {
 .page-content {
   width: min(1100px, calc(100% - 12rem));
   margin-left: 7rem;
-  padding: 4rem 0 4rem;
+  padding: 2rem 0 4rem;
 }
 
 .navbar {
