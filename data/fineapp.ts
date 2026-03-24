@@ -1,4 +1,6 @@
-export const fineAppCaseStudy = {
+import type { FineAppCaseStudy } from "@/types/fineapp";
+
+export const fineAppCaseStudy: FineAppCaseStudy = {
   hero: {
     title: "FineApp",
     subtitle:

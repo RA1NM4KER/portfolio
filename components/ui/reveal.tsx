@@ -1,18 +1,7 @@
 "use client";
 
-import {
-  ReactNode,
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
-
-type RevealProps = {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-};
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import type { RevealProps } from "@/types/ui";
 
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);

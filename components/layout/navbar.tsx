@@ -3,17 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-type NavbarLink = {
-  href: string;
-  label: string;
-};
-
-type NavbarProps = {
-  links: readonly NavbarLink[];
-  brandName?: string;
-  brandHref?: string;
-};
+import type { NavbarProps } from "@/types/ui";
 
 export function Navbar({
   links,

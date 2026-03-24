@@ -15,8 +15,8 @@ import {
   baseEdges,
   baseNodes,
   flowDescriptions,
-  type FlowKey,
 } from "@/components/sections/fineapp-architecture/architecture-config";
+import type { FlowKey } from "@/types/architecture";
 
 const nodeTypes = {
   architectureNode: ArchitectureNode,

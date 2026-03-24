@@ -9,6 +9,9 @@ import { fineAppNavLinks } from "@/data/navigation";
 import { CaseStudyDisclosureSection } from "@/components/sections/fineapp/case-study-disclosure-section";
 import { ContentSection } from "@/components/ui/content-section";
 import { FineAppArchitectureFlow } from "@/components/sections/fineapp-architecture/fineapp-architecture-flow";
+import { TagList } from "@/components/ui/tag-list";
+import { LabeledList } from "@/components/ui/labeled-list";
+import { BulletList } from "@/components/ui/bullet-list";
 
 export default function FineAppPage() {
   const data = fineAppCaseStudy;
@@ -33,11 +36,7 @@ export default function FineAppPage() {
         />
 
         <CaseStudySection label="/what-i-built" title={data.built.title}>
-          <ul className="case-study-list">
-            {data.built.points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+          <BulletList items={data.built.points} />
         </CaseStudySection>
 
         <CaseStudyDisclosureSection
@@ -54,16 +53,11 @@ export default function FineAppPage() {
 
           <FineAppArchitectureFlow />
 
-          <div className="architecture-domain-block">
-            <p className="architecture-domain-block__label">Core domains</p>
-            <div className="stack-list">
-              {data.architecture.domains.map((domain) => (
-                <span key={domain} className="stack-list__item">
-                  {domain}
-                </span>
-              ))}
-            </div>
-          </div>
+          <TagList
+            className="architecture-domain-block"
+            label="Core domains"
+            items={data.architecture.domains}
+          />
         </ContentSection>
 
         <CaseStudySection
@@ -72,23 +66,8 @@ export default function FineAppPage() {
           body={[data.backend.intro]}
         >
           <div className="case-study-two-col">
-            <div>
-              <p className="case-study-mini-label">Modules</p>
-              <ul className="case-study-list">
-                {data.backend.modules.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="case-study-mini-label">Key entities</p>
-              <ul className="case-study-list">
-                {data.backend.entities.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            <LabeledList label="Modules" items={data.backend.modules} />
+            <LabeledList label="Key entities" items={data.backend.entities} />
           </div>
         </CaseStudySection>
 
@@ -118,13 +97,7 @@ export default function FineAppPage() {
           title={data.audit.title}
           body={data.audit.body}
         >
-          <div className="stack-list">
-            {data.audit.sampleActions.map((action) => (
-              <span key={action} className="stack-list__item">
-                {action}
-              </span>
-            ))}
-          </div>
+          <TagList items={data.audit.sampleActions} />
         </CaseStudySection>
 
         <FineAppScreenshotsSection
@@ -137,11 +110,7 @@ export default function FineAppPage() {
           label="/results"
           title={data.results.title}
         >
-          <ul className="case-study-list">
-            {data.results.points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+          <BulletList items={data.results.points} />
         </CaseStudySection>
 
         <CaseStudySection

@@ -1,11 +1,5 @@
-import { ReactNode } from "react";
 import { Reveal } from "@/components/ui/reveal";
-
-type ContentSectionProps = {
-  id?: string;
-  label: string;
-  children: ReactNode;
-};
+import type { ContentSectionProps } from "@/types/ui";
 
 export function ContentSection({ id, label, children }: ContentSectionProps) {
   return (

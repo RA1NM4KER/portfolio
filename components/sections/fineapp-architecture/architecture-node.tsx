@@ -1,7 +1,7 @@
 "use client";
 
 import { Handle, Position, type Node, type NodeProps } from "@xyflow/react";
-import type { ArchitectureNodeData } from "./architecture-config";
+import type { ArchitectureNodeData } from "@/types/architecture";
 
 export function ArchitectureNode({
   data,

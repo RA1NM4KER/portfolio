@@ -1,11 +1,18 @@
-export const hero = {
+import type {
+  ContactInfo,
+  ExperienceItem,
+  HeroContent,
+  Project,
+} from "@/types/portfolio";
+
+export const hero: HeroContent = {
   title:
     "Software developer building real systems across product, backend, data, and infrastructure.",
   intro:
     "I work best where product flow meets backend logic, operational reality, and clean implementation, with experience across fintech, embedded systems, and founder-led platform development.",
 };
 
-export const projects = [
+export const projects: Project[] = [
   {
     name: "FineApp",
     description: "Creative freelancer platform.",
@@ -30,7 +37,7 @@ export const projects = [
   },
 ];
 
-export const experience = [
+export const experience: ExperienceItem[] = [
   {
     role: "Software Developer",
     company: "Glyde Payments",
@@ -61,9 +68,9 @@ export const experience = [
     ],
     stack: "C · C++ · MQTT · ESP32 · Arduino",
   },
-] as const;
+];
 
-export const contact = {
+export const contact: ContactInfo = {
   email: "kefasa112@gmail.com",
   github: "https://github.com/RA1NM4KER",
   linkedin: "https://www.linkedin.com/in/kefas-manda/",

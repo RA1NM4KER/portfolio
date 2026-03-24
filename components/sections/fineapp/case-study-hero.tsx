@@ -1,21 +1,5 @@
 import { ExternalLink } from "lucide-react";
-
-type HeroMetaItem = {
-  label: string;
-  value: string;
-};
-
-type HeroLinkItem = {
-  label: string;
-  href: string;
-};
-
-type CaseStudyHeroProps = {
-  title: string;
-  subtitle: string;
-  meta: HeroMetaItem[];
-  links: HeroLinkItem[];
-};
+import type { CaseStudyHeroProps } from "@/types/fineapp";
 
 export function CaseStudyHero({
   title,

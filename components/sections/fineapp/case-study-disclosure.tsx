@@ -1,10 +1,6 @@
 import { ChevronDown } from "lucide-react";
-
-type CaseStudyDisclosureProps = {
-  title: string;
-  summary: string;
-  details: string[];
-};
+import { BulletList } from "@/components/ui/bullet-list";
+import type { CaseStudyDisclosureProps } from "@/types/fineapp";
 
 export function CaseStudyDisclosure({
   title,
@@ -25,11 +21,7 @@ export function CaseStudyDisclosure({
       </summary>
 
       <div className="case-study-disclosure__content">
-        <ul className="case-study-list">
-          {details.map((detail) => (
-            <li key={detail}>{detail}</li>
-          ))}
-        </ul>
+        <BulletList items={details} />
       </div>
     </details>
   );

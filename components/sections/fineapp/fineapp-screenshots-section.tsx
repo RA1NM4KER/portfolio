@@ -1,16 +1,6 @@
 import Image from "next/image";
 import { ContentSection } from "@/components/ui/content-section";
-
-type ScreenshotItem = {
-  title: string;
-  text: string;
-  src: string;
-};
-
-type FineAppScreenshotsSectionProps = {
-  title: string;
-  items: ScreenshotItem[];
-};
+import type { FineAppScreenshotsSectionProps } from "@/types/fineapp";
 
 export function FineAppScreenshotsSection({
   title,

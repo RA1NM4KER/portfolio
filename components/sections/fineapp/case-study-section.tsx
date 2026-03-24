@@ -1,14 +1,5 @@
-import { ReactNode } from "react";
 import { ContentSection } from "@/components/ui/content-section";
-
-type CaseStudySectionProps = {
-  id?: string;
-  label: string;
-  title: string;
-  body?: string[];
-  children?: ReactNode;
-  fullWidthChildren?: ReactNode;
-};
+import type { CaseStudySectionProps } from "@/types/fineapp";
 
 export function CaseStudySection({
   id,

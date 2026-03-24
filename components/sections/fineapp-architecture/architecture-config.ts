@@ -1,21 +1,12 @@
-import type { Edge, Node } from "@xyflow/react";
+import type {
+  ArchitectureFilter,
+  ArchitectureFlowEdge,
+  ArchitectureFlowNode,
+  FlowDescription,
+  FlowKey,
+} from "@/types/architecture";
 
-export type FlowKey =
-  | "all"
-  | "booking"
-  | "requests"
-  | "messaging"
-  | "admin"
-  | "media";
-
-export type ArchitectureNodeData = {
-  label: string;
-  description: string;
-  categories: FlowKey[];
-  kind?: "surface" | "core" | "service";
-};
-
-export const FILTERS: { key: FlowKey; label: string }[] = [
+export const FILTERS: ArchitectureFilter[] = [
   { key: "all", label: "All" },
   { key: "booking", label: "Booking" },
   { key: "requests", label: "Requests" },
@@ -24,7 +15,7 @@ export const FILTERS: { key: FlowKey; label: string }[] = [
   { key: "media", label: "Media" },
 ];
 
-export const baseNodes: Node<ArchitectureNodeData>[] = [
+export const baseNodes: ArchitectureFlowNode[] = [
   {
     id: "clients",
     type: "architectureNode",
@@ -234,7 +225,7 @@ export const baseNodes: Node<ArchitectureNodeData>[] = [
   },
 ];
 
-export const baseEdges: (Edge & { categories: FlowKey[] })[] = [
+export const baseEdges: ArchitectureFlowEdge[] = [
   {
     id: "e1",
     source: "clients",
@@ -349,10 +340,7 @@ export const baseEdges: (Edge & { categories: FlowKey[] })[] = [
   },
 ];
 
-export const flowDescriptions: Record<
-  FlowKey,
-  { title: string; body: string }
-> = {
+export const flowDescriptions: Record<FlowKey, FlowDescription> = {
   all: {
     title: "FineApp as a system",
     body: "A high-level view of how users, backend modules, and external services connect across booking, requests, messaging, payments, media, and admin operations.",
