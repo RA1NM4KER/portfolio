@@ -21,6 +21,13 @@ export const projects: Project[] = [
     href: "/fineapp",
   },
   {
+    name: "jobmatch-mcp",
+    description:
+      "MCP server for job discovery and candidate-job ranking, backed by the TheirStack Jobs API.",
+    stack: "TypeScript · Node.js · MCP SDK · Zod · Codex",
+    href: "https://github.com/RA1NM4KER/jobmatch-mcp",
+  },
+  {
     name: "fineapp-mcp",
     description:
       "MCP server exposing FineApp public creatives, profiles, search, and session packages to AI clients.",
