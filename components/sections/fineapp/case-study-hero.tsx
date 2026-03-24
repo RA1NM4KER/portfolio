@@ -42,6 +42,7 @@ export function CaseStudyHero({
               rel="noreferrer"
             >
               {link.label}
+              <ExternalLink size={14} style={{ marginLeft: 6 }} />
             </a>
           ) : (
             <a key={link.label} href={link.href}>

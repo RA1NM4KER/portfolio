@@ -127,11 +127,7 @@ export default function FineAppPage() {
               target="_blank"
               rel="noreferrer"
             >
-              Open FineApp{" "}
-              <ExternalLink
-                size={14}
-                style={{ marginLeft: 6, verticalAlign: "middle" }}
-              />
+              Open FineApp <ExternalLink size={14} style={{ marginLeft: 6 }} />
             </a>
           </div>
         </ContentSection>
