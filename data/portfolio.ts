@@ -21,17 +21,25 @@ export const projects: Project[] = [
     href: "/fineapp",
   },
   {
+    name: "beacon-mcp",
+    description:
+      "Personal operations MCP server that turns weather, commute, Gmail, Google Calendar, and FineApp admin data into agent-usable tools and a combined morning brief.",
+    stack:
+      "TypeScript · Node.js · MCP SDK · Zod · Google APIs · WeatherAPI · FineApp API",
+    href: "https://github.com/RA1NM4KER/beacon-mcp",
+  },
+  {
     name: "jobmatch-mcp",
     description:
-      "MCP server for job discovery and candidate-job ranking, backed by the TheirStack Jobs API.",
-    stack: "TypeScript · Node.js · MCP SDK · Zod · Codex",
+      "MCP server for job discovery and candidate-job ranking, combining external listings with profile-based matching.",
+    stack: "TypeScript · Node.js · MCP SDK · Zod · TheirStack Jobs API · Codex",
     href: "https://github.com/RA1NM4KER/jobmatch-mcp",
   },
   {
     name: "fineapp-mcp",
     description:
-      "MCP server exposing FineApp public creatives, profiles, search, and session packages to AI clients.",
-    stack: "TypeScript · Node.js · MCP SDK · Zod · Codex",
+      "MCP server exposing FineApp creatives, profiles, search, and session packages to AI clients.",
+    stack: "TypeScript · Node.js · MCP SDK · Zod · FineApp API · Codex",
     href: "https://github.com/RA1NM4KER/fineapp-mcp",
   },
   {
