@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { RevealProps } from "@/types/ui";
+import styles from "./reveal.module.css";
 
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -37,7 +38,13 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`reveal ${isVisible ? "reveal--visible" : ""} ${className ?? ""}`.trim()}
+      className={[
+        styles.reveal,
+        isVisible ? styles.visible : "",
+        className ?? "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
       style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
     >
       {children}

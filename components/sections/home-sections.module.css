@@ -1,0 +1,270 @@
+.hero {
+  padding: 0 0 2.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 900px;
+  margin: 0 0 1rem;
+  color: var(--text);
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.intro {
+  max-width: 760px;
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.linkRow a {
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.linkRow a:hover {
+  color: var(--accent);
+}
+
+.bodyCopy {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.bodyCopyMuted {
+  color: var(--muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.listTitle {
+  margin: 0 0 0.45rem;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.listText {
+  margin: 0;
+  font-size: 1.02rem;
+  color: var(--text);
+}
+
+.listSubtext {
+  margin: 0.28rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #b9c0c9;
+}
+
+.listMeta {
+  margin: 0.35rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #8f98a3;
+  letter-spacing: 0.01em;
+}
+
+.listLink {
+  position: relative;
+  align-self: center;
+  color: var(--accent);
+  font-size: 1rem;
+  white-space: nowrap;
+  transition:
+    transform 0.18s ease,
+    letter-spacing 0.18s ease;
+}
+
+.listLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.18rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.6);
+  transform-origin: left;
+  opacity: 0.7;
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.listLink:hover {
+  transform: translateX(3px);
+  letter-spacing: 0.01em;
+}
+
+.listLink:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.experienceRow {
+  border-top: 1px solid var(--line);
+}
+
+.experienceTrigger {
+  width: 100%;
+  padding: 1rem 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.experienceMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.experienceIcon {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  padding-top: 0.2rem;
+}
+
+.experienceIconOpen {
+  transform: rotate(180deg);
+}
+
+.experienceDetails {
+  padding: 0 0 1.1rem;
+}
+
+.experienceDetailsList {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.55rem;
+}
+
+.experienceDetailsList li {
+  line-height: 1.6;
+}
+
+.experienceStack {
+  margin: 0.9rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #95a0ac;
+}
+
+.experienceStackLabel {
+  color: var(--text);
+}
+
+.sectionBlock {
+  max-width: 760px;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contactLink {
+  font-size: 1.05rem;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 0 0 2rem;
+  }
+
+  .title {
+    font-size: clamp(1.7rem, 2.8vw, 2.8rem);
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .linkRow {
+    gap: 1rem;
+  }
+
+  .bodyCopy {
+    font-size: 1rem;
+  }
+
+  .listRow {
+    flex-direction: column;
+  }
+
+  .listTitle {
+    font-size: 1.25rem;
+  }
+
+  .listText {
+    font-size: 1rem;
+  }
+
+  .listSubtext {
+    font-size: 0.88rem;
+  }
+
+  .listMeta {
+    font-size: 0.82rem;
+  }
+
+  .experienceTrigger {
+    gap: 1rem;
+  }
+
+  .experienceStack {
+    font-size: 0.84rem;
+  }
+
+  .contactLink {
+    font-size: 1rem;
+  }
+}

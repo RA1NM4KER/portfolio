@@ -2,6 +2,7 @@
 
 import { Handle, Position, type Node, type NodeProps } from "@xyflow/react";
 import type { ArchitectureNodeData } from "@/types/architecture";
+import styles from "./fineapp-architecture.module.css";
 
 export function ArchitectureNode({
   data,
@@ -10,22 +11,24 @@ export function ArchitectureNode({
   return (
     <div
       className={[
-        "fineapp-flow-node",
-        data.kind ? `fineapp-flow-node--${data.kind}` : "",
-        selected ? "fineapp-flow-node--selected" : "",
+        styles.node,
+        data.kind === "surface" ? styles.nodeSurface : "",
+        data.kind === "core" ? styles.nodeCore : "",
+        data.kind === "service" ? styles.nodeService : "",
+        selected ? styles.nodeSelected : "",
       ].join(" ")}
     >
       <Handle
         type="target"
         position={Position.Left}
-        className="fineapp-flow-node__handle"
+        className={styles.nodeHandle}
       />
-      <div className="fineapp-flow-node__label">{data.label}</div>
-      <div className="fineapp-flow-node__description">{data.description}</div>
+      <div className={styles.nodeLabel}>{data.label}</div>
+      <div className={styles.nodeDescription}>{data.description}</div>
       <Handle
         type="source"
         position={Position.Right}
-        className="fineapp-flow-node__handle"
+        className={styles.nodeHandle}
       />
     </div>
   );

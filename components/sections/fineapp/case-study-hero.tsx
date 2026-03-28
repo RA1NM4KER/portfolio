@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import type { CaseStudyHeroProps } from "@/types/fineapp";
+import styles from "./fineapp.module.css";
 
 export function CaseStudyHero({
   title,
@@ -8,11 +9,11 @@ export function CaseStudyHero({
   links,
 }: CaseStudyHeroProps) {
   return (
-    <section className="case-study-hero">
-      <p className="case-study-hero__eyebrow">/project</p>
+    <section className={styles.hero}>
+      <p className={styles.heroEyebrow}>/project</p>
 
       <a href="https://www.fineapp.co.za" target="_blank" rel="noreferrer">
-        <h1 className="case-study-hero__title">
+        <h1 className={styles.heroTitle}>
           {title}
           <ExternalLink
             size={24}
@@ -21,18 +22,18 @@ export function CaseStudyHero({
         </h1>
       </a>
 
-      <p className="case-study-hero__subtitle">{subtitle}</p>
+      <p className={styles.heroSubtitle}>{subtitle}</p>
 
-      <div className="case-study-meta-grid">
+      <div className={styles.metaGrid}>
         {meta.map((item) => (
-          <div key={item.label} className="case-study-meta-card">
-            <p className="case-study-meta-card__label">{item.label}</p>
-            <p className="case-study-meta-card__value">{item.value}</p>
+          <div key={item.label} className={styles.metaCard}>
+            <p className={styles.metaCardLabel}>{item.label}</p>
+            <p className={styles.metaCardValue}>{item.value}</p>
           </div>
         ))}
       </div>
 
-      <div className="hero__links">
+      <div className={styles.linkRow}>
         {links.map((link) =>
           link.href.startsWith("http") ? (
             <a

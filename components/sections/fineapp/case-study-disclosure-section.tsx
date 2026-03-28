@@ -1,6 +1,7 @@
 import { CaseStudyDisclosure } from "@/components/sections/fineapp/case-study-disclosure";
 import { ContentSection } from "@/components/ui/content-section";
 import type { CaseStudyDisclosureSectionProps } from "@/types/fineapp";
+import styles from "./fineapp.module.css";
 
 export function CaseStudyDisclosureSection({
   id,
@@ -9,7 +10,7 @@ export function CaseStudyDisclosureSection({
 }: CaseStudyDisclosureSectionProps) {
   return (
     <ContentSection id={id} label={label}>
-      <div className="case-study-stack">
+      <div className={styles.stack}>
         {items.map((item) => (
           <CaseStudyDisclosure
             key={item.title}

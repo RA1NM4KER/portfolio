@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { BulletList } from "@/components/ui/bullet-list";
 import type { CaseStudyDisclosureProps } from "@/types/fineapp";
+import styles from "./fineapp.module.css";
 
 export function CaseStudyDisclosure({
   title,
@@ -8,19 +9,19 @@ export function CaseStudyDisclosure({
   details,
 }: CaseStudyDisclosureProps) {
   return (
-    <details className="case-study-disclosure">
-      <summary className="case-study-disclosure__summary">
+    <details className={styles.disclosure}>
+      <summary className={styles.disclosureSummary}>
         <div>
-          <h3 className="case-study-disclosure__title">{title}</h3>
-          <p className="case-study-disclosure__text">{summary}</p>
+          <h3 className={styles.disclosureTitle}>{title}</h3>
+          <p className={styles.disclosureText}>{summary}</p>
         </div>
 
-        <span className="case-study-disclosure__icon" aria-hidden="true">
+        <span className={styles.disclosureIcon} aria-hidden="true">
           <ChevronDown size={18} strokeWidth={2.2} />
         </span>
       </summary>
 
-      <div className="case-study-disclosure__content">
+      <div className={styles.disclosureContent}>
         <BulletList items={details} />
       </div>
     </details>

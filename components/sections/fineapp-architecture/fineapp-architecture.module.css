@@ -1,0 +1,251 @@
+.root {
+  margin-top: 1.5rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.filter {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  border-radius: 999px;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.filter:hover {
+  border-color: rgba(242, 179, 22, 0.5);
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.filterActive {
+  border-color: rgba(242, 179, 22, 0.7);
+  color: var(--accent);
+  background: rgba(242, 179, 22, 0.1);
+}
+
+.panel {
+  position: relative;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 499;
+  background: rgba(3, 9, 18, 0.76);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.copy {
+  padding: 1rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.copyTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.fullscreenBtn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--line);
+  background: rgba(11, 26, 45, 0.7);
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.fullscreenBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(16, 33, 58, 0.9);
+}
+
+.canvas {
+  position: relative;
+  height: 700px;
+  background: #091426;
+}
+
+.toolbarOverlay {
+  position: absolute;
+  top: 1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.45rem;
+  max-width: calc(100% - 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 26, 45, 0.58);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.panelFullscreen {
+  position: fixed;
+  inset: 1rem;
+  z-index: 500;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+}
+
+.panelFullscreen .canvas {
+  height: calc(100vh - 8.5rem);
+}
+
+.node {
+  width: 230px;
+  border: 1px solid var(--line);
+  background: #0b1a2d;
+  color: var(--text);
+  padding: 0.9rem;
+  box-shadow: none;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.node:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.nodeSurface {
+  background: #0d1e33;
+}
+
+.nodeCore {
+  background: #10213a;
+}
+
+.nodeService {
+  background: #0b1a2d;
+}
+
+.nodeSelected {
+  border-color: var(--accent);
+}
+
+.nodeLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.nodeDescription {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.nodeHandle {
+  width: 8px !important;
+  height: 8px !important;
+  border: 1px solid var(--accent) !important;
+  background: var(--bg) !important;
+}
+
+.canvas :global(.react-flow__controls) {
+  box-shadow: none !important;
+  border: 1px solid var(--line) !important;
+  background: #0b1a2d !important;
+}
+
+.canvas :global(.react-flow__controls-button) {
+  background: #0b1a2d !important;
+  border-bottom: 1px solid var(--line) !important;
+  color: var(--text) !important;
+}
+
+.canvas :global(.react-flow__controls-button:last-child) {
+  border-bottom: 0 !important;
+}
+
+.canvas :global(.react-flow__controls-button:hover) {
+  background: #10213a !important;
+}
+
+.canvas :global(.react-flow__controls-button svg) {
+  fill: var(--text) !important;
+  color: var(--text) !important;
+  stroke: var(--text) !important;
+}
+
+@media (max-width: 900px) {
+  .canvas {
+    height: 560px;
+  }
+
+  .node {
+    width: 200px;
+    padding: 0.8rem;
+  }
+
+  .nodeLabel {
+    font-size: 0.95rem;
+  }
+
+  .nodeDescription {
+    font-size: 0.8rem;
+  }
+
+  .toolbarOverlay {
+    top: 0.8rem;
+    width: calc(100% - 1rem);
+    max-width: calc(100% - 1rem);
+    padding: 0.4rem;
+    border-radius: 1rem;
+  }
+
+  .filter {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.9rem;
+  }
+}

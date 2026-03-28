@@ -1,20 +1,21 @@
 import { contact, hero } from "@/data/portfolio";
 import { Reveal } from "@/components/ui/reveal";
+import styles from "./home-sections.module.css";
 
 export function HeroSection() {
   return (
-    <section className="hero">
+    <section className={styles.hero}>
       <Reveal>
-        <p className="hero__eyebrow">
+        <p className={styles.eyebrow}>
           FULL-STACK DEVELOPER · EMBEDDED SYSTEMS ENGINEER
         </p>
-        <h1 className="hero__title">{hero.title}</h1>
+        <h1 className={styles.title}>{hero.title}</h1>
 
-        <p className="hero__intro">{hero.intro}</p>
+        <p className={styles.intro}>{hero.intro}</p>
       </Reveal>
 
       <Reveal delay={120}>
-        <div className="hero__links">
+        <div className={styles.linkRow}>
           <a href={contact.github} target="_blank" rel="noreferrer">
             GitHub
           </a>

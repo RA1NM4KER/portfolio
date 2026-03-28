@@ -1,0 +1,20 @@
+.site-shell {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.f1-stripe {
+  position: absolute;
+  top: calc(var(--navbar-height) + 2rem);
+  bottom: 0;
+  left: 2.5rem;
+  width: 3px;
+  background: var(--accent);
+}
+
+.page-content {
+  width: min(1100px, calc(100% - 12rem));
+  margin-left: 7rem;
+  padding: 2rem 0 4rem;
+}

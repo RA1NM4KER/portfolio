@@ -1,24 +1,25 @@
 import { contact } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
+import styles from "./home-sections.module.css";
 
 export function ContactSection() {
   return (
     <ContentSection id="contact" label="/contact">
-      <div className="section-block">
-        <p className="body-copy body-copy--muted">
+      <div className={styles.sectionBlock}>
+        <p className={[styles.bodyCopy, styles.bodyCopyMuted].join(" ")}>
           Open to software roles, technical conversations, and interesting
           product work.
         </p>
 
-        <div className="contact-list">
-          <a href={`mailto:${contact.email}`} className="contact-list__link">
+        <div className={styles.contactList}>
+          <a href={`mailto:${contact.email}`} className={styles.contactLink}>
             Email
           </a>
           <a
             href={contact.github}
             target="_blank"
             rel="noreferrer"
-            className="contact-list__link"
+            className={styles.contactLink}
           >
             GitHub
           </a>
@@ -26,7 +27,7 @@ export function ContactSection() {
             href={contact.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="contact-list__link"
+            className={styles.contactLink}
           >
             LinkedIn
           </a>
@@ -34,7 +35,7 @@ export function ContactSection() {
             href={contact.resume}
             target="_blank"
             rel="noreferrer"
-            className="contact-list__link"
+            className={styles.contactLink}
           >
             CV
           </a>

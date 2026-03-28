@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ContentSection } from "@/components/ui/content-section";
 import type { FineAppScreenshotsSectionProps } from "@/types/fineapp";
+import styles from "./fineapp.module.css";
 
 export function FineAppScreenshotsSection({
   title,
@@ -8,23 +9,23 @@ export function FineAppScreenshotsSection({
 }: FineAppScreenshotsSectionProps) {
   return (
     <ContentSection label="/screens">
-      <h2 className="case-study-subtitle">{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
 
-      <div className="screenshot-grid">
+      <div className={styles.screenshotGrid}>
         {items.map((item) => (
-          <div key={item.title} className="screenshot-card">
-            <div className="screenshot-card__image">
+          <div key={item.title} className={styles.screenshotCard}>
+            <div className={styles.screenshotImage}>
               <Image
                 src={item.src}
                 alt={item.title}
                 fill
-                className="screenshot-card__img"
+                className={styles.screenshotImg}
                 sizes="(max-width: 900px) 100vw, 50vw"
               />
             </div>
 
-            <p className="architecture-card__title">{item.title}</p>
-            <p className="architecture-card__text">{item.text}</p>
+            <p className={styles.cardTitle}>{item.title}</p>
+            <p className={styles.cardText}>{item.text}</p>
           </div>
         ))}
       </div>

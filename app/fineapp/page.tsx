@@ -12,6 +12,7 @@ import { FineAppArchitectureFlow } from "@/components/sections/fineapp-architect
 import { TagList } from "@/components/ui/tag-list";
 import { LabeledList } from "@/components/ui/labeled-list";
 import { BulletList } from "@/components/ui/bullet-list";
+import styles from "@/components/sections/fineapp/fineapp.module.css";
 
 export default function FineAppPage() {
   const data = fineAppCaseStudy;
@@ -20,7 +21,7 @@ export default function FineAppPage() {
     <>
       <Navbar links={fineAppNavLinks} />
 
-      <main className="page-content case-study-page">
+      <main className="page-content">
         <CaseStudyHero
           title={data.hero.title}
           subtitle={data.hero.subtitle}
@@ -46,15 +47,15 @@ export default function FineAppPage() {
         />
 
         <ContentSection id="architecture" label="/architecture">
-          <div className="case-study-copy">
-            <h2 className="case-study-subtitle">{data.architecture.title}</h2>
-            <p className="body-copy">{data.architecture.description}</p>
+          <div className={styles.copy}>
+            <h2 className={styles.title}>{data.architecture.title}</h2>
+            <p className={styles.bodyCopy}>{data.architecture.description}</p>
           </div>
 
           <FineAppArchitectureFlow />
 
           <TagList
-            className="architecture-domain-block"
+            className={styles.domainBlock}
             label="Core domains"
             items={data.architecture.domains}
           />
@@ -65,7 +66,7 @@ export default function FineAppPage() {
           title={data.backend.title}
           body={[data.backend.intro]}
         >
-          <div className="case-study-two-col">
+          <div className={styles.twoCol}>
             <LabeledList label="Modules" items={data.backend.modules} />
             <LabeledList label="Key entities" items={data.backend.entities} />
           </div>
@@ -82,11 +83,11 @@ export default function FineAppPage() {
           title={data.admin.title}
           body={[data.admin.intro]}
         >
-          <div className="architecture-grid">
+          <div className={styles.grid}>
             {data.admin.tools.map((tool) => (
-              <div key={tool.title} className="architecture-card">
-                <p className="architecture-card__title">{tool.title}</p>
-                <p className="architecture-card__text">{tool.text}</p>
+              <div key={tool.title} className={styles.card}>
+                <p className={styles.cardTitle}>{tool.title}</p>
+                <p className={styles.cardText}>{tool.text}</p>
               </div>
             ))}
           </div>
@@ -120,7 +121,7 @@ export default function FineAppPage() {
         />
 
         <ContentSection label="/back">
-          <div className="hero__links">
+          <div className={styles.linkRow}>
             <Link href="/">Back to portfolio</Link>
             <a
               href="https://www.fineapp.co.za"

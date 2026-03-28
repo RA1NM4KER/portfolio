@@ -1,0 +1,280 @@
+.hero {
+  padding: 0 0 2.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.heroEyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.heroTitle {
+  margin: 0 0 0.9rem;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.heroSubtitle {
+  max-width: 880px;
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metaCard {
+  border: 1px solid var(--line);
+  padding: 1rem 1rem 1.05rem;
+}
+
+.metaCardLabel {
+  margin: 0 0 0.45rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.metaCardValue {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.linkRow a {
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.linkRow a:hover {
+  color: var(--accent);
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.miniLabel {
+  margin: 0 0 0.85rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.copy {
+  max-width: 760px;
+}
+
+.bodyCopy {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.7rem;
+}
+
+.list li {
+  line-height: 1.65;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.disclosure {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.disclosure + .disclosure {
+  border-top: 0;
+}
+
+.disclosureSummary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1rem 0;
+}
+
+.disclosureSummary::-webkit-details-marker {
+  display: none;
+}
+
+.disclosureTitle {
+  margin: 0 0 0.45rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.disclosureText {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.disclosureIcon {
+  color: var(--accent);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  padding-top: 0.15rem;
+}
+
+.disclosure[open] .disclosureIcon {
+  transform: rotate(180deg);
+}
+
+.disclosureContent {
+  padding: 0 0 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.cardTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.cardText {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.domainBlock {
+  margin-top: 1.5rem;
+}
+
+.domainLabel {
+  margin: 0 0 0.9rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.screenshotGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.screenshotCard {
+  border: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.screenshotImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.screenshotImg {
+  object-fit: cover;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag {
+  border: 1px solid var(--line);
+  padding: 0.65rem 0.9rem;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .heroTitle {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .metaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 1.35rem;
+  }
+
+  .disclosureTitle {
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .screenshotGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bodyCopy {
+    font-size: 1rem;
+  }
+}

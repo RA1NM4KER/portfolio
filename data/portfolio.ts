@@ -9,7 +9,7 @@ export const hero: HeroContent = {
   title:
     "Software developer building real systems across product, backend, data, and infrastructure.",
   intro:
-    "I work best where product flow meets backend logic, operational reality, and clean implementation, with experience across fintech, embedded systems, and founder-led platform development.",
+    "I like building software from the ground up, where product thinking, backend logic, and clean implementation all matter, shaped by experience across fintech, embedded systems, and startup products.",
 };
 
 export const projects: Project[] = [

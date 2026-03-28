@@ -17,6 +17,7 @@ import {
   flowDescriptions,
 } from "@/components/sections/fineapp-architecture/architecture-config";
 import type { FlowKey } from "@/types/architecture";
+import styles from "./fineapp-architecture.module.css";
 
 const nodeTypes = {
   architectureNode: ArchitectureNode,
@@ -106,7 +107,7 @@ export function FineAppArchitectureFlow() {
     <>
       {isFullscreen ? (
         <div
-          className="fineapp-architecture__backdrop"
+          className={styles.backdrop}
           onClick={() => setIsFullscreen(false)}
           aria-hidden="true"
         />
@@ -114,25 +115,21 @@ export function FineAppArchitectureFlow() {
 
       <div
         className={[
-          "fineapp-architecture__panel",
-          isFullscreen ? "fineapp-architecture__panel--fullscreen" : "",
+          styles.panel,
+          isFullscreen ? styles.panelFullscreen : "",
         ].join(" ")}
       >
-        <div className="fineapp-architecture__copy">
-          <div className="fineapp-architecture__copy-top">
+        <div className={styles.copy}>
+          <div className={styles.copyTop}>
             <div>
-              <p className="fineapp-architecture__eyebrow">
-                Interactive system view
-              </p>
-              <h3 className="fineapp-architecture__title">
-                {selectedInfo.title}
-              </h3>
-              <p className="fineapp-architecture__text">{selectedInfo.body}</p>
+              <p className={styles.eyebrow}>Interactive system view</p>
+              <h3 className={styles.title}>{selectedInfo.title}</h3>
+              <p className={styles.text}>{selectedInfo.body}</p>
             </div>
 
             <button
               type="button"
-              className="fineapp-architecture__fullscreen-btn"
+              className={styles.fullscreenBtn}
               onClick={() => setIsFullscreen((prev) => !prev)}
               aria-label={isFullscreen ? "Exit fullscreen" : "Open fullscreen"}
             >
@@ -141,17 +138,15 @@ export function FineAppArchitectureFlow() {
           </div>
         </div>
 
-        <div className="fineapp-architecture__canvas">
-          <div className="fineapp-architecture__toolbar fineapp-architecture__toolbar--overlay">
+        <div className={styles.canvas}>
+          <div className={[styles.toolbar, styles.toolbarOverlay].join(" ")}>
             {FILTERS.map((filter) => (
               <button
                 key={filter.key}
                 type="button"
                 className={[
-                  "fineapp-architecture__filter",
-                  activeFlow === filter.key
-                    ? "fineapp-architecture__filter--active"
-                    : "",
+                  styles.filter,
+                  activeFlow === filter.key ? styles.filterActive : "",
                 ].join(" ")}
                 onClick={() => setActiveFlow(filter.key)}
               >
@@ -192,7 +187,7 @@ export function FineAppArchitectureFlow() {
   );
 
   return (
-    <div className="fineapp-architecture">
+    <div className={styles.root}>
       {isFullscreen && canUsePortal
         ? createPortal(panel, document.body)
         : panel}

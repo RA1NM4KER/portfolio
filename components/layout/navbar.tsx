@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { NavbarProps } from "@/types/ui";
+import styles from "./navbar.module.css";
 
 export function Navbar({
   links,
@@ -78,11 +79,11 @@ export function Navbar({
   }, [links]);
 
   return (
-    <header ref={navRef} className="navbar">
+    <header ref={navRef} className={styles.navbar}>
       <Link
         href={brandHref}
         scroll
-        className="navbar__brand"
+        className={styles.brand}
         onClick={(event) => {
           if (brandHref === pathname) {
             event.preventDefault();
@@ -93,14 +94,17 @@ export function Navbar({
         {brandName}
       </Link>
 
-      <nav className="navbar__nav" aria-label="Primary">
+      <nav className={styles.nav} aria-label="Primary">
         {links.map((link) => (
           <a
             key={link.href}
             href={link.href}
-            className={`navbar__link ${
-              activeHref === link.href ? "navbar__link--active" : ""
-            }`.trim()}
+            className={[
+              styles.link,
+              activeHref === link.href ? styles.linkActive : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
             aria-current={activeHref === link.href ? "location" : undefined}
           >
             {link.label}
