@@ -29,6 +29,13 @@ export const projects: Project[] = [
     href: "https://github.com/RA1NM4KER/beacon-mcp",
   },
   {
+    name: "Gradeflow",
+    description:
+      "Local-first grade tracker for private academic data, organized around semesters, modules, and assignments with JSON-backed persistence.",
+    stack: "Next.js 15 · React 19 · TypeScript · Tailwind CSS · Radix UI",
+    href: "https://github.com/RA1NM4KER/gradeflow",
+  },
+  {
     name: "jobmatch-mcp",
     description:
       "MCP server for job discovery and candidate-job ranking, combining external listings with profile-based matching.",
