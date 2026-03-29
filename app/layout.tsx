@@ -4,6 +4,7 @@ import "./globals.css";
 import "@xyflow/react/dist/style.css";
 import React from "react";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
           {children}
         </div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
