@@ -29,11 +29,11 @@ export const projects: Project[] = [
     href: "https://github.com/RA1NM4KER/beacon-mcp",
   },
   {
-    name: "Gradeflow",
+    name: "GradeLog",
     description:
-      "Local-first grade tracker for private academic data, organized around semesters, modules, and assignments with JSON-backed persistence.",
+      "A privacy-first, local-first grade tracker that lets students manage semesters, modules, and weighted assessments without handing their academic data to a third-party service.",
     stack: "Next.js 15 · React 19 · TypeScript · Tailwind CSS · Radix UI",
-    href: "https://github.com/RA1NM4KER/gradeflow",
+    href: "https://github.com/RA1NM4KER/GradeLog",
   },
   {
     name: "jobmatch-mcp",
