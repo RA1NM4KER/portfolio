@@ -43,6 +43,13 @@ export const projects: Project[] = [
     href: "https://github.com/RA1NM4KER/jobmatch-mcp",
   },
   {
+    name: "Livenopay",
+    description:
+        "Personal local-first tool for extracting and analyzing LiveMopay electricity usage, spend, and balance by turning Android UI history into a structured dataset and calm analytics dashboard.",
+    stack: "Next.js · TypeScript · Tailwind CSS · Python · ADB · CSV analytics",
+    href: "https://github.com/RA1NM4KER/livenopay",
+  },
+  {
     name: "fineapp-mcp",
     description:
       "MCP server exposing FineApp creatives, profiles, search, and session packages to AI clients.",
