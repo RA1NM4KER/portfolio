@@ -15,7 +15,8 @@ export const hero: HeroContent = {
 export const projects: Project[] = [
   {
     name: "FineApp",
-    description: "Creative freelancer platform.",
+    description:
+      "A full-stack freelance platform built to replace manual booking coordination with structured workflows for clients, creatives, and admins.",
     stack:
       "Next.js · Spring Boot (Java) · MySQL · Auth0 · Cloudinary · Railway · Payfast · WebSockets · Resend · JavaScript (React)",
     href: "/fineapp",
@@ -45,7 +46,7 @@ export const projects: Project[] = [
   {
     name: "Livenopay",
     description:
-        "Personal local-first tool for extracting and analyzing LiveMopay electricity usage, spend, and balance by turning Android UI history into a structured dataset and calm analytics dashboard.",
+      "Personal local-first tool for extracting and analyzing LiveMopay electricity usage, spend, and balance by turning Android UI history into a structured dataset and calm analytics dashboard.",
     stack: "Next.js · TypeScript · Tailwind CSS · Python · ADB · CSV analytics",
     href: "https://github.com/RA1NM4KER/livenopay",
   },

@@ -131,6 +131,89 @@
   opacity: 1;
 }
 
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.projectReveal {
+  height: 100%;
+}
+
+.projectCard {
+  height: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(8 21 39 / 0.42);
+}
+
+.projectCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.projectTitle {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.12rem;
+  line-height: 1.2;
+}
+
+.projectText {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.projectFooter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+}
+
+.projectStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.projectStack span {
+  color: #95a0ac;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.projectStack span:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.45rem;
+  color: var(--line);
+}
+
+.projectLink {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 0.86rem;
+  line-height: 1.35;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.projectLink:hover {
+  color: var(--text);
+}
+
 .experienceRow {
   border-top: 1px solid var(--line);
 }
@@ -254,6 +337,16 @@
 
   .listMeta {
     font-size: 0.82rem;
+  }
+
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectFooter {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .experienceTrigger {
