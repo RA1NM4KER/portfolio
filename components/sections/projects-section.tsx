@@ -13,6 +13,27 @@ export function ProjectsSection() {
           const showLink = project.name !== "Showcase";
           const stackItems = project.stack.split(" · ").slice(0, 4);
           const linkLabel = isInternal ? "case study" : "view";
+          const cardContent = (
+            <>
+              <div className={styles.projectCardHeader}>
+                <h3 className={styles.projectTitle}>{project.name}</h3>
+              </div>
+
+              <p className={styles.projectText}>{project.description}</p>
+
+              <div className={styles.projectFooter}>
+                <div className={styles.projectStack}>
+                  {stackItems.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+
+                {showLink && (
+                  <span className={styles.projectLink}>{linkLabel} →</span>
+                )}
+              </div>
+            </>
+          );
 
           return (
             <Reveal
@@ -20,41 +41,30 @@ export function ProjectsSection() {
               className={styles.projectReveal}
               delay={index * 70}
             >
-              <article className={styles.projectCard}>
-                <div className={styles.projectCardHeader}>
-                  <h3 className={styles.projectTitle}>{project.name}</h3>
-                </div>
-
-                <p className={styles.projectText}>{project.description}</p>
-
-                <div className={styles.projectFooter}>
-                  <div className={styles.projectStack}>
-                    {stackItems.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-
-                  {showLink &&
-                    (isInternal ? (
-                      <Link
-                        href={project.href}
-                        scroll
-                        className={styles.projectLink}
-                      >
-                        {linkLabel} →
-                      </Link>
-                    ) : (
-                      <a
-                        href={project.href}
-                        className={styles.projectLink}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {linkLabel} →
-                      </a>
-                    ))}
-                </div>
-              </article>
+              {showLink ? (
+                isInternal ? (
+                  <Link
+                    href={project.href}
+                    scroll
+                    className={`${styles.projectCard} ${styles.projectCardLink}`}
+                    aria-label={`${project.name} ${linkLabel}`}
+                  >
+                    {cardContent}
+                  </Link>
+                ) : (
+                  <a
+                    href={project.href}
+                    className={`${styles.projectCard} ${styles.projectCardLink}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.name} ${linkLabel}`}
+                  >
+                    {cardContent}
+                  </a>
+                )
+              ) : (
+                <article className={styles.projectCard}>{cardContent}</article>
+              )}
             </Reveal>
           );
         })}
