@@ -20,7 +20,7 @@ export function FineAppScreenshotsSection({
                 alt={item.title}
                 fill
                 className={styles.screenshotImg}
-                sizes="(max-width: 900px) 100vw, 50vw"
+                sizes="(max-width: 900px) 100vw, 540px"
               />
             </div>
 

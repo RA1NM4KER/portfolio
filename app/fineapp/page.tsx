@@ -1,4 +1,5 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ExternalLink } from "lucide-react";
 import { fineAppCaseStudy } from "@/data/fineapp";
 import { Navbar } from "@/components/layout/navbar";
@@ -8,11 +9,22 @@ import { CaseStudySection } from "@/components/sections/fineapp/case-study-secti
 import { fineAppNavLinks } from "@/data/navigation";
 import { CaseStudyDisclosureSection } from "@/components/sections/fineapp/case-study-disclosure-section";
 import { ContentSection } from "@/components/ui/content-section";
-import { FineAppArchitectureFlow } from "@/components/sections/fineapp-architecture/fineapp-architecture-flow";
 import { TagList } from "@/components/ui/tag-list";
 import { LabeledList } from "@/components/ui/labeled-list";
 import { BulletList } from "@/components/ui/bullet-list";
 import styles from "@/components/sections/fineapp/fineapp.module.css";
+
+const FineAppArchitectureFlow = dynamic(
+  () =>
+    import("@/components/sections/fineapp-architecture/fineapp-architecture-flow").then(
+      (mod) => mod.FineAppArchitectureFlow,
+    ),
+  {
+    loading: () => (
+      <p className={styles.bodyCopy}>Loading interactive architecture...</p>
+    ),
+  },
+);
 
 export default function FineAppPage() {
   const data = fineAppCaseStudy;
