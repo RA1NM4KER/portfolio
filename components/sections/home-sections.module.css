@@ -31,7 +31,7 @@
 .linkRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 1.75rem;
 }
 
 .linkRow a {
