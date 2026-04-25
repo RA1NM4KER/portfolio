@@ -10,11 +10,15 @@ export function ContactSection() {
           Open to software roles, technical conversations, and interesting
           product work.
         </p>
+        <p className={styles.contactMeta}>
+          Based in Cape Town · Open to hybrid and remote
+        </p>
+
+        <a href={`mailto:${contact.email}`} className={styles.contactEmail}>
+          {contact.email}
+        </a>
 
         <div className={styles.contactList}>
-          <a href={`mailto:${contact.email}`} className={styles.contactLink}>
-            Email
-          </a>
           <a
             href={contact.github}
             target="_blank"
