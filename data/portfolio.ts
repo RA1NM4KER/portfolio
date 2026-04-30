@@ -20,6 +20,7 @@ export const projects: Project[] = [
     stack:
       "Next.js · Spring Boot (Java) · MySQL · Auth0 · Cloudinary · Railway · Payfast · WebSockets · Resend · JavaScript (React)",
     href: "/fineapp",
+    liveUrl: "https://fineapp.co.za",
   },
   {
     name: "beacon-mcp",
@@ -35,6 +36,7 @@ export const projects: Project[] = [
       "A privacy-first, local-first grade tracker that lets students manage semesters, modules, and weighted assessments without handing their academic data to a third-party service.",
     stack: "Next.js 15 · React 19 · TypeScript · Tailwind CSS · Radix UI",
     href: "https://github.com/RA1NM4KER/GradeLog",
+    liveUrl: "https://www.gradelog.app/",
   },
   {
     name: "jobmatch-mcp",
@@ -49,6 +51,7 @@ export const projects: Project[] = [
       "Personal local-first tool for extracting and analyzing LiveMopay electricity usage, spend, and balance by turning Android UI history into a structured dataset and calm analytics dashboard.",
     stack: "Next.js · TypeScript · Tailwind CSS · Python · ADB · CSV analytics",
     href: "https://github.com/RA1NM4KER/livenopay",
+    liveUrl: "https://livenopay.vercel.app/",
   },
   {
     name: "fineapp-mcp",
@@ -58,12 +61,12 @@ export const projects: Project[] = [
     href: "https://github.com/RA1NM4KER/fineapp-mcp",
   },
   {
-    name: "Showcase",
+    name: "Showcased",
     description:
-      "Template-driven showcase pages for portfolios and collections, with editable content and creator-facing customization controls. Currently in development.",
+      "Template-driven showcase pages for portfolios and collections, with editable content and creator-facing customization controls.",
     stack:
       "TypeScript (React) · Next.js · Supabase (PostgreSQL) · Cloudinary · Vercel · Auth0",
-    href: "#",
+    href: "https://showcased.studio",
   },
 ];
 

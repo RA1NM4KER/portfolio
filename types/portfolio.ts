@@ -8,6 +8,7 @@ export type Project = {
   description: string;
   stack: string;
   href: string;
+  liveUrl?: string;
 };
 
 export type ExperienceItem = {
