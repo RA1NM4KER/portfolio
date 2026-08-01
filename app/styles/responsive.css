@@ -1,12 +1,8 @@
-@media (max-width: 900px) {
+@media (max-width: 760px) {
   .f1-stripe {
-    left: 1.25rem;
-    width: 2px;
+    width: 3px;
   }
-
   .page-content {
-    width: calc(100% - 4rem);
-    margin-left: 2.5rem;
-    padding-top: 2rem;
+    width: calc(100% - 2rem);
   }
 }

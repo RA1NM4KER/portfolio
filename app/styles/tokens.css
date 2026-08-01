@@ -1,8 +1,14 @@
 :root {
-  --bg: #081527;
-  --text: #f1eee8;
-  --muted: #a8b0bb;
-  --line: #324255;
-  --accent: #f2b316;
-  --navbar-height: 96px;
+  --bg: #0b121a;
+  --surface: #111b25;
+  --text: #f2f0e9;
+  --text-soft: #d5d5d0;
+  --muted: #a2aab2;
+  --muted-dim: #7f8994;
+  --line: #293541;
+  --line-strong: #455463;
+  --accent: #e8b44f;
+  --navbar-height: 78px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }

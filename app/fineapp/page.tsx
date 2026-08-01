@@ -43,22 +43,22 @@ export default function FineAppPage() {
 
         <CaseStudySection
           id="overview"
-          label="/overview"
+          label="/ Overview"
           title={data.overview.title}
           body={data.overview.body}
         />
 
-        <CaseStudySection label="/what-i-built" title={data.built.title}>
+        <CaseStudySection label="/ What I built" title={data.built.title}>
           <BulletList items={data.built.points} />
         </CaseStudySection>
 
         <CaseStudyDisclosureSection
           id="flows"
-          label="/flows"
+          label="/ Flows"
           items={data.flows.items}
         />
 
-        <ContentSection id="architecture" label="/architecture">
+        <ContentSection id="architecture" label="/ Architecture">
           <div className={styles.copy}>
             <h2 className={styles.title}>{data.architecture.title}</h2>
             <p className={styles.bodyCopy}>{data.architecture.description}</p>
@@ -74,7 +74,7 @@ export default function FineAppPage() {
         </ContentSection>
 
         <CaseStudySection
-          label="/backend"
+          label="/ Backend"
           title={data.backend.title}
           body={[data.backend.intro]}
         >
@@ -86,12 +86,12 @@ export default function FineAppPage() {
 
         <CaseStudyDisclosureSection
           id="challenges"
-          label="/challenges"
+          label="/ Challenges"
           items={data.challenges.items}
         />
 
         <CaseStudySection
-          label="/admin"
+          label="/ Admin"
           title={data.admin.title}
           body={[data.admin.intro]}
         >
@@ -106,7 +106,7 @@ export default function FineAppPage() {
         </CaseStudySection>
 
         <CaseStudySection
-          label="/audit"
+          label="/ Audit"
           title={data.audit.title}
           body={data.audit.body}
         >
@@ -120,19 +120,19 @@ export default function FineAppPage() {
 
         <CaseStudySection
           id="results"
-          label="/results"
+          label="/ Results"
           title={data.results.title}
         >
           <BulletList items={data.results.points} />
         </CaseStudySection>
 
         <CaseStudySection
-          label="/reflection"
+          label="/ Reflection"
           title={data.reflection.title}
           body={data.reflection.body}
         />
 
-        <ContentSection label="/back">
+        <ContentSection label="/ Links">
           <div className={styles.linkRow}>
             <Link href="/">Back to portfolio</Link>
             <a

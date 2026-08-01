@@ -1,72 +1,97 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import { experience } from "@/data/portfolio";
+import type { ExperienceItem } from "@/types/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
 import { Reveal } from "@/components/ui/reveal";
 import styles from "./home-sections.module.css";
 
-export function ExperienceSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+function ExperienceScope({ item }: { item: ExperienceItem }) {
+  if (!item.areas) return null;
 
   return (
-    <ContentSection id="experience" label="/work-experience">
-      <div className={styles.list}>
-        {experience.map((item, index) => {
-          const isOpen = openIndex === index;
+    <details className={styles.experienceDetails}>
+      <summary>Additional scope and responsibilities</summary>
+      <div className={styles.ownershipGrid}>
+        {item.areas.map((area) => (
+          <div key={area.title}>
+            <h4>{area.title}</h4>
+            <ul>
+              {area.details.map((detail) => (
+                <li key={detail}>{detail}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </details>
+  );
+}
 
-          return (
-            <Reveal key={`${item.role}-${item.company}`} delay={index * 80}>
-              <article className={styles.experienceRow}>
-                <button
-                  type="button"
-                  className={styles.experienceTrigger}
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  aria-expanded={isOpen}
-                >
-                  <div className={styles.experienceMain}>
-                    <h3 className={styles.listTitle}>{item.role}</h3>
-                    <p className={styles.listText}>{item.company}</p>
-                    <p className={styles.listSubtext}>
-                      {item.location} · {item.mode}
-                    </p>
-                    <p className={styles.listMeta}>{item.period}</p>
-                  </div>
+function TechnologyLine({ item }: { item: ExperienceItem }) {
+  return (
+    <ul
+      className={styles.inlineTech}
+      aria-label={`${item.company} technologies`}
+    >
+      {item.technologies.map((technology) => (
+        <li key={technology}>{technology}</li>
+      ))}
+    </ul>
+  );
+}
 
-                  <span
-                    className={[
-                      styles.experienceIcon,
-                      isOpen ? styles.experienceIconOpen : "",
-                    ]
-                      .filter(Boolean)
-                      .join(" ")}
-                    aria-hidden="true"
-                  >
-                    <ChevronDown size={18} strokeWidth={2.2} />
-                  </span>
-                </button>
+export function ExperienceSection() {
+  return (
+    <ContentSection
+      id="experience"
+      label="/ Professional experience"
+      title="Fintech, CRM data, production web, and embedded systems."
+      headingLayout="stacked"
+    >
+      <div className={styles.experienceList}>
+        {experience.map((item, index) => (
+          <Reveal key={`${item.role}-${item.company}`} delay={index * 60}>
+            <article className={styles[`experience_${item.presentation}`]}>
+              <header className={styles.experienceHeader}>
+                <div>
+                  <p className={styles.company}>{item.company}</p>
+                  <h3 className={styles.experienceTitle}>{item.role}</h3>
+                </div>
+                <div className={styles.experienceMeta}>
+                  <p>{item.period}</p>
+                  <p>{item.location}</p>
+                </div>
+              </header>
 
-                {isOpen && (
-                  <div className={styles.experienceDetails}>
-                    <ul className={styles.experienceDetailsList}>
-                      {item.details.map((detail) => (
-                        <li key={detail}>{detail}</li>
-                      ))}
-                    </ul>
+              {item.metrics ? (
+                <dl className={styles.experienceMetrics}>
+                  {item.metrics.map((metric) => (
+                    <div key={metric.label}>
+                      <dt>{metric.label}</dt>
+                      <dd>{metric.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
 
-                    <p className={styles.experienceStack}>
-                      <span className={styles.experienceStackLabel}>
-                        Stack:
-                      </span>{" "}
-                      {item.stack}
-                    </p>
-                  </div>
-                )}
-              </article>
-            </Reveal>
-          );
-        })}
+              <div className={styles.experienceBody}>
+                <div>
+                  <p className={styles.experienceSummary}>{item.summary}</p>
+                  {item.engagement ? (
+                    <p className={styles.engagement}>{item.engagement}</p>
+                  ) : null}
+                </div>
+                <ul className={styles.highlightList}>
+                  {item.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <ExperienceScope item={item} />
+              <TechnologyLine item={item} />
+            </article>
+          </Reveal>
+        ))}
       </div>
     </ContentSection>
   );

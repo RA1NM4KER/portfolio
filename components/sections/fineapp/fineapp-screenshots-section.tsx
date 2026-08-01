@@ -8,7 +8,7 @@ export function FineAppScreenshotsSection({
   items,
 }: FineAppScreenshotsSectionProps) {
   return (
-    <ContentSection label="/screens">
+    <ContentSection label="/ Screens">
       <h2 className={styles.title}>{title}</h2>
 
       <div className={styles.screenshotGrid}>
@@ -17,7 +17,7 @@ export function FineAppScreenshotsSection({
             <div className={styles.screenshotImage}>
               <Image
                 src={item.src}
-                alt={item.title}
+                alt={`${item.title} interface in FineApp`}
                 fill
                 className={styles.screenshotImg}
                 sizes="(max-width: 900px) 100vw, 540px"

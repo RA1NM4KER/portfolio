@@ -1,15 +1,24 @@
 import type { NavbarLink } from "@/types/ui";
 
 export const homeNavLinks: readonly NavbarLink[] = [
-  { href: "#experience", label: "/work-experience" },
-  { href: "#projects", label: "/projects" },
-  { href: "#contact", label: "/contact" },
+  { href: "#experience", label: "/ Experience" },
+  { href: "#case-studies", label: "/ Systems" },
+  { href: "#capabilities", label: "/ Capabilities" },
+  { href: "#contact", label: "/ Contact" },
+  { href: "/Kefas-Aleck-CV.pdf", label: "Résumé", newTab: true },
 ];
 
 export const fineAppNavLinks: readonly NavbarLink[] = [
-  { href: "#overview", label: "/overview" },
-  { href: "#flows", label: "/flows" },
-  { href: "#architecture", label: "/architecture" },
-  { href: "#challenges", label: "/challenges" },
-  { href: "#results", label: "/results" },
+  { href: "#overview", label: "/ Overview" },
+  { href: "#flows", label: "/ Flows" },
+  { href: "#architecture", label: "/ Architecture" },
+  { href: "#challenges", label: "/ Challenges" },
+  { href: "#results", label: "/ Results" },
+];
+
+export const schoolscapeNavLinks: readonly NavbarLink[] = [
+  { href: "#system", label: "/ System" },
+  { href: "#work", label: "/ Work" },
+  { href: "#quality", label: "/ Quality" },
+  { href: "#handover", label: "/ Handover" },
 ];

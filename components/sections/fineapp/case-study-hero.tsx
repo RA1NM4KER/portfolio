@@ -10,7 +10,7 @@ export function CaseStudyHero({
 }: CaseStudyHeroProps) {
   return (
     <section className={styles.hero}>
-      <p className={styles.heroEyebrow}>/project</p>
+      <p className={styles.heroEyebrow}>Independent product</p>
 
       <a href="https://www.fineapp.co.za" target="_blank" rel="noreferrer">
         <h1 className={styles.heroTitle}>
