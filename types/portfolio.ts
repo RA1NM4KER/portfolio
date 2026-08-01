@@ -1,24 +1,59 @@
-export type HeroContent = {
-  title: string;
-  intro: string;
+export type LinkItem = {
+  label: string;
+  href: string;
 };
 
-export type Project = {
+export type HeroContent = {
   name: string;
-  description: string;
-  stack: string;
-  href: string;
-  liveUrl?: string;
+  title: string;
+  intro: string;
+  location: string;
+  availability: string;
+};
+
+export type ExperienceArea = {
+  title: string;
+  details: readonly string[];
 };
 
 export type ExperienceItem = {
   role: string;
   company: string;
   location: string;
-  mode: string;
   period: string;
-  details: string[];
-  stack: string;
+  engagement?: string;
+  summary: string;
+  highlights: readonly string[];
+  areas?: readonly ExperienceArea[];
+  technologies: readonly string[];
+  presentation: "lead" | "substantial" | "compact";
+  metrics?: readonly { value: string; label: string }[];
+};
+
+export type Project = {
+  name: string;
+  eyebrow: string;
+  description: string;
+  outcome?: string;
+  technologies: readonly string[];
+  signals?: readonly string[];
+  links: readonly LinkItem[];
+  presentation: "metrics" | "dashboard" | "product" | "compact";
+  image?: { src: string; alt: string };
+  metrics?: readonly { value: string; label: string }[];
+  disclaimer?: string;
+};
+
+export type ToolProject = {
+  name: string;
+  description: string;
+  href: string;
+};
+
+export type CapabilityGroup = {
+  title: string;
+  description: string;
+  items: readonly string[];
 };
 
 export type ContactInfo = {

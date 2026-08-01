@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 export type NavbarLink = {
   href: string;
   label: string;
+  newTab?: boolean;
 };
 
 export type NavbarProps = {
@@ -20,6 +21,8 @@ export type RevealProps = {
 export type ContentSectionProps = {
   id?: string;
   label: string;
+  title?: string;
+  headingLayout?: "split" | "stacked" | "rule";
   children: ReactNode;
 };
 

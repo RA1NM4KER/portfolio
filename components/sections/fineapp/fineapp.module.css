@@ -1,19 +1,21 @@
 .hero {
-  padding: 0 0 2.75rem;
+  padding: clamp(3.5rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
   border-bottom: 1px solid var(--line);
 }
 
 .heroEyebrow {
   margin: 0 0 0.8rem;
   color: var(--accent);
-  font-size: 0.95rem;
+  font: 700 0.78rem/1.4 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .heroTitle {
   margin: 0 0 0.9rem;
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
 }
 
 .heroSubtitle {
@@ -34,6 +36,7 @@
 .metaCard {
   border: 1px solid var(--line);
   padding: 1rem 1rem 1.05rem;
+  background: var(--surface);
 }
 
 .metaCardLabel {
@@ -169,6 +172,7 @@
 .card {
   border: 1px solid var(--line);
   padding: 1rem;
+  background: var(--surface);
 }
 
 .cardTitle {
@@ -211,6 +215,7 @@
 .screenshotCard {
   border: 1px solid var(--line);
   padding: 1rem;
+  background: var(--surface);
 }
 
 .screenshotImage {

@@ -4,11 +4,11 @@ export const fineAppCaseStudy: FineAppCaseStudy = {
   hero: {
     title: "FineApp",
     subtitle:
-      "A full-stack creative services platform built to replace manual booking coordination with structured workflows for clients, creatives, and admins.",
+      "A production creative freelance marketplace that replaced manual email and WhatsApp coordination with structured booking, payment, messaging, and operational workflows.",
     meta: [
-      { label: "Role", value: "Lead builder / full-stack developer" },
+      { label: "Role", value: "Lead builder and full-stack developer" },
       { label: "Built", value: "From scratch" },
-      { label: "Status", value: "Live platform with real users" },
+      { label: "Status", value: "Production platform; source code private" },
       {
         label: "Stack",
         value:
@@ -42,6 +42,7 @@ export const fineAppCaseStudy: FineAppCaseStudy = {
       "Migrated from a lightweight portfolio-style setup to a full custom platform under FineApp.co.za.",
       "Implemented client, creative, admin, and super-admin workflows.",
       "Built real-time messaging, booking logic, request flows, payments, notifications, media handling, reviews, audit logging, and admin tooling.",
+      "Implemented verified PayFast webhook processing and role-based access control for sensitive workflows.",
       "Integrated Auth0, PayFast, Cloudinary, Railway, WebSockets, Resend, and Liquibase-backed schema management.",
     ],
   },
@@ -272,44 +273,44 @@ export const fineAppCaseStudy: FineAppCaseStudy = {
       {
         title: "Audit logs",
         text: "Filterable internal visibility into user actions, messages, uploads, and operational events.",
-        src: "/fineapp/audit-logs.png",
+        src: "/fineapp/audit-logs.webp",
       },
       {
         title: "Gallery uploader",
         text: "Internal upload tooling for media workflows tied to platform galleries and creative portfolios.",
-        src: "/fineapp/gallery-uploader.png",
+        src: "/fineapp/gallery-uploader.webp",
       },
       {
         title: "Admin bookings",
         text: "Operational list view for booking oversight, filters, status monitoring, and quick inspection.",
-        src: "/fineapp/admin-bookings.png",
+        src: "/fineapp/admin-bookings.webp",
       },
       {
         title: "Booking detail",
         text: "Detailed view into booking state, timeline, payment, and message history.",
-        src: "/fineapp/booking-detail.png",
+        src: "/fineapp/booking-detail.webp",
       },
       {
         title: "Creative management",
         text: "Admin editing and profile management for creators, specialties, and display ordering.",
-        src: "/fineapp/creative-management.png",
+        src: "/fineapp/creative-management.webp",
       },
       {
         title: "Creative detail editor",
         text: "Profile editing controls for identity, specialties, availability, images, and other operational fields.",
-        src: "/fineapp/creative-edit.png",
+        src: "/fineapp/creative-edit.webp",
       },
     ],
   },
 
   results: {
-    title: "Current state",
+    title: "Production outcomes",
     points: [
-      "Live production platform with real users and real workflows.",
-      "Roughly 30 creatives already onboarded.",
-      "Supports client, creative, admin, and super-admin behavior.",
-      "Handles real messaging, booking, review, and payment-related flows.",
-      "WhatsApp notifications are prepared for future rollout pending verification and testing.",
+      "Replaced manual email and WhatsApp coordination with structured booking and payment workflows.",
+      "Reduced ongoing administration to lightweight moderation and made the operating model more scalable.",
+      "Creative onboarding increased from 15 to more than 30 after launch.",
+      "Supports client, creative, admin, and super-admin workflows in production.",
+      "The source code is private and may be demonstrated on request.",
     ],
   },
 

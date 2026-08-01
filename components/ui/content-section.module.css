@@ -1,31 +1,74 @@
 .section {
-  padding: 2rem 0 1rem;
-  border-bottom: 1px solid var(--line);
-  scroll-margin-top: calc(var(--navbar-height) + 0.5rem);
+  padding: clamp(3.25rem, 5.25vw, 4.75rem) 0;
+  scroll-margin-top: calc(var(--navbar-height) + 1rem);
 }
 
 .heading {
-  display: flex;
-  align-items: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.3fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.stacked {
+  display: block;
+  max-width: 760px;
+}
+
+.stacked .label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.rule {
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 1rem;
-  margin-bottom: 1.25rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .label {
   color: var(--accent);
-  font-size: 1.35rem;
-  font-weight: 700;
-  white-space: nowrap;
+  font: 700 0.77rem/1.4 var(--font-mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(1.8rem, 3.1vw, 2.35rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.rule .title {
+  display: none;
 }
 
 .rule {
   width: 100%;
+}
+
+.heading > .rule {
   height: 1px;
+  margin: 0;
   background: var(--line);
 }
 
-@media (max-width: 900px) {
-  .label {
-    font-size: 1.15rem;
+@media (max-width: 760px) {
+  .section {
+    padding: 3.25rem 0;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 }

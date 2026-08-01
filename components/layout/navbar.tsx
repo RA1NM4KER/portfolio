@@ -102,10 +102,13 @@ export function Navbar({
             className={[
               styles.link,
               activeHref === link.href ? styles.linkActive : "",
+              link.newTab ? styles.linkCta : "",
             ]
               .filter(Boolean)
               .join(" ")}
             aria-current={activeHref === link.href ? "location" : undefined}
+            target={link.newTab ? "_blank" : undefined}
+            rel={link.newTab ? "noreferrer" : undefined}
           >
             {link.label}
           </a>
