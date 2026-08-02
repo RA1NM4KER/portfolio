@@ -175,7 +175,7 @@ export function FineAppArchitectureFlow() {
             elementsSelectable
             proOptions={{ hideAttribution: true }}
           >
-            <Background gap={18} size={1} color="#1a2b40" />
+            <Background gap={18} size={1} color="var(--line)" />
             <Controls
               showInteractive={false}
               fitViewOptions={{ padding: 0.12 }}
