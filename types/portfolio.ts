@@ -35,13 +35,23 @@ export type Project = {
   eyebrow: string;
   description: string;
   outcome?: string;
+  proof?: { value: string; label: string };
   technologies: readonly string[];
   signals?: readonly string[];
   links: readonly LinkItem[];
   presentation: "metrics" | "dashboard" | "product" | "compact";
-  image?: { src: string; alt: string };
+  image?: {
+    src: string;
+    alt: string;
+    motion?: "vertical-pan";
+  };
   metrics?: readonly { value: string; label: string }[];
-  disclaimer?: string;
+};
+
+export type CurrentFocus = {
+  title: string;
+  introduction: string;
+  items: readonly { title: string; description: string }[];
 };
 
 export type ToolProject = {

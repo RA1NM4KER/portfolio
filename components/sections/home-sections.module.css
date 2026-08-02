@@ -153,6 +153,20 @@
   color: var(--accent);
 }
 
+.profileLinks a svg,
+.projectLinks a svg,
+.contactLinks a svg,
+.toolLink svg {
+  transition: transform 160ms ease;
+}
+
+.profileLinks a:hover svg,
+.projectLinks a:hover svg,
+.contactLinks a:hover svg,
+.toolItem:hover .toolLink svg {
+  transform: translate(2px, -1px);
+}
+
 .heroSignals {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -404,6 +418,26 @@
   line-height: 1.62;
 }
 
+.projectProof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+  align-items: baseline;
+  margin: 0.85rem 0 0;
+}
+
+.projectProof strong {
+  color: var(--accent);
+  font-size: 1.25rem;
+  letter-spacing: -0.035em;
+}
+
+.projectProof span {
+  color: var(--muted);
+  font: 0.72rem/1.4 var(--font-mono);
+  text-transform: uppercase;
+}
+
 .projectOutcome {
   margin: 0.85rem 0 0;
   padding-left: 0.9rem;
@@ -432,13 +466,6 @@
 .projectLinks {
   margin-top: 0.85rem;
   gap: 0.35rem 1.15rem;
-}
-
-.disclaimer {
-  margin: 0.8rem 0 0;
-  color: var(--muted);
-  font-size: 0.77rem;
-  line-height: 1.5;
 }
 
 .reconciliationVisual {
@@ -613,20 +640,9 @@
   flex: 0 0 auto;
 }
 
-.projectDisclaimerFooter {
-  grid-column: 1 / -1;
-  order: 4;
-  margin: 0;
-  padding: 0.85rem clamp(1.5rem, 3vw, 2.4rem);
-  color: var(--muted);
-  background: var(--bg);
-  border-top: 1px solid var(--line);
-  font-size: 0.77rem;
-  line-height: 1.5;
-}
-
 .projectMedia {
   position: relative;
+  display: block;
   min-height: 0;
   background: #111922;
 }
@@ -634,6 +650,22 @@
 .projectMedia img {
   object-fit: cover;
   object-position: center top;
+}
+
+.projectMedia[data-pan="interactive"] img {
+  object-position: center top;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .projectMedia[data-pan="interactive"] img {
+    transition: object-position 5s cubic-bezier(0.45, 0, 0.55, 1);
+    will-change: object-position;
+  }
+
+  .projectMedia[data-pan="interactive"]:hover img {
+    object-position: center 84%;
+    transition-duration: 18s;
+  }
 }
 
 .project_dashboard .projectMedia img {
@@ -741,6 +773,70 @@
 .capabilityGroup:nth-child(4) {
   padding-left: 0;
   border-left: 0;
+}
+
+.focusPanel {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.22fr);
+  border: 1px solid var(--line-strong);
+  border-top: 3px solid var(--accent);
+}
+
+.focusLead {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+}
+
+.focusLead h2 {
+  max-width: 520px;
+  margin: 0;
+  font-size: clamp(1.55rem, 2.7vw, 2.1rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.focusLead p {
+  max-width: 500px;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+.focusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.focusGrid article {
+  min-height: 165px;
+  padding: 1.25rem;
+}
+
+.focusGrid article:nth-child(even) {
+  border-left: 1px solid var(--line);
+}
+
+.focusGrid article:nth-child(n + 3) {
+  border-top: 1px solid var(--line);
+}
+
+.focusGrid span {
+  color: var(--accent);
+  font: 0.7rem/1 var(--font-mono);
+}
+
+.focusGrid h3 {
+  margin: 1.7rem 0 0;
+  font-size: 1rem;
+}
+
+.focusGrid p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-size: 0.83rem;
+  line-height: 1.5;
 }
 
 .capabilityIndex {
@@ -893,6 +989,15 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .focusPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .focusLead {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
   .toolItem:nth-child(3) {
     border-left: 0;
     border-top: 1px solid var(--line);
@@ -1008,6 +1113,11 @@
     padding-bottom: 1rem;
   }
 
+  .projectOutcome {
+    padding-left: 0;
+    border-left: 0;
+  }
+
   .toolsHeader {
     display: grid;
     gap: 0.65rem;
@@ -1035,6 +1145,22 @@
   .capabilityGroup + .capabilityGroup {
     padding-left: 0;
     border-left: 0;
+  }
+
+  .focusGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .focusGrid article {
+    min-height: 0;
+  }
+
+  .focusGrid article:nth-child(even) {
+    border-left: 0;
+  }
+
+  .focusGrid article + article {
+    border-top: 1px solid var(--line);
   }
 
   .education {

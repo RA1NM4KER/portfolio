@@ -1,6 +1,7 @@
 import type {
   CapabilityGroup,
   ContactInfo,
+  CurrentFocus,
   ExperienceItem,
   HeroContent,
   Project,
@@ -167,9 +168,13 @@ export const selectedProjects: readonly Project[] = [
     name: "NewinMeter",
     eyebrow: "Community product",
     description:
-      "A multi-user community electricity analytics platform with automated ingestion, daily, hourly, and interval rollups, cost and tariff visibility, and grounded AI-assisted questions about each user’s data.",
+      "A multi-user community electricity analytics platform with automated ingestion, daily, hourly, and interval rollups, cost and tariff visibility, and grounded AI-assisted questions about each user's data.",
     outcome:
       "Reworked an earlier single-user prototype into an authenticated product with per-user connections and database-level isolation.",
+    proof: {
+      value: "21 users",
+      label: "13 connected to LiveMopay",
+    },
     technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
     signals: [
       "Supabase Auth",
@@ -184,8 +189,6 @@ export const selectedProjects: readonly Project[] = [
         href: "https://github.com/RA1NM4KER/newinmeter",
       },
     ],
-    disclaimer:
-      "NewinMeter is an independent community project and is not affiliated with LiveMopay, Livewire, the relevant homeowners association, or their service providers.",
     presentation: "dashboard",
     image: {
       src: "/home/newinmeter.webp",
@@ -198,7 +201,11 @@ export const selectedProjects: readonly Project[] = [
     description:
       "A creative freelance marketplace that replaced manual email and WhatsApp coordination with secure booking, payment, moderated chat, and operational workflows.",
     outcome:
-      "Reduced ongoing administration to lightweight moderation; creative onboarding grew from 15 to more than 30 after launch.",
+      "Reduced ongoing administration to lightweight moderation after launch.",
+    proof: {
+      value: "15 to 30+",
+      label: "creatives onboarded after launch",
+    },
     technologies: ["Spring Boot", "Next.js", "MySQL", "PayFast"],
     signals: [
       "Booking lifecycle",
@@ -208,7 +215,10 @@ export const selectedProjects: readonly Project[] = [
     ],
     links: [
       { label: "Read case study", href: "/fineapp" },
-      { label: "Open product", href: "https://www.fineapp.co.za" },
+      {
+        label: "Open product",
+        href: "https://www.fineapp.co.za/creatives",
+      },
     ],
     presentation: "product",
     image: {
@@ -233,8 +243,9 @@ export const selectedProjects: readonly Project[] = [
     links: [{ label: "Open product", href: "https://showcased.studio" }],
     presentation: "product",
     image: {
-      src: "/home/showcased.webp",
-      alt: "Showcased website builder presenting original templates for portfolios, galleries, and product pages",
+      src: "/home/showcased-full.webp",
+      alt: "Showcased homepage presenting original portfolio and product templates, design controls, and the visual website builder",
+      motion: "vertical-pan",
     },
   },
   {
@@ -348,6 +359,35 @@ export const capabilities: readonly CapabilityGroup[] = [
     items: ["C", "C++", "ESP32", "MQTT", "HTTP device communication"],
   },
 ];
+
+export const currentFocus: CurrentFocus = {
+  title:
+    "I want my understanding of AI to be useful in the room, not just impressive in a bio.",
+  introduction:
+    "I already build with retrieval, MCP, tool calling, and grounded assistants. My current focus is connecting that practical experience to a stronger understanding of the technology, its limits, and where it creates real business value.",
+  items: [
+    {
+      title: "Understand",
+      description:
+        "Connect model foundations, retrieval, agents, evaluation, cost, reliability, privacy, and governance into one coherent mental map.",
+    },
+    {
+      title: "Build",
+      description:
+        "Keep turning unclear problems into working assistants, retrieval systems, evaluations, and human-reviewed workflows.",
+    },
+    {
+      title: "Apply",
+      description:
+        "Learn to identify when AI can save time, improve a decision, or create value, and when normal software is the better answer.",
+    },
+    {
+      title: "Explain",
+      description:
+        "Form evidence-based opinions and explain the same system clearly to developers, founders, clients, and non-technical teams.",
+    },
+  ],
+};
 
 export const contact: ContactInfo = {
   email: "kefasa112@gmail.com",

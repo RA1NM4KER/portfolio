@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { developerTools, selectedProjects } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
 import { Reveal } from "@/components/ui/reveal";
+import { ProjectMedia } from "@/components/sections/project-media";
 import type { LinkItem, Project } from "@/types/portfolio";
 import styles from "./home-sections.module.css";
 
@@ -64,6 +64,12 @@ function ProjectCopy({
     <div className={styles.projectCopy}>
       <p className={styles.projectEyebrow}>{project.eyebrow}</p>
       <h3>{project.name}</h3>
+      {project.proof ? (
+        <p className={styles.projectProof}>
+          <strong>{project.proof.value}</strong>
+          <span>{project.proof.label}</span>
+        </p>
+      ) : null}
       <p className={styles.projectDescription}>{project.description}</p>
       {project.outcome ? (
         <p className={styles.projectOutcome}>{project.outcome}</p>
@@ -77,9 +83,6 @@ function ProjectCopy({
       ) : null}
       {showMeta ? <ProjectTechnologyList project={project} /> : null}
       {showMeta ? <ProjectLinkList project={project} /> : null}
-      {project.disclaimer && showMeta ? (
-        <p className={styles.disclaimer}>{project.disclaimer}</p>
-      ) : null}
     </div>
   );
 }
@@ -117,26 +120,24 @@ function MetricsProject({ project }: { project: Project }) {
 }
 
 function VisualProject({ project }: { project: Project }) {
+  const productLink = project.links.find(
+    (link) => link.label === "Open product",
+  );
+
   return (
     <article className={styles[`project_${project.presentation}`]}>
-      <div className={styles.projectMedia}>
-        {project.image ? (
-          <Image
-            src={project.image.src}
-            alt={project.image.alt}
-            fill
-            sizes="(max-width: 800px) 100vw, 62vw"
-          />
-        ) : null}
-      </div>
+      {project.image ? (
+        <ProjectMedia
+          image={project.image}
+          productName={project.name}
+          productHref={productLink?.href}
+        />
+      ) : null}
       <ProjectCopy project={project} showMeta={false} />
       <div className={styles.projectMetaFooter}>
         <ProjectTechnologyList project={project} />
         <ProjectLinkList project={project} />
       </div>
-      {project.disclaimer ? (
-        <p className={styles.projectDisclaimerFooter}>{project.disclaimer}</p>
-      ) : null}
     </article>
   );
 }
