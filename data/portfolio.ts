@@ -9,7 +9,6 @@ import type {
 } from "@/types/portfolio";
 
 export const hero: HeroContent = {
-  name: "Kefas Manda",
   title:
     "I build production software across fintech, data, and product systems.",
   intro:

@@ -13,7 +13,6 @@ export function HeroSection() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroIdentity}>
-        <p className={styles.heroName}>{hero.name}</p>
         <p className={styles.eyebrow}>Software engineer</p>
       </div>
 

@@ -4,7 +4,6 @@ export type LinkItem = {
 };
 
 export type HeroContent = {
-  name: string;
   title: string;
   intro: string;
   location: string;
