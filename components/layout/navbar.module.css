@@ -136,8 +136,10 @@
   }
 
   .linkCta {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
     min-height: 30px;
-    align-self: center;
   }
 }
 
@@ -145,6 +147,10 @@
   .navbar {
     padding-right: 0.8rem;
     padding-left: 0.8rem;
+  }
+
+  .linkCta {
+    right: 0.8rem;
   }
 
   .brand {

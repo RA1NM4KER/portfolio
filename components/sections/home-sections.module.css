@@ -34,7 +34,7 @@
 }
 
 .title {
-  max-width: 860px;
+  max-width: 1040px;
   margin: 0;
   font-size: clamp(3rem, 5vw, 3.75rem);
   line-height: 1.02;
@@ -387,6 +387,11 @@
   gap: clamp(1.5rem, 4vw, 3rem);
 }
 
+.projectStack {
+  display: grid;
+  gap: 0.75rem;
+}
+
 .metricsProject {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(480px, 1.15fr);
@@ -610,6 +615,182 @@
 .project_compact .projectCopy {
   align-self: center;
   padding: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.projectTextOnly {
+  grid-template-columns: 1fr;
+}
+
+.projectTextOnly .projectCopy {
+  max-width: 900px;
+}
+
+.secondaryProject {
+  margin-top: 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.secondaryProject > p {
+  margin: 0;
+  color: var(--accent);
+  font: 700 0.68rem/1.35 var(--font-mono);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.secondaryProject h4 {
+  margin: 0.45rem 0 0;
+  font-size: 1rem;
+}
+
+.secondaryProject > span {
+  display: block;
+  max-width: 800px;
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.secondaryProject ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.7rem;
+  margin: 0.65rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-soft);
+  font: 0.72rem/1.45 var(--font-mono);
+}
+
+.secondaryProject li:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.7rem;
+  color: var(--line-strong);
+}
+
+.hardwareExperiment {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  overflow: hidden;
+  background: rgb(17 27 37 / 0.52);
+  border: 1px solid var(--line);
+}
+
+.hardwareCopy {
+  padding: clamp(1.25rem, 2.5vw, 1.8rem);
+}
+
+.hardwareCopy h4 {
+  margin: 0.4rem 0 0;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: -0.025em;
+}
+
+.hardwareDescription {
+  margin: 0.75rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.91rem;
+  line-height: 1.6;
+}
+
+.hardwareStatusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+
+.hardwareStatusGrid > div {
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.hardwareStatusGrid strong {
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
+.hardwareStatusGrid ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.55rem 0 0;
+  padding-left: 1rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.hardwareStatusGrid li::marker {
+  color: var(--accent);
+}
+
+.telemetryStates {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.1rem;
+}
+
+.telemetryStates > div {
+  display: grid;
+  grid-template-columns: 3.1rem minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: baseline;
+}
+
+.telemetryStates strong {
+  color: var(--accent);
+  font: 700 0.67rem/1.4 var(--font-mono);
+  text-transform: uppercase;
+}
+
+.telemetryFlow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.telemetryFlow li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-soft);
+  font: 0.7rem/1.4 var(--font-mono);
+}
+
+.telemetryFlow li:not(:last-child)::after {
+  content: "→";
+  color: var(--accent);
+}
+
+.hardwareMedia {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  background: #0d1823;
+  border-left: 1px solid var(--line);
+}
+
+.hardwareMedia video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  object-fit: cover;
+  background: #080d12;
+}
+
+.hardwareMedia p {
+  margin: 0;
+  padding: 0.65rem 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font: 0.68rem/1.4 var(--font-mono);
 }
 
 .projectMetaFooter {
@@ -979,6 +1160,20 @@
     order: 0;
   }
 
+  .hardwareExperiment {
+    grid-template-columns: 1fr;
+  }
+
+  .hardwareMedia {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .hardwareMedia video {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
   .toolsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1008,8 +1203,13 @@
   }
 
   .title {
-    font-size: clamp(2.2rem, 10.5vw, 2.65rem);
+    font-size: 1.8rem;
     line-height: 1.04;
+  }
+
+  .intro {
+    font-size: 0.93rem;
+    line-height: 1.6;
   }
 
   .heroLower,
@@ -1093,6 +1293,10 @@
     margin: 0;
     border-right: 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .hardwareStatusGrid {
+    grid-template-columns: 1fr;
   }
 
   .project_dashboard .projectMedia {

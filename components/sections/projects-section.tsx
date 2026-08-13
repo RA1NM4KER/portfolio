@@ -81,9 +81,91 @@ function ProjectCopy({
           ))}
         </ul>
       ) : null}
+      {project.secondaryProject ? (
+        <div className={styles.secondaryProject}>
+          <p>Additional project</p>
+          <h4>{project.secondaryProject.name}</h4>
+          <span>{project.secondaryProject.description}</span>
+          {project.secondaryProject.technologies ? (
+            <ul aria-label={`${project.secondaryProject.name} technologies`}>
+              {project.secondaryProject.technologies.map((technology) => (
+                <li key={technology}>{technology}</li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+      ) : null}
       {showMeta ? <ProjectTechnologyList project={project} /> : null}
       {showMeta ? <ProjectLinkList project={project} /> : null}
     </div>
+  );
+}
+
+function HardwareExperiment({ project }: { project: Project }) {
+  const experiment = project.hardwareExperiment;
+
+  if (!experiment) return null;
+
+  return (
+    <aside
+      className={styles.hardwareExperiment}
+      aria-labelledby={`${project.name.toLowerCase()}-hardware-title`}
+    >
+      <div className={styles.hardwareCopy}>
+        <p className={styles.projectEyebrow}>Hardware experiment</p>
+        <h4 id={`${project.name.toLowerCase()}-hardware-title`}>
+          {experiment.title}
+        </h4>
+        <p className={styles.hardwareDescription}>{experiment.description}</p>
+
+        <div className={styles.hardwareStatusGrid}>
+          <div>
+            <strong>Working now</strong>
+            <ul>
+              {experiment.current.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <strong>Planned</strong>
+            <ul>
+              {experiment.planned.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className={styles.telemetryStates} aria-label="Telemetry paths">
+          {experiment.architecture.map((state) => (
+            <div key={state.label}>
+              <strong>{state.label}</strong>
+              <ol className={styles.telemetryFlow}>
+                {state.nodes.map((node) => (
+                  <li key={node}>{node}</li>
+                ))}
+              </ol>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.hardwareMedia}>
+        <video
+          controls
+          muted
+          playsInline
+          preload="metadata"
+          aria-label="NewinMeter optical sensor detecting electricity meter pulses"
+        >
+          <source src={experiment.video.src} type="video/mp4" />
+          Your browser cannot play this video.{" "}
+          <a href={experiment.video.fallbackHref}>Open the MP4 directly.</a>
+        </video>
+        <p>Working optical pulse sensing proof of concept</p>
+      </div>
+    </aside>
   );
 }
 
@@ -125,20 +207,30 @@ function VisualProject({ project }: { project: Project }) {
   );
 
   return (
-    <article className={styles[`project_${project.presentation}`]}>
-      {project.image ? (
-        <ProjectMedia
-          image={project.image}
-          productName={project.name}
-          productHref={productLink?.href}
-        />
-      ) : null}
-      <ProjectCopy project={project} showMeta={false} />
-      <div className={styles.projectMetaFooter}>
-        <ProjectTechnologyList project={project} />
-        <ProjectLinkList project={project} />
-      </div>
-    </article>
+    <div className={styles.projectStack}>
+      <article
+        className={[
+          styles[`project_${project.presentation}`],
+          !project.image ? styles.projectTextOnly : "",
+        ]
+          .filter(Boolean)
+          .join(" ")}
+      >
+        {project.image ? (
+          <ProjectMedia
+            image={project.image}
+            productName={project.name}
+            productHref={productLink?.href}
+          />
+        ) : null}
+        <ProjectCopy project={project} showMeta={false} />
+        <div className={styles.projectMetaFooter}>
+          <ProjectTechnologyList project={project} />
+          <ProjectLinkList project={project} />
+        </div>
+      </article>
+      <HardwareExperiment project={project} />
+    </div>
   );
 }
 

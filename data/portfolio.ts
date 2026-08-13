@@ -10,7 +10,7 @@ import type {
 
 export const hero: HeroContent = {
   title:
-    "I build production software across fintech, data, and product systems.",
+    "I build production software across fintech, data, AI, and embedded systems.",
   intro:
     "I’m a software engineer with experience shipping monetised fintech features, building data pipelines and internal tools, and taking independent products from architecture through deployment.",
   location: "Stellenbosch, South Africa",
@@ -193,6 +193,42 @@ export const selectedProjects: readonly Project[] = [
       src: "/home/newinmeter.webp",
       alt: "NewinMeter dashboard showing electricity balance, spend, usage, tariffs, daily charts, and the energy assistant",
     },
+    hardwareExperiment: {
+      title: "From meter to telemetry",
+      description:
+        "I wanted to see whether NewinMeter could eventually read the meter itself. After investigating the meter’s optical interface and finding the richer communication path protected and inaccessible to an independent implementation, I pivoted to its observable pulse output. The current end-to-end proof of concept uses a GL5528 light-dependent resistor to detect the pulses, an Arduino Uno R3 for acquisition, and a laptop as the HTTP bridge, turning physical readings into usable consumption telemetry.",
+      current: [
+        "GL5528 light-dependent resistor detects the meter’s optical pulses",
+        "Arduino Uno R3 acquires and counts the pulse signal",
+        "Laptop bridges measurements to HTTP telemetry",
+        "Pulse counts are converted into consumption measurements",
+      ],
+      planned: [
+        "Replace the Arduino and laptop bridge with an ESP32",
+        "Run continuous pulse acquisition and network telemetry on the ESP32",
+        "Send telemetry to NewinMeter, Home Assistant, or another data consumer",
+      ],
+      architecture: [
+        {
+          label: "Current",
+          nodes: [
+            "Meter",
+            "Optical sensor",
+            "Arduino Uno R3",
+            "Laptop / HTTP",
+            "Data consumer",
+          ],
+        },
+        {
+          label: "Next",
+          nodes: ["Meter", "Optical sensor", "ESP32", "Telemetry consumer"],
+        },
+      ],
+      video: {
+        src: "/newinmeter/newinmeter-optical.mp4",
+        fallbackHref: "/newinmeter/newinmeter-optical.mp4",
+      },
+    },
   },
   {
     name: "FineApp",
@@ -265,6 +301,32 @@ export const selectedProjects: readonly Project[] = [
     image: {
       src: "/home/gradelog.webp",
       alt: "GradeLog module view showing weighted assignments, current standing, and required grade calculations",
+    },
+  },
+  {
+    name: "STM32 Embedded Systems",
+    eyebrow: "University engineering · 2023–2024",
+    description:
+      "Designed and built an STM32F411RE-based PV monitoring system combining analogue and digital sensing, ADC acquisition, interrupt-driven pulse measurement, PWM load control, UART, RTC, and LCD interfaces. Tested sensor accuracy, timing, and communications using oscilloscopes and multimeters.",
+    outcome:
+      "Integrated sensing, control, communications, power regulation, and circuit validation into a tested electronic system.",
+    technologies: [
+      "STM32F411RE",
+      "C",
+      "ADC",
+      "PWM",
+      "UART",
+      "Interrupts",
+      "Sensors",
+      "Circuit design",
+    ],
+    links: [],
+    presentation: "compact",
+    secondaryProject: {
+      name: "Multi-Functional Light Source",
+      description:
+        "Also built a multi-mode STM32F303RE light source using ADC, DAC, PWM, UART, I2C, timers, and interrupts for trackpad input, serial control, and high-power white/RGB LED output.",
+      technologies: ["STM32F303RE", "DAC", "I2C", "Timers"],
     },
   },
 ];
@@ -354,8 +416,24 @@ export const capabilities: readonly CapabilityGroup[] = [
   {
     title: "Systems and embedded",
     description:
-      "Firmware and device-to-server communication for networked ESP32 systems.",
-    items: ["C", "C++", "ESP32", "MQTT", "HTTP device communication"],
+      "Firmware, sensing, control, device communication, and hardware/software integration across STM32 and ESP32 systems.",
+    items: [
+      "C",
+      "C++",
+      "STM32",
+      "ESP32",
+      "ADC",
+      "PWM",
+      "UART",
+      "I2C",
+      "GPIO",
+      "Timers",
+      "Interrupts",
+      "MQTT",
+      "HTTP",
+      "Circuit design",
+      "Oscilloscope testing",
+    ],
   },
 ];
 

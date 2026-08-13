@@ -44,6 +44,25 @@ export type Project = {
     alt: string;
     motion?: "vertical-pan";
   };
+  secondaryProject?: {
+    name: string;
+    description: string;
+    technologies?: readonly string[];
+  };
+  hardwareExperiment?: {
+    title: string;
+    description: string;
+    current: readonly string[];
+    planned: readonly string[];
+    architecture: readonly {
+      label: string;
+      nodes: readonly string[];
+    }[];
+    video: {
+      src: string;
+      fallbackHref: string;
+    };
+  };
   metrics?: readonly { value: string; label: string }[];
 };
 
