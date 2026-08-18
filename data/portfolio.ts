@@ -188,6 +188,7 @@ export const selectedProjects: readonly Project[] = [
         href: "https://github.com/RA1NM4KER/newinmeter",
       },
     ],
+    note: "Demo access available on request",
     presentation: "dashboard",
     image: {
       src: "/home/newinmeter.webp",

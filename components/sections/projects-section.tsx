@@ -228,6 +228,9 @@ function VisualProject({ project }: { project: Project }) {
           <ProjectTechnologyList project={project} />
           <ProjectLinkList project={project} />
         </div>
+        {project.note ? (
+          <p className={styles.projectNote}>{project.note}</p>
+        ) : null}
       </article>
       <HardwareExperiment project={project} />
     </div>

@@ -815,6 +815,16 @@
   flex: 0 0 auto;
 }
 
+.projectNote {
+  grid-column: 1 / -1;
+  order: 4;
+  margin: 0;
+  padding: 0 clamp(1.5rem, 3vw, 2.4rem) 0.85rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
 .projectMedia {
   position: relative;
   display: block;

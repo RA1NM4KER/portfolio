@@ -38,6 +38,7 @@ export type Project = {
   technologies: readonly string[];
   signals?: readonly string[];
   links: readonly LinkItem[];
+  note?: string;
   presentation: "metrics" | "dashboard" | "product" | "compact";
   image?: {
     src: string;
