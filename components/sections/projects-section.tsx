@@ -81,6 +81,9 @@ function ProjectCopy({
           ))}
         </ul>
       ) : null}
+      {project.note ? (
+        <p className={styles.projectNote}>{project.note}</p>
+      ) : null}
       {project.secondaryProject ? (
         <div className={styles.secondaryProject}>
           <p>Additional project</p>
@@ -228,9 +231,6 @@ function VisualProject({ project }: { project: Project }) {
           <ProjectTechnologyList project={project} />
           <ProjectLinkList project={project} />
         </div>
-        {project.note ? (
-          <p className={styles.projectNote}>{project.note}</p>
-        ) : null}
       </article>
       <HardwareExperiment project={project} />
     </div>

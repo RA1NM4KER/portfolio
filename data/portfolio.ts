@@ -267,6 +267,10 @@ export const selectedProjects: readonly Project[] = [
     eyebrow: "Website builder",
     description:
       "A website-builder platform for creating and publishing portfolio, gallery, and product sites from a library of original templates.",
+    proof: {
+      value: "27+",
+      label: "users",
+    },
     outcome:
       "Designed the templates and built the multi-page editing system behind them, including reusable sections, page management, and creator-controlled colour and typography systems.",
     technologies: ["Next.js", "TypeScript", "Supabase", "dnd-kit", "TipTap"],

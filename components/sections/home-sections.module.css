@@ -580,6 +580,13 @@
   padding: clamp(1.5rem, 3vw, 2.4rem);
 }
 
+/* The note occupies existing bottom padding instead of adding a new line --
+   trims padding-bottom by roughly the note's own line height so the card
+   doesn't grow taller than the no-note baseline (media column height). */
+.project_dashboard .projectCopy:has(.projectNote) {
+  padding-bottom: calc(clamp(1.5rem, 3vw, 2.4rem) - 1.1rem);
+}
+
 .project_product {
   grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.95fr);
   background: var(--surface);
@@ -816,10 +823,7 @@
 }
 
 .projectNote {
-  grid-column: 1 / -1;
-  order: 4;
   margin: 0;
-  padding: 0 clamp(1.5rem, 3vw, 2.4rem) 0.85rem;
   color: var(--muted);
   font-size: 0.76rem;
   line-height: 1.4;
