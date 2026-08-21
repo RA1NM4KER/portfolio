@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, FileText, MapPin } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
 import { contact, hero } from "@/data/portfolio";
 import styles from "./home-sections.module.css";
 
 const focusAreas = [
-  "Fintech product engineering",
+  "Applied AI and tool-calling systems",
   "Data and reporting systems",
   "Independent production products",
 ];
@@ -13,7 +13,7 @@ export function HeroSection() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroIdentity}>
-        <p className={styles.eyebrow}>Software engineer</p>
+        <p className={styles.eyebrow}>Final-year Computer Science student</p>
       </div>
 
       <h1 id="hero-title" className={styles.title}>
@@ -48,9 +48,6 @@ export function HeroSection() {
             </a>
             <a href={contact.linkedin} target="_blank" rel="noreferrer">
               LinkedIn <ArrowUpRight aria-hidden="true" size={14} />
-            </a>
-            <a href={contact.resume} target="_blank" rel="noreferrer">
-              Résumé <FileText aria-hidden="true" size={14} />
             </a>
           </div>
         </aside>

@@ -10,63 +10,15 @@ import type {
 
 export const hero: HeroContent = {
   title:
-    "I build production software across fintech, data, AI, and embedded systems.",
+    "I build applied AI, data, and software systems, through internships, contract work, and independently shipped products.",
   intro:
-    "I’m a software engineer with experience shipping monetised fintech features, building data pipelines and internal tools, and taking independent products from architecture through deployment.",
+    "I’m a final-year Computer Science student at Stellenbosch University, building applied AI, data, and software systems through internships, contract work, and independently shipped products alongside my studies. I’m especially interested in connecting AI models to real application data, tools, and capabilities.",
   location: "Stellenbosch, South Africa",
   availability:
     "Open to software engineering roles and thoughtful product work.",
 };
 
 export const experience: readonly ExperienceItem[] = [
-  {
-    role: "Software Developer",
-    company: "Glyde Payments",
-    location: "Cape Town, South Africa",
-    period: "January 2025 to February 2026",
-    summary:
-      "Shipped commercial fintech features and worked across reporting interfaces, backend services, financial data pipelines, warehousing, and cloud infrastructure.",
-    highlights: [
-      "Designed and implemented an OFX export used to import financial data into QuickBooks, Xero, and Sage; it was adopted as a paid account capability.",
-      "Migrated the reporting module from a legacy frontend to a TanStack-based architecture and built backend export pipelines for financial statements.",
-      "Built and maintained BigQuery warehousing pipelines, SQL reporting, transaction-monitoring workflows, and PostgreSQL data models.",
-    ],
-    areas: [
-      {
-        title: "Product and integrations",
-        details: [
-          "Contributed to REST APIs, webhook integrations, enterprise reporting systems, and transactional email delivery.",
-          "Worked across frontend, backend, data, and infrastructure layers to deliver production outcomes.",
-        ],
-      },
-      {
-        title: "Delivery and team support",
-        details: [
-          "Operated services in Google Cloud Platform, including Cloud Run, BigQuery, and managed PostgreSQL, with Terraform-backed infrastructure.",
-          "Mentored junior engineers, onboarded team members, and delivered structured knowledge transfer and responsibility handover.",
-        ],
-      },
-    ],
-    technologies: [
-      "Java",
-      "TypeScript",
-      "React",
-      "TanStack",
-      "SQL",
-      "PostgreSQL",
-      "BigQuery",
-      "Python",
-      "GCP",
-      "Cloud Run",
-      "Terraform",
-    ],
-    presentation: "lead",
-    metrics: [
-      { value: "Paid", label: "Commercial account capability" },
-      { value: "3", label: "Accounting platforms supported" },
-      { value: "4 layers", label: "Product, backend, data, infrastructure" },
-    ],
-  },
   {
     role: "Web Developer and Database Support Specialist",
     company: "Schoolscape",
@@ -117,7 +69,7 @@ export const experience: readonly ExperienceItem[] = [
       "HTML",
       "CSS",
     ],
-    presentation: "substantial",
+    presentation: "lead",
     metrics: [
       { value: "31,675", label: "Initial account records" },
       { value: "5,301", label: "Rows consolidated" },
@@ -136,6 +88,40 @@ export const experience: readonly ExperienceItem[] = [
       "Implemented MQTT and HTTP device communication and contributed to remote firmware-update capability deployed into production.",
     ],
     technologies: ["C", "C++", "ESP32", "MQTT", "HTTP", "Firmware"],
+    presentation: "compact",
+  },
+  {
+    role: "Private Computer Science Tutor",
+    company: "Private tutoring, independent",
+    location: "Stellenbosch, South Africa",
+    period: "August 2026 to present",
+    summary:
+      "Privately tutor third-year Stellenbosch University Computer Science students in CS343 (Databases and Web-Centric Programming) and CS344 (Program Design and Software Engineering). This is independent private tutoring, arranged directly with students and not employment by the university.",
+    highlights: [
+      "Tutor CS343 topics including relational database design, SQL, and web-centric programming.",
+      "Tutor CS344 topics including software design principles, program design, and software engineering practice.",
+    ],
+    technologies: [
+      "Databases",
+      "SQL",
+      "Web-centric programming",
+      "Software design",
+      "Software engineering",
+    ],
+    presentation: "compact",
+  },
+  {
+    role: "Web Developer, Independent Contractor",
+    company: "AgriVision Foundation",
+    location: "Stellenbosch, South Africa",
+    period: "August 2026",
+    summary:
+      "Contract engagement implementing and deploying responsive WordPress pages using Beaver Builder from supplied HTML and CSS, including responsive navigation and production QA.",
+    highlights: [
+      "Implemented and deployed responsive WordPress/Beaver Builder pages from supplied HTML and CSS.",
+      "Built responsive navigation and carried out production QA before go-live.",
+    ],
+    technologies: ["WordPress", "Beaver Builder", "HTML", "CSS", "Responsive design"],
     presentation: "compact",
   },
 ];
@@ -167,19 +153,19 @@ export const selectedProjects: readonly Project[] = [
     name: "NewinMeter",
     eyebrow: "Community product",
     description:
-      "A multi-user community electricity analytics platform with automated ingestion, daily, hourly, and interval rollups, cost and tariff visibility, and grounded AI-assisted questions about each user's data.",
+      "A multi-user electricity analytics platform with Supabase Auth and row-level security for per-user data isolation, deterministic daily, hourly, and interval rollups, and a grounded AI assistant that answers usage questions through scoped OpenAI function-calling tools over precomputed analytics, rather than arbitrary SQL, behind rate limiting.",
     outcome:
       "Reworked an earlier single-user prototype into an authenticated product with per-user connections and database-level isolation.",
     proof: {
       value: "21 users",
       label: "13 connected to LiveMopay",
     },
-    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "OpenAI"],
     signals: [
-      "Supabase Auth",
-      "Row-level security",
-      "Structured rollups",
-      "Grounded assistant",
+      "Supabase Auth + RLS",
+      "Deterministic rollups",
+      "Scoped tool-calling assistant",
+      "Rate limited",
     ],
     links: [
       { label: "Open product", href: "https://newinmeter.vercel.app" },
@@ -340,7 +326,7 @@ export const developerTools: readonly ToolProject[] = [
   {
     name: "beacon-mcp",
     description:
-      "Representative MCP server combining weather, commute, Gmail, Calendar, and FineApp operations into typed agent tools and a morning brief.",
+      "A context and capability layer, not just an MCP server or an agent: deterministic reads of weather, commute, Gmail, Calendar, and FineApp state, explicit typed capabilities, and prepare-confirm-execute for sensitive actions, exposed through HTTP/OpenAPI and MCP adapters.",
     href: "https://github.com/RA1NM4KER/beacon-mcp",
   },
   {
@@ -475,5 +461,4 @@ export const contact: ContactInfo = {
   email: "kefasa112@gmail.com",
   github: "https://github.com/RA1NM4KER",
   linkedin: "https://www.linkedin.com/in/kefas-manda/",
-  resume: "/Kefas-Aleck-CV.pdf",
 };

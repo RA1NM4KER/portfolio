@@ -89,5 +89,4 @@ export type ContactInfo = {
   email: string;
   github: string;
   linkedin: string;
-  resume: string;
 };

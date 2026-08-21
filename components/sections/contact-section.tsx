@@ -27,9 +27,6 @@ export function ContactSection() {
           <a href={contact.linkedin} target="_blank" rel="noreferrer">
             LinkedIn <ArrowUpRight aria-hidden="true" size={15} />
           </a>
-          <a href={contact.resume} target="_blank" rel="noreferrer">
-            Résumé <ArrowUpRight aria-hidden="true" size={15} />
-          </a>
         </div>
       </div>
     </ContentSection>

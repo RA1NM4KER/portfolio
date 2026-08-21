@@ -28,7 +28,7 @@ export default function OpenGraphImage() {
           letterSpacing: 2,
         }}
       >
-        KEFAS MANDA · SOFTWARE ENGINEER
+        KEFAS MANDA · CS STUDENT & DEVELOPER
       </div>
       <div
         style={{
@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
           letterSpacing: -4,
         }}
       >
-        Production software across fintech, data, and product systems.
+        Applied AI, data, and software systems.
       </div>
       <div style={{ display: "flex", color: "#a2aab2", fontSize: 26 }}>
         Stellenbosch, South Africa · kefas.co.za

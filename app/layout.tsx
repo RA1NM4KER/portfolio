@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Kefas Manda",
   },
   description:
-    "Kefas Manda is a Stellenbosch-based software engineer with experience in fintech product engineering, backend systems, data pipelines, CRM optimisation, cloud infrastructure, and independently built production products.",
+    "Kefas Manda is a final-year Computer Science student at Stellenbosch University building applied AI, data, and software systems through internships, contract engineering work, and independently shipped products.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Kefas Manda",
     title: "Kefas Manda, Software engineer",
     description:
-      "Production software across fintech, data, backend systems, cloud infrastructure, and independently built products.",
+      "Applied AI, data, and software systems, built through internships, contract work, and independently shipped products.",
     images: [
       {
         url: "/opengraph-image",
@@ -33,8 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Kefas Manda, Software engineer",
-    description:
-      "Production software across fintech, data, and product systems.",
+    description: "Applied AI, data, and software systems.",
     images: ["/opengraph-image"],
   },
 };
@@ -45,7 +44,7 @@ const personStructuredData = {
   name: "Kefas Manda",
   url: "https://kefas.co.za",
   email: "mailto:kefasa112@gmail.com",
-  jobTitle: "Software Engineer",
+  jobTitle: "Computer Science Student and Software Developer",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Stellenbosch",
@@ -60,7 +59,7 @@ const personStructuredData = {
     name: "Stellenbosch University",
   },
   knowsAbout: [
-    "Fintech product engineering",
+    "Applied AI and tool-calling systems",
     "Backend systems",
     "Data pipelines",
     "CRM data engineering",

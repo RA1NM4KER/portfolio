@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal portfolio for Kefas Manda, a Stellenbosch-based software engineer working across fintech, data, backend systems, cloud infrastructure, and independent production products.
+Personal portfolio for Kefas Manda, a final-year Computer Science student at Stellenbosch University building applied AI, data, and software systems through internships, contract work, and independent production products.
 
 **Live:** [kefas.co.za](https://kefas.co.za)
 

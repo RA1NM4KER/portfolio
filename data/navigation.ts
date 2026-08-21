@@ -5,7 +5,6 @@ export const homeNavLinks: readonly NavbarLink[] = [
   { href: "#case-studies", label: "/ Systems" },
   { href: "#capabilities", label: "/ Capabilities" },
   { href: "#contact", label: "/ Contact" },
-  { href: "/Kefas-Aleck-CV.pdf", label: "Résumé", newTab: true },
 ];
 
 export const fineAppNavLinks: readonly NavbarLink[] = [

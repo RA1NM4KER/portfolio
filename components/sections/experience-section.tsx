@@ -44,7 +44,7 @@ export function ExperienceSection() {
     <ContentSection
       id="experience"
       label="/ Professional experience"
-      title="Fintech, CRM data, production web, and embedded systems."
+      title="CRM data engineering, production web, embedded systems, and teaching."
       headingLayout="stacked"
     >
       <div className={styles.experienceList}>
