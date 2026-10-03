@@ -7,7 +7,7 @@ export function CapabilitiesSection() {
     <ContentSection
       id="capabilities"
       label="/ Technical capabilities"
-      title="Product, backend, data, cloud, and embedded systems."
+      title="Applied AI, product, backend, data, cloud, and embedded systems."
       headingLayout="stacked"
     >
       <div className={styles.capabilityGrid}>

@@ -7,33 +7,34 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://kefas.co.za"),
   title: {
-    default: "Kefas Manda, Software engineer",
+    default: "Kefas Manda, Software developer",
     template: "%s | Kefas Manda",
   },
   description:
-    "Kefas Manda is a final-year Computer Science student at Stellenbosch University building applied AI, data, and software systems through internships, contract engineering work, and independently shipped products.",
+    "Kefas Manda is a software developer focused on applied AI, building simple, reliable systems across agent infrastructure, data-intensive products, and production software.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_ZA",
     url: "https://kefas.co.za",
     siteName: "Kefas Manda",
-    title: "Kefas Manda, Software engineer",
+    title: "Kefas Manda, Software developer",
     description:
-      "Applied AI, data, and software systems, built through internships, contract work, and independently shipped products.",
+      "Simple, reliable systems across applied AI, agent infrastructure, and production software.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Kefas Manda, software engineer",
+        alt: "Kefas Manda, software developer focused on applied AI",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kefas Manda, Software engineer",
-    description: "Applied AI, data, and software systems.",
+    title: "Kefas Manda, Software developer",
+    description:
+      "Simple, reliable systems across applied AI, agent infrastructure, and production software.",
     images: ["/opengraph-image"],
   },
 };
@@ -44,7 +45,7 @@ const personStructuredData = {
   name: "Kefas Manda",
   url: "https://kefas.co.za",
   email: "mailto:kefasa112@gmail.com",
-  jobTitle: "Computer Science Student and Software Developer",
+  jobTitle: "Software Developer",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Stellenbosch",
@@ -59,7 +60,9 @@ const personStructuredData = {
     name: "Stellenbosch University",
   },
   knowsAbout: [
-    "Applied AI and tool-calling systems",
+    "Applied AI systems",
+    "AI agent infrastructure",
+    "Model Context Protocol",
     "Backend systems",
     "Data pipelines",
     "CRM data engineering",

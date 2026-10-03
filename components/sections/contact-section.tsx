@@ -10,8 +10,8 @@ export function ContactSection() {
         <div>
           <h2>Get in touch.</h2>
           <p className={styles.contactCopy}>
-            Based in Stellenbosch, South Africa. Open to software engineering
-            roles, product work, and technical conversations.
+            Based in Stellenbosch, South Africa. Always interested in thoughtful
+            technical conversations, useful products, and ambitious engineering.
           </p>
         </div>
         <div className={styles.contactAction}>

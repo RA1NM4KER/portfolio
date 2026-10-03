@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { developerTools, selectedProjects } from "@/data/portfolio";
+import { additionalProjects, selectedProjects } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
 import { Reveal } from "@/components/ui/reveal";
 import { ProjectMedia } from "@/components/sections/project-media";
@@ -51,6 +51,26 @@ function ProjectLinkList({ project }: { project: Project }) {
   );
 }
 
+function ProjectSignalList({
+  project,
+  className,
+}: {
+  project: Project;
+  className?: string;
+}) {
+  if (!project.signals) return null;
+
+  return (
+    <ul
+      className={[styles.projectSignals, className].filter(Boolean).join(" ")}
+    >
+      {project.signals.map((signal) => (
+        <li key={signal}>{signal}</li>
+      ))}
+    </ul>
+  );
+}
+
 function ProjectCopy({
   project,
   showSignals = true,
@@ -75,11 +95,7 @@ function ProjectCopy({
         <p className={styles.projectOutcome}>{project.outcome}</p>
       ) : null}
       {project.signals && showSignals ? (
-        <ul className={styles.projectSignals}>
-          {project.signals.map((signal) => (
-            <li key={signal}>{signal}</li>
-          ))}
-        </ul>
+        <ProjectSignalList project={project} />
       ) : null}
       {project.note ? (
         <p className={styles.projectNote}>{project.note}</p>
@@ -156,7 +172,9 @@ function HardwareExperiment({ project }: { project: Project }) {
 
       <div className={styles.hardwareMedia}>
         <video
+          autoPlay
           controls
+          loop
           muted
           playsInline
           preload="metadata"
@@ -208,25 +226,46 @@ function VisualProject({ project }: { project: Project }) {
   const productLink = project.links.find(
     (link) => link.label === "Open product",
   );
+  const signalsUnderMedia =
+    (project.presentation === "dashboard" || Boolean(project.video)) &&
+    Boolean(project.signals?.length);
+
+  const media =
+    project.image || project.video ? (
+      <ProjectMedia
+        image={project.image}
+        video={project.video}
+        productName={project.name}
+        productHref={productLink?.href}
+      />
+    ) : null;
 
   return (
     <div className={styles.projectStack}>
       <article
         className={[
           styles[`project_${project.presentation}`],
-          !project.image ? styles.projectTextOnly : "",
+          !project.image && !project.video ? styles.projectTextOnly : "",
         ]
           .filter(Boolean)
           .join(" ")}
       >
-        {project.image ? (
-          <ProjectMedia
-            image={project.image}
-            productName={project.name}
-            productHref={productLink?.href}
-          />
-        ) : null}
-        <ProjectCopy project={project} showMeta={false} />
+        {signalsUnderMedia ? (
+          <div className={styles.projectVisualColumn}>
+            {media}
+            <ProjectSignalList
+              project={project}
+              className={styles.projectMediaSignals}
+            />
+          </div>
+        ) : (
+          media
+        )}
+        <ProjectCopy
+          project={project}
+          showSignals={!signalsUnderMedia}
+          showMeta={false}
+        />
         <div className={styles.projectMetaFooter}>
           <ProjectTechnologyList project={project} />
           <ProjectLinkList project={project} />
@@ -243,7 +282,7 @@ export function ProjectsSection() {
       <ContentSection
         id="case-studies"
         label="/ Selected systems"
-        title="Schoolscape, NewinMeter, FineApp, Showcased, and GradeLog."
+        title="Agent infrastructure, grounded AI, and production systems."
         headingLayout="stacked"
       >
         <div className={styles.featuredProjects}>
@@ -259,17 +298,15 @@ export function ProjectsSection() {
         </div>
       </ContentSection>
 
-      <ContentSection
-        id="more-work"
-        label="/ Smaller tools"
-        headingLayout="rule"
-      >
+      <ContentSection id="more-work" label="/ More work" headingLayout="rule">
         <div className={styles.toolsHeader}>
           <h2>More projects</h2>
-          <p>Typed MCP integrations.</p>
+          <p>
+            Products and integrations that round out the larger systems above.
+          </p>
         </div>
         <div className={styles.toolsGrid}>
-          {developerTools.map((tool) => (
+          {additionalProjects.map((tool) => (
             <a
               key={tool.name}
               href={tool.href}
@@ -277,11 +314,11 @@ export function ProjectsSection() {
               rel="noreferrer"
               className={styles.toolItem}
             >
-              <span className={styles.toolCategory}>Developer tool</span>
+              <span className={styles.toolCategory}>{tool.category}</span>
               <strong>{tool.name}</strong>
               <small>{tool.description}</small>
               <span className={styles.toolLink}>
-                Repository <ArrowUpRight aria-hidden="true" size={14} />
+                {tool.linkLabel} <ArrowUpRight aria-hidden="true" size={14} />
               </span>
             </a>
           ))}

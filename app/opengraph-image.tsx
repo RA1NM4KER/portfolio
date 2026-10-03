@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Kefas Manda, software engineer";
+export const alt = "Kefas Manda, software developer focused on applied AI";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -28,7 +28,7 @@ export default function OpenGraphImage() {
           letterSpacing: 2,
         }}
       >
-        KEFAS MANDA · CS STUDENT & DEVELOPER
+        KEFAS MANDA · SOFTWARE DEVELOPER · APPLIED AI
       </div>
       <div
         style={{
@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
           letterSpacing: -4,
         }}
       >
-        Applied AI, data, and software systems.
+        I like building simple, reliable systems that scale.
       </div>
       <div style={{ display: "flex", color: "#a2aab2", fontSize: 26 }}>
         Stellenbosch, South Africa · kefas.co.za

@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal portfolio for Kefas Manda, a final-year Computer Science student at Stellenbosch University building applied AI, data, and software systems through internships, contract work, and independent production products.
+Personal portfolio for Kefas Manda, a software developer focused on applied AI and building simple, reliable systems that scale.
 
 **Live:** [kefas.co.za](https://kefas.co.za)
 
@@ -9,14 +9,12 @@ Personal portfolio for Kefas Manda, a final-year Computer Science student at Ste
 - Next.js
 - TypeScript
 - React
-- React Flow
 - Lucide Icons
 
 ## Routes
 
 - `/`: professional experience, selected work, capabilities, education, and contact
 - `/schoolscape`: public, aggregate-only CRM data engineering project
-- `/fineapp`: full-stack marketplace project
 
 ## Run locally
 

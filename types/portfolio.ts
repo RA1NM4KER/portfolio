@@ -45,6 +45,11 @@ export type Project = {
     alt: string;
     motion?: "vertical-pan";
   };
+  video?: {
+    src: string;
+    poster: string;
+    label: string;
+  };
   secondaryProject?: {
     name: string;
     description: string;
@@ -75,8 +80,10 @@ export type CurrentFocus = {
 
 export type ToolProject = {
   name: string;
+  category: string;
   description: string;
   href: string;
+  linkLabel: string;
 };
 
 export type CapabilityGroup = {

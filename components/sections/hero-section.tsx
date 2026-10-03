@@ -4,16 +4,16 @@ import { contact, hero } from "@/data/portfolio";
 import styles from "./home-sections.module.css";
 
 const focusAreas = [
-  "Applied AI and tool-calling systems",
-  "Data and reporting systems",
-  "Independent production products",
+  "Agent infrastructure and applied AI",
+  "Production product engineering",
+  "Data-intensive systems",
 ];
 
 export function HeroSection() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroIdentity}>
-        <p className={styles.eyebrow}>Final-year Computer Science student</p>
+        <p className={styles.eyebrow}>Software developer · Applied AI</p>
       </div>
 
       <h1 id="hero-title" className={styles.title}>

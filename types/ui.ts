@@ -25,20 +25,3 @@ export type ContentSectionProps = {
   headingLayout?: "split" | "stacked" | "rule";
   children: ReactNode;
 };
-
-export type TagListProps = {
-  items: readonly string[];
-  label?: string;
-  className?: string;
-};
-
-export type LabeledListProps = {
-  label: string;
-  items: readonly string[];
-  className?: string;
-};
-
-export type BulletListProps = {
-  items: readonly string[];
-  className?: string;
-};

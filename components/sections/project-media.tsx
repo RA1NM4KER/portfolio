@@ -3,16 +3,41 @@ import type { Project } from "@/types/portfolio";
 import styles from "./home-sections.module.css";
 
 type ProjectMediaProps = {
-  image: NonNullable<Project["image"]>;
+  image?: Project["image"];
+  video?: Project["video"];
   productName: string;
   productHref?: string;
 };
 
 export function ProjectMedia({
   image,
+  video,
   productName,
   productHref,
 }: ProjectMediaProps) {
+  if (video) {
+    return (
+      <div className={styles.projectMedia}>
+        <video
+          autoPlay
+          controls
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster={video.poster}
+          aria-label={video.label}
+        >
+          <source src={video.src} type="video/mp4" />
+          Your browser cannot play this video.{" "}
+          <a href={video.src}>Open the MP4 directly.</a>
+        </video>
+      </div>
+    );
+  }
+
+  if (!image) return null;
+
   const pansOnInteraction = image.motion === "vertical-pan";
   const imageContent = (
     <Image
