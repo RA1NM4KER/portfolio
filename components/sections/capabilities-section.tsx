@@ -10,19 +10,21 @@ export function CapabilitiesSection() {
       title="Applied AI, product, backend, data, cloud, and embedded systems."
       headingLayout="stacked"
     >
-      <div className={styles.capabilityGrid}>
+      <div className={styles.capabilityList}>
         {capabilities.map((group, index) => (
-          <article key={group.title} className={styles.capabilityGroup}>
+          <article key={group.title} className={styles.capabilityRow}>
             <span className={styles.capabilityIndex} aria-hidden="true">
               0{index + 1}
             </span>
             <h3>{group.title}</h3>
-            <p>{group.description}</p>
-            <ul>
-              {group.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <div className={styles.capabilityDetails}>
+              <p>{group.description}</p>
+              <ul aria-label={`${group.title} skills`}>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </article>
         ))}
       </div>
