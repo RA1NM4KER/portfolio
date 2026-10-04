@@ -949,6 +949,25 @@
   border-bottom: 1px solid var(--line);
 }
 
+.moreGithub {
+  margin: 1.1rem 0 0;
+  color: var(--muted);
+  font: 500 0.85rem/1.5 var(--font-mono);
+}
+
+.moreGithub a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.moreGithub a:hover {
+  text-decoration: underline;
+}
+
 .toolItem {
   display: flex;
   flex-direction: column;

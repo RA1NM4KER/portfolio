@@ -323,6 +323,12 @@ export function ProjectsSection() {
             </a>
           ))}
         </div>
+        <p className={styles.moreGithub}>
+          See more projects on my{" "}
+          <a href="https://github.com/RA1NM4KER" target="_blank" rel="noreferrer">
+            GitHub <ArrowUpRight aria-hidden="true" size={14} />
+          </a>
+        </p>
       </ContentSection>
     </>
   );
