@@ -70,9 +70,9 @@ export const experience: readonly ExperienceItem[] = [
     role: "Software Developer, Independent Contractor",
     company: "Schoolscape",
     location: "Stellenbosch, South Africa",
-    period: "June 2026 to present",
+    period: "June to October 2026",
     engagement:
-      "Full-time independent contract from 17 June to 31 July 2026; continued part-time from August 2026.",
+      "Full-time independent contract from 17 June to 31 July 2026; continued part-time from August to October 2026.",
     summary:
       "Own a substantial CRM data-quality and migration-preparation programme while delivering production web pages, business-system integrations, and a stakeholder-ready technical handover.",
     highlights: [
