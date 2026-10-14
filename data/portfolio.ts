@@ -21,6 +21,7 @@ export const experience: readonly ExperienceItem[] = [
   {
     role: "Software Developer",
     company: "Glyde Payments",
+    logo: "/companies/glyde.svg",
     location: "Cape Town, South Africa",
     period: "January 2025 to February 2026",
     summary:
@@ -69,6 +70,7 @@ export const experience: readonly ExperienceItem[] = [
   {
     role: "Software Developer, Independent Contractor",
     company: "Schoolscape",
+    logo: "/companies/schoolscape-mark.svg",
     location: "Stellenbosch, South Africa",
     period: "June to October 2026",
     engagement:
@@ -126,6 +128,7 @@ export const experience: readonly ExperienceItem[] = [
   {
     role: "Embedded Systems Intern",
     company: "Metacom",
+    logo: "/companies/metacom.svg",
     location: "Cape Town, South Africa",
     period: "June 2024 to July 2024",
     summary:
@@ -140,6 +143,7 @@ export const experience: readonly ExperienceItem[] = [
   {
     role: "Web Developer, Independent Contractor",
     company: "AgriVision Foundation",
+    logo: "/companies/agrivision.svg",
     location: "Stellenbosch, South Africa",
     period: "August 2026",
     summary:
@@ -200,7 +204,7 @@ export const selectedProjects: readonly Project[] = [
     outcome:
       "The assistant returns schema-validated evidence and visualisation instructions, never arbitrary SQL. Mutations remain typed proposals until the user confirms them, then reuse the same ownership-checked domain functions as the hand-built UI.",
     proof: {
-      value: "37 users",
+      value: "37+ users",
       label: "23 connected to LiveMopay",
     },
     technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "OpenAI"],

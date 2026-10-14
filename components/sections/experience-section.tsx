@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { experience } from "@/data/portfolio";
 import type { ExperienceItem } from "@/types/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
@@ -53,7 +54,20 @@ export function ExperienceSection() {
             <article className={styles[`experience_${item.presentation}`]}>
               <header className={styles.experienceHeader}>
                 <div>
-                  <p className={styles.company}>{item.company}</p>
+                  <div className={styles.companyIdentity}>
+                    {item.logo ? (
+                      <span className={styles.companyLogo}>
+                        <Image
+                          src={item.logo}
+                          alt=""
+                          width={96}
+                          height={32}
+                          unoptimized
+                        />
+                      </span>
+                    ) : null}
+                    <p className={styles.company}>{item.company}</p>
+                  </div>
                   <h3 className={styles.experienceTitle}>{item.role}</h3>
                 </div>
                 <div className={styles.experienceMeta}>

@@ -235,6 +235,28 @@
   align-items: start;
 }
 
+.companyIdentity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.companyLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: 32px;
+}
+
+.companyLogo img {
+  width: auto;
+  max-width: 96px;
+  height: 32px;
+  object-fit: contain;
+}
+
 .experienceTitle {
   margin: 0.35rem 0 0;
   font-size: clamp(1.3rem, 2.1vw, 1.65rem);
