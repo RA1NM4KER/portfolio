@@ -257,6 +257,10 @@
   object-fit: contain;
 }
 
+.companyLogo img[src$="schoolscape-mark.svg"] {
+  height: 26px;
+}
+
 .experienceTitle {
   margin: 0.35rem 0 0;
   font-size: clamp(1.3rem, 2.1vw, 1.65rem);
