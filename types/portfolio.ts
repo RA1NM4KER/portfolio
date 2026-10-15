@@ -1,4 +1,5 @@
 export type LinkItem = {
+  purpose: "product" | "repository" | "site" | "details";
   label: string;
   href: string;
 };
@@ -19,7 +20,10 @@ export type ExperienceItem = {
   role: string;
   company: string;
   website: string;
-  logo?: string;
+  logo?: {
+    src: string;
+    height: number;
+  };
   location: string;
   period: string;
   engagement?: string;
@@ -31,7 +35,7 @@ export type ExperienceItem = {
   metrics?: readonly { value: string; label: string }[];
 };
 
-export type Project = {
+type ProjectBase = {
   name: string;
   eyebrow: string;
   description: string;
@@ -41,17 +45,6 @@ export type Project = {
   signals?: readonly string[];
   links: readonly LinkItem[];
   note?: string;
-  presentation: "metrics" | "dashboard" | "product" | "compact";
-  image?: {
-    src: string;
-    alt: string;
-    motion?: "vertical-pan";
-  };
-  video?: {
-    src: string;
-    poster: string;
-    label: string;
-  };
   secondaryProject?: {
     name: string;
     description: string;
@@ -71,8 +64,44 @@ export type Project = {
       fallbackHref: string;
     };
   };
-  metrics?: readonly { value: string; label: string }[];
 };
+
+type ProjectImage = {
+  src: string;
+  alt: string;
+  motion?: "vertical-pan";
+};
+
+type ProjectVideo = {
+  src: string;
+  poster: string;
+  label: string;
+};
+
+type ProjectMedia =
+  | { image: ProjectImage; video?: never }
+  | { video: ProjectVideo; image?: never };
+
+export type MetricsProject = ProjectBase & {
+  presentation: "metrics";
+  metrics: readonly [
+    { value: string; label: string },
+    ...{ value: string; label: string }[],
+  ];
+  image?: never;
+  video?: never;
+};
+
+export type VisualProject = ProjectBase &
+  (
+    | ({ presentation: "dashboard" | "product" } & ProjectMedia)
+    | ({ presentation: "compact" } & (
+        | ProjectMedia
+        | { image?: never; video?: never }
+      ))
+  );
+
+export type Project = MetricsProject | VisualProject;
 
 export type CurrentFocus = {
   title: string;

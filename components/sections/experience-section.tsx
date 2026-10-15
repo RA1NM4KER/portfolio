@@ -3,7 +3,7 @@ import { experience } from "@/data/portfolio";
 import type { ExperienceItem } from "@/types/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
 import { Reveal } from "@/components/ui/reveal";
-import styles from "./home-sections.module.css";
+import styles from "./experience.module.css";
 
 function ExperienceScope({ item }: { item: ExperienceItem }) {
   if (!item.areas) return null;
@@ -64,10 +64,11 @@ export function ExperienceSection() {
                     {item.logo ? (
                       <span className={styles.companyLogo}>
                         <Image
-                          src={item.logo}
+                          src={item.logo.src}
                           alt=""
                           width={96}
-                          height={32}
+                          height={item.logo.height}
+                          style={{ height: item.logo.height }}
                           unoptimized
                         />
                       </span>

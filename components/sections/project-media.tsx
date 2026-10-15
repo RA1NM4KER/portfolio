@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Project } from "@/types/portfolio";
-import styles from "./home-sections.module.css";
+import styles from "./projects.module.css";
 
 type ProjectMediaProps = {
   image?: Project["image"];

@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { contact } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
-import styles from "./home-sections.module.css";
+import styles from "./contact.module.css";
 
 export function ContactSection() {
   return (

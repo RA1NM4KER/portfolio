@@ -1,6 +1,6 @@
 import { capabilities } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
-import styles from "./home-sections.module.css";
+import styles from "./capabilities.module.css";
 
 export function CapabilitiesSection() {
   return (

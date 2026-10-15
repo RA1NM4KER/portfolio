@@ -19,10 +19,27 @@ export const hero: HeroContent = {
 
 export const experience: readonly ExperienceItem[] = [
   {
+    role: "Incoming Applied AI Intern",
+    company: "JEM",
+    logo: { src: "/companies/jem.svg", height: 32 },
+    website: "https://www.jemhr.com/",
+    location: "Cape Town, South Africa",
+    period: "Starting November 2026",
+    summary:
+      "Joining Jem Labs to build useful, reliable AI tools, automations, and prototypes with teams across Jem.",
+    highlights: [
+      "Planned focus: work with teams to understand their needs and identify opportunities to improve workflows using AI.",
+      "Build, test, and iterate on AI tools and prototypes using feedback and checks for quality, accuracy, and usefulness.",
+      "Own assigned solutions through delivery, document approaches, and support colleagues in using them.",
+    ],
+    technologies: ["Applied AI", "Automation", "Prototyping", "Evaluation"],
+    presentation: "substantial",
+  },
+  {
     role: "Software Developer",
     company: "Glyde Payments",
     website: "https://www.glydepay.io/",
-    logo: "/companies/glyde.svg",
+    logo: { src: "/companies/glyde.svg", height: 32 },
     location: "Cape Town, South Africa",
     period: "January 2025 to February 2026",
     summary:
@@ -72,7 +89,7 @@ export const experience: readonly ExperienceItem[] = [
     role: "Software Developer, Independent Contractor",
     company: "Schoolscape",
     website: "https://schoolscape.co.za/",
-    logo: "/companies/schoolscape-mark.svg",
+    logo: { src: "/companies/schoolscape-mark.svg", height: 26 },
     location: "Stellenbosch, South Africa",
     period: "June to October 2026",
     engagement:
@@ -131,7 +148,7 @@ export const experience: readonly ExperienceItem[] = [
     role: "Embedded Systems Intern",
     company: "Metacom",
     website: "https://www.metacom.net/",
-    logo: "/companies/metacom.svg",
+    logo: { src: "/companies/metacom.svg", height: 32 },
     location: "Cape Town, South Africa",
     period: "June 2024 to July 2024",
     summary:
@@ -147,7 +164,7 @@ export const experience: readonly ExperienceItem[] = [
     role: "Web Developer, Independent Contractor",
     company: "AgriVision Foundation",
     website: "https://www.agrivisionfoundation.co.za/",
-    logo: "/companies/agrivision.svg",
+    logo: { src: "/companies/agrivision.svg", height: 32 },
     location: "Stellenbosch, South Africa",
     period: "August 2026",
     summary:
@@ -184,10 +201,12 @@ export const selectedProjects: readonly Project[] = [
     ],
     links: [
       {
+        purpose: "site",
         label: "Open site",
         href: "https://ra1nm4ker.github.io/agent-relay/",
       },
       {
+        purpose: "repository",
         label: "View repository",
         href: "https://github.com/RA1NM4KER/agent-relay",
       },
@@ -219,8 +238,13 @@ export const selectedProjects: readonly Project[] = [
       "Automated sync and alerts",
     ],
     links: [
-      { label: "Open product", href: "https://newinmeter.vercel.app" },
       {
+        purpose: "product",
+        label: "Open product",
+        href: "https://newinmeter.vercel.app",
+      },
+      {
+        purpose: "repository",
         label: "View repository",
         href: "https://github.com/RA1NM4KER/newinmeter",
       },
@@ -289,10 +313,12 @@ export const selectedProjects: readonly Project[] = [
     ],
     links: [
       {
+        purpose: "site",
         label: "Open site",
         href: "https://learnmcp.kefas.co.za/",
       },
       {
+        purpose: "repository",
         label: "View repository",
         href: "https://github.com/RA1NM4KER/sunlearn-mcp",
       },
@@ -315,6 +341,7 @@ export const selectedProjects: readonly Project[] = [
     ],
     links: [
       {
+        purpose: "repository",
         label: "View repository",
         href: "https://github.com/RA1NM4KER/beacon",
       },
@@ -335,7 +362,13 @@ export const selectedProjects: readonly Project[] = [
       "Preserve relationships",
       "Migration-ready CRM",
     ],
-    links: [{ label: "View project details", href: "/schoolscape" }],
+    links: [
+      {
+        purpose: "details",
+        label: "View project details",
+        href: "/schoolscape",
+      },
+    ],
     presentation: "metrics",
     metrics: [
       { value: "31,675", label: "Initial organisations" },
@@ -363,6 +396,7 @@ export const selectedProjects: readonly Project[] = [
     ],
     links: [
       {
+        purpose: "product",
         label: "Open product",
         href: "https://www.fineapp.co.za/creatives",
       },

@@ -1,6 +1,6 @@
 import { currentFocus } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
-import styles from "./home-sections.module.css";
+import styles from "./focus.module.css";
 
 export function CurrentFocusSection() {
   return (

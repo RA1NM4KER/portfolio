@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
 import { contact, hero } from "@/data/portfolio";
-import styles from "./home-sections.module.css";
+import styles from "./hero.module.css";
 
 const focusAreas = [
   "Agent infrastructure and applied AI",

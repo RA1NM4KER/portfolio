@@ -4,8 +4,13 @@ import { additionalProjects, selectedProjects } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
 import { Reveal } from "@/components/ui/reveal";
 import { ProjectMedia } from "@/components/sections/project-media";
-import type { LinkItem, Project } from "@/types/portfolio";
-import styles from "./home-sections.module.css";
+import type {
+  LinkItem,
+  Project,
+  MetricsProject as MetricsProjectData,
+  VisualProject as VisualProjectData,
+} from "@/types/portfolio";
+import styles from "./projects.module.css";
 
 function ProjectLink({ link }: { link: LinkItem }) {
   const internal = link.href.startsWith("/");
@@ -190,7 +195,7 @@ function HardwareExperiment({ project }: { project: Project }) {
   );
 }
 
-function MetricsProject({ project }: { project: Project }) {
+function MetricsProject({ project }: { project: MetricsProjectData }) {
   return (
     <article className={styles.metricsProject}>
       <div className={styles.metricsProjectCopy}>
@@ -201,7 +206,7 @@ function MetricsProject({ project }: { project: Project }) {
         aria-label="Schoolscape reconciliation process"
       >
         <div className={styles.metricStack}>
-          {project.metrics?.map((metric) => (
+          {project.metrics.map((metric) => (
             <div key={metric.label}>
               <strong>{metric.value}</strong>
               <span>{metric.label}</span>
@@ -222,10 +227,8 @@ function MetricsProject({ project }: { project: Project }) {
   );
 }
 
-function VisualProject({ project }: { project: Project }) {
-  const productLink = project.links.find(
-    (link) => link.label === "Open product",
-  );
+function VisualProject({ project }: { project: VisualProjectData }) {
+  const productLink = project.links.find((link) => link.purpose === "product");
   const signalsUnderMedia =
     (project.presentation === "dashboard" || Boolean(project.video)) &&
     Boolean(project.signals?.length);
@@ -325,7 +328,11 @@ export function ProjectsSection() {
         </div>
         <p className={styles.moreGithub}>
           See more projects on my{" "}
-          <a href="https://github.com/RA1NM4KER" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/RA1NM4KER"
+            target="_blank"
+            rel="noreferrer"
+          >
             GitHub <ArrowUpRight aria-hidden="true" size={14} />
           </a>
         </p>

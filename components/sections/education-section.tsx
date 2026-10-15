@@ -1,5 +1,5 @@
 import { ContentSection } from "@/components/ui/content-section";
-import styles from "./home-sections.module.css";
+import styles from "./education.module.css";
 
 export function EducationSection() {
   return (

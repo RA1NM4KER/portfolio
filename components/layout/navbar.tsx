@@ -16,10 +16,6 @@ export function Navbar({
   const pathname = usePathname();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-  }, [pathname]);
-
-  useEffect(() => {
     const navbar = navRef.current;
 
     if (!navbar) {
