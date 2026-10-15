@@ -18,6 +18,7 @@ export type ExperienceArea = {
 export type ExperienceItem = {
   role: string;
   company: string;
+  website: string;
   logo?: string;
   location: string;
   period: string;

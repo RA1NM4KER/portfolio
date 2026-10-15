@@ -236,10 +236,22 @@
 }
 
 .companyIdentity {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.65rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.companyIdentity:hover .company {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.companyIdentity:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
 }
 
 .companyLogo {

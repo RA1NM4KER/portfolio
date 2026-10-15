@@ -21,6 +21,7 @@ export const experience: readonly ExperienceItem[] = [
   {
     role: "Software Developer",
     company: "Glyde Payments",
+    website: "https://www.glydepay.io/",
     logo: "/companies/glyde.svg",
     location: "Cape Town, South Africa",
     period: "January 2025 to February 2026",
@@ -70,6 +71,7 @@ export const experience: readonly ExperienceItem[] = [
   {
     role: "Software Developer, Independent Contractor",
     company: "Schoolscape",
+    website: "https://schoolscape.co.za/",
     logo: "/companies/schoolscape-mark.svg",
     location: "Stellenbosch, South Africa",
     period: "June to October 2026",
@@ -128,6 +130,7 @@ export const experience: readonly ExperienceItem[] = [
   {
     role: "Embedded Systems Intern",
     company: "Metacom",
+    website: "https://www.metacom.net/",
     logo: "/companies/metacom.svg",
     location: "Cape Town, South Africa",
     period: "June 2024 to July 2024",
@@ -143,6 +146,7 @@ export const experience: readonly ExperienceItem[] = [
   {
     role: "Web Developer, Independent Contractor",
     company: "AgriVision Foundation",
+    website: "https://www.agrivisionfoundation.co.za/",
     logo: "/companies/agrivision.svg",
     location: "Stellenbosch, South Africa",
     period: "August 2026",

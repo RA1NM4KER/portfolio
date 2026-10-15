@@ -54,7 +54,13 @@ export function ExperienceSection() {
             <article className={styles[`experience_${item.presentation}`]}>
               <header className={styles.experienceHeader}>
                 <div>
-                  <div className={styles.companyIdentity}>
+                  <a
+                    className={styles.companyIdentity}
+                    href={item.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${item.company} official website (opens in a new tab)`}
+                  >
                     {item.logo ? (
                       <span className={styles.companyLogo}>
                         <Image
@@ -66,8 +72,8 @@ export function ExperienceSection() {
                         />
                       </span>
                     ) : null}
-                    <p className={styles.company}>{item.company}</p>
-                  </div>
+                    <span className={styles.company}>{item.company}</span>
+                  </a>
                   <h3 className={styles.experienceTitle}>{item.role}</h3>
                 </div>
                 <div className={styles.experienceMeta}>
