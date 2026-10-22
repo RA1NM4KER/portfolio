@@ -293,7 +293,7 @@ export const selectedProjects: readonly Project[] = [
   },
   {
     name: "Learn MCP",
-    eyebrow: "Education infrastructure",
+    eyebrow: "Education infrastructure · Private preview",
     description:
       "A read-only MCP server that lets AI clients work with a student’s own Moodle courses, assignments, deadlines, grades, announcements, forums, and course files without exposing raw credentials.",
     outcome:
@@ -316,11 +316,6 @@ export const selectedProjects: readonly Project[] = [
         purpose: "site",
         label: "Open site",
         href: "https://learnmcp.kefas.co.za/",
-      },
-      {
-        purpose: "repository",
-        label: "View repository",
-        href: "https://github.com/RA1NM4KER/sunlearn-mcp",
       },
     ],
     presentation: "compact",
