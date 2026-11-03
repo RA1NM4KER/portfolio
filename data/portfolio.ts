@@ -19,16 +19,16 @@ export const hero: HeroContent = {
 
 export const experience: readonly ExperienceItem[] = [
   {
-    role: "Incoming Applied AI Intern",
+    role: "Applied AI Intern",
     company: "JEM",
     logo: { src: "/companies/jem.svg", height: 32 },
     website: "https://www.jemhr.com/",
     location: "Cape Town, South Africa",
-    period: "Starting November 2026",
+    period: "November 2026 to present",
     summary:
-      "Joining Jem Labs to build useful, reliable AI tools, automations, and prototypes with teams across Jem.",
+      "Building useful, reliable AI tools, automations, and prototypes with teams across Jem through Jem Labs.",
     highlights: [
-      "Planned focus: work with teams to understand their needs and identify opportunities to improve workflows using AI.",
+      "Work with teams to understand their needs and identify opportunities to improve workflows using AI.",
       "Build, test, and iterate on AI tools and prototypes using feedback and checks for quality, accuracy, and usefulness.",
       "Own assigned solutions through delivery, document approaches, and support colleagues in using them.",
     ],
