@@ -319,6 +319,10 @@ export const selectedProjects: readonly Project[] = [
       },
     ],
     presentation: "compact",
+    image: {
+      src: "/home/learn-mcp.png",
+      alt: "Learn MCP homepage showing SUNLearn integration with ChatGPT and Claude, an illustrative module conversation, and supported learning environments",
+    },
   },
   {
     name: "Beacon",
@@ -379,8 +383,8 @@ export const selectedProjects: readonly Project[] = [
     outcome:
       "Reduced ongoing administration to lightweight moderation after launch.",
     proof: {
-      value: "15 to 30+",
-      label: "creatives onboarded after launch",
+      value: "40+",
+      label: "creatives onboarded",
     },
     technologies: ["Spring Boot", "Next.js", "MySQL", "PayFast"],
     signals: [

@@ -228,9 +228,13 @@ function MetricsProject({ project }: { project: MetricsProjectData }) {
 }
 
 function VisualProject({ project }: { project: VisualProjectData }) {
-  const productLink = project.links.find((link) => link.purpose === "product");
+  const destinationLink =
+    project.links.find((link) => link.purpose === "product") ??
+    project.links.find((link) => link.purpose === "site");
   const signalsUnderMedia =
-    (project.presentation === "dashboard" || Boolean(project.video)) &&
+    (project.presentation === "dashboard" ||
+      Boolean(project.video) ||
+      (project.presentation === "compact" && Boolean(project.image))) &&
     Boolean(project.signals?.length);
 
   const media =
@@ -239,7 +243,7 @@ function VisualProject({ project }: { project: VisualProjectData }) {
         image={project.image}
         video={project.video}
         productName={project.name}
-        productHref={productLink?.href}
+        productHref={destinationLink?.href}
       />
     ) : null;
 
