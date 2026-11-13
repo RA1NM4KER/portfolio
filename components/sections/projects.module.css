@@ -1,26 +1,27 @@
-.projectEyebrow,
 .toolCategory {
   margin: 0;
   color: var(--accent);
-  font: 700 0.78rem/1.35 var(--font-mono);
+  font: 600 0.75rem/1.35 var(--font-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+/* ---------- Shared bits ---------- */
+
 .projectLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.25rem 1.25rem;
 }
 
 .projectLinks a {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  min-height: 44px;
-  color: var(--text-soft);
-  font-size: 0.87rem;
-  font-weight: 700;
+  gap: 0.3rem;
+  min-height: 40px;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 .projectLinks a:hover {
@@ -41,52 +42,45 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 0.7rem;
-  margin: 1.1rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--muted);
+  color: var(--muted-dim);
   font: 0.75rem/1.45 var(--font-mono);
 }
 
 .inlineTech li:not(:last-child)::after {
   content: "·";
   margin-left: 0.7rem;
-  color: var(--line-strong);
 }
 
 .featuredProjects {
   display: grid;
-  gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(4.5rem, 9vw, 7rem);
 }
 
 .projectStack {
   display: grid;
-  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 3.5rem);
 }
 
-.metricsProject {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(480px, 1.15fr);
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
-}
-
-.metricsProjectCopy {
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-}
+/* ---------- Copy ---------- */
 
 .projectCopy h3 {
-  margin: 0.45rem 0 0;
-  font-size: clamp(1.6rem, 2.7vw, 2rem);
-  line-height: 1.1;
+  margin: 0;
+  font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+  font-weight: 650;
+  line-height: 1.08;
   letter-spacing: -0.035em;
 }
 
 .projectDescription {
-  margin: 1rem 0 0;
+  margin: 1.1rem 0 0;
   color: var(--text-soft);
   font-size: 1rem;
-  line-height: 1.62;
+  line-height: 1.65;
 }
 
 .projectProof {
@@ -99,250 +93,30 @@
 
 .projectProof strong {
   color: var(--accent);
-  font-size: 1.25rem;
-  letter-spacing: -0.035em;
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
 }
 
-.projectProof span {
+.projectProof > span {
   color: var(--muted);
-  font: 0.72rem/1.4 var(--font-mono);
-  text-transform: uppercase;
+  font-size: 0.85rem;
 }
 
 .projectOutcome {
-  margin: 0.85rem 0 0;
-  padding-left: 0.9rem;
+  margin: 1rem 0 0;
+  padding-left: 1rem;
   border-left: 2px solid var(--accent);
   color: var(--muted);
   font-size: 0.92rem;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
-.projectSignals {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+.projectNote {
   margin: 1rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.projectSignals li {
-  padding: 0.35rem 0.5rem;
-  border: 1px solid var(--line);
-  color: var(--text-soft);
-  font: 0.73rem/1.3 var(--font-mono);
-}
-
-.projectLinks {
-  margin-top: 0.85rem;
-  gap: 0.35rem 1.15rem;
-}
-
-.reconciliationVisual {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 480px;
-  padding: clamp(1.5rem, 3vw, 2.2rem);
-  border-left: 1px solid var(--line);
-}
-
-.metricStack {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.metricStack div {
-  padding: 1rem;
-}
-
-.metricStack strong,
-.metricStack span {
-  display: block;
-}
-
-.metricStack strong {
-  color: var(--accent);
-  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
-  letter-spacing: -0.035em;
-}
-
-.metricStack span {
-  margin-top: 0.35rem;
   color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.35;
-}
-
-.flowSteps {
-  display: grid;
-  align-content: center;
-  gap: 0;
-  margin: 1.5rem 0;
-  padding: 0;
-  list-style: none;
-}
-
-.flowSteps li {
-  position: relative;
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  align-items: center;
-  min-height: 54px;
-  padding: 0 0.75rem;
-  border: 1px solid var(--line-strong);
-  color: var(--text-soft);
-  font-size: 0.9rem;
-}
-
-.flowSteps li + li {
-  margin-top: 0.5rem;
-}
-
-.flowSteps li + li::before {
-  content: "";
-  position: absolute;
-  top: -0.55rem;
-  left: 1.9rem;
-  width: 1px;
-  height: 0.55rem;
-  background: var(--accent);
-}
-
-.flowSteps span {
-  color: var(--accent);
-  font: 0.68rem/1 var(--font-mono);
-}
-
-.reconciliationVisual > p {
-  margin: 0;
-  color: var(--muted);
-  font: 0.73rem/1.45 var(--font-mono);
-}
-
-.project_dashboard,
-.project_product,
-.project_compact {
-  display: grid;
-  align-items: center;
-  overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--line);
-}
-
-.project_dashboard {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.projectVisualColumn {
-  order: 2;
-  align-self: stretch;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  min-height: 0;
-  border-left: 1px solid var(--line);
-}
-
-.project_dashboard .projectVisualColumn {
-  align-self: start;
-  grid-template-rows: auto auto;
-}
-
-.project_dashboard .projectVisualColumn .projectMedia {
-  aspect-ratio: 16 / 9;
-  min-height: 0;
-  border-left: 0;
-}
-
-.projectMediaSignals {
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  gap: 0.2rem;
-  margin: 0;
-  padding: 0.6rem;
-  overflow-x: auto;
-  border-top: 1px solid var(--line);
-  scrollbar-width: thin;
-}
-
-.projectMediaSignals li {
-  flex: 0 0 auto;
-  padding: 0.3rem 0.25rem;
-  font-size: 0.56rem;
-}
-
-.project_dashboard .projectCopy {
-  padding: clamp(1.5rem, 3vw, 2.4rem);
-}
-.project_dashboard .projectCopy:has(.projectNote) {
-  padding-bottom: calc(clamp(1.5rem, 3vw, 2.4rem) - 1.1rem);
-}
-
-.project_product {
-  grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.95fr);
-  background: var(--surface);
-}
-
-.project_product .projectMedia {
-  align-self: start;
-  aspect-ratio: 16 / 10;
-  min-height: 0;
-  border-right: 1px solid var(--line);
-}
-
-.project_product .projectMedia img {
-  object-position: left top;
-}
-
-.project_product .projectCopy {
-  align-self: center;
-  padding: clamp(1.5rem, 3vw, 2.4rem);
-}
-
-.project_compact {
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-}
-
-.project_compact:has(video),
-.project_compact:has(img) {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.project_compact:has(video) .projectCopy {
-  padding-bottom: 1.5rem;
-}
-
-.project_compact .projectVisualColumn {
-  order: 0;
-  border-right: 1px solid var(--line);
-  border-left: 0;
-}
-
-.project_compact .projectVisualColumn .projectMedia {
-  aspect-ratio: auto;
-  min-height: 0;
-  border-right: 0;
-}
-
-.project_compact .projectVisualColumn:has(img) {
-  align-self: start;
-  grid-template-rows: auto auto;
-}
-
-.project_compact .projectVisualColumn:has(img) .projectMedia {
-  aspect-ratio: 16 / 9;
-}
-
-.project_compact .projectMedia {
-  align-self: start;
-  aspect-ratio: 16 / 9;
-  min-height: 0;
-  border-right: 1px solid var(--line);
-}
-
-.project_compact .projectCopy {
-  align-self: center;
-  padding: clamp(1.5rem, 3vw, 2.4rem);
+  font-size: 0.8rem;
+  line-height: 1.45;
 }
 
 .projectTextOnly {
@@ -350,19 +124,17 @@
 }
 
 .projectTextOnly .projectCopy {
-  max-width: 900px;
+  max-width: 760px;
 }
 
 .secondaryProject {
-  margin-top: 1.15rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
+  margin-top: 1.5rem;
 }
 
 .secondaryProject > p {
   margin: 0;
-  color: var(--accent);
-  font: 700 0.68rem/1.35 var(--font-mono);
+  color: var(--muted);
+  font: 600 0.7rem/1.35 var(--font-mono);
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
@@ -370,14 +142,15 @@
 .secondaryProject h4 {
   margin: 0.45rem 0 0;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 .secondaryProject > span {
   display: block;
-  max-width: 800px;
+  max-width: 760px;
   margin-top: 0.45rem;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.55;
 }
 
@@ -388,173 +161,56 @@
   margin: 0.65rem 0 0;
   padding: 0;
   list-style: none;
-  color: var(--text-soft);
+  color: var(--muted-dim);
   font: 0.72rem/1.45 var(--font-mono);
 }
 
 .secondaryProject li:not(:last-child)::after {
   content: "·";
   margin-left: 0.7rem;
-  color: var(--line-strong);
 }
 
-.hardwareExperiment {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  overflow: hidden;
-  background: rgb(17 27 37 / 0.52);
-  border: 1px solid var(--line);
-}
+/* ---------- Visual projects ---------- */
 
-.hardwareCopy {
-  padding: clamp(1.25rem, 2.5vw, 1.8rem);
-}
-
-.hardwareCopy h4 {
-  margin: 0.4rem 0 0;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  letter-spacing: -0.025em;
-}
-
-.hardwareDescription {
-  margin: 0.75rem 0 0;
-  color: var(--text-soft);
-  font-size: 0.91rem;
-  line-height: 1.6;
-}
-
-.hardwareStatusGrid {
+.project_dashboard,
+.project_product,
+.project_compact {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.1rem;
-}
-
-.hardwareStatusGrid > div {
-  padding-top: 0.8rem;
-  border-top: 1px solid var(--line);
-}
-
-.hardwareStatusGrid strong {
-  color: var(--text-soft);
-  font-size: 0.8rem;
-}
-
-.hardwareStatusGrid ul {
-  display: grid;
-  gap: 0.35rem;
-  margin: 0.55rem 0 0;
-  padding-left: 1rem;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.45;
-}
-
-.hardwareStatusGrid li::marker {
-  color: var(--accent);
-}
-
-.telemetryStates {
-  display: grid;
-  gap: 0.55rem;
-  margin-top: 1.1rem;
-}
-
-.telemetryStates > div {
-  display: grid;
-  grid-template-columns: 3.1rem minmax(0, 1fr);
-  gap: 0.65rem;
-  align-items: baseline;
-}
-
-.telemetryStates strong {
-  color: var(--accent);
-  font: 700 0.67rem/1.4 var(--font-mono);
-  text-transform: uppercase;
-}
-
-.telemetryFlow {
-  display: flex;
+  gap: 1.75rem clamp(2rem, 5vw, 4rem);
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
-.telemetryFlow li {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: var(--text-soft);
-  font: 0.7rem/1.4 var(--font-mono);
+.project_product {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
 }
 
-.telemetryFlow li:not(:last-child)::after {
-  content: "→";
-  color: var(--accent);
+.project_dashboard > .projectMedia {
+  order: 2;
 }
 
-.hardwareMedia {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  background: #0d1823;
-  border-left: 1px solid var(--line);
+.projectCopy {
+  min-width: 0;
 }
 
-.hardwareMedia video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 230px;
-  object-fit: cover;
-  background: #080d12;
+.projectCopy .inlineTech {
+  margin-top: 1.75rem;
 }
 
-.hardwareMedia p {
-  margin: 0;
-  padding: 0.65rem 0.8rem;
-  color: var(--muted);
-  border-top: 1px solid var(--line);
-  font: 0.68rem/1.4 var(--font-mono);
+.projectCopy .projectLinks {
+  margin-top: 0.6rem;
 }
 
-.projectMetaFooter {
-  grid-column: 1 / -1;
-  order: 3;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem 2rem;
-  align-items: center;
-  min-height: 64px;
-  padding: 0.65rem clamp(1.5rem, 3vw, 2.4rem);
-  background: var(--bg);
-  border-top: 1px solid var(--line);
-}
-
-.projectMetaFooter .inlineTech,
-.projectMetaFooter .projectLinks {
-  margin: 0;
-}
-
-.projectMetaFooter .projectLinks {
-  flex: 0 0 auto;
-}
-
-.projectNote {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.4;
-}
+/* ---------- Media ---------- */
 
 .projectMedia {
   position: relative;
   display: block;
   min-height: 0;
-  background: #111922;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
 }
 
 .projectMedia img {
@@ -567,7 +223,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: #080d13;
+  background: #000;
+}
+
+a.projectMedia:hover {
+  border-color: var(--muted-dim);
 }
 
 .projectMedia[data-pan="interactive"] img {
@@ -586,89 +246,222 @@
   }
 }
 
-.project_dashboard .projectMedia img {
-  object-fit: cover;
+.project_dashboard .projectMedia img,
+.project_product .projectMedia img {
   object-position: left top;
-  background: #e9eaec;
 }
+
+/* ---------- Diagram ---------- */
+
+.projectDiagram {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+}
+
+.projectDiagram ol {
+  display: grid;
+  width: min(100%, 400px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projectDiagram li {
+  position: relative;
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  text-align: center;
+}
+
+.projectDiagram li + li {
+  margin-top: 1.4rem;
+}
+
+.projectDiagram li + li::before {
+  content: "";
+  position: absolute;
+  top: calc(-1.4rem - 1px);
+  left: 50%;
+  width: 1px;
+  height: 1.4rem;
+  background: var(--line-strong);
+}
+
+.projectDiagram li:nth-child(3) {
+  border-color: var(--accent);
+}
+
+.projectDiagram strong {
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.projectDiagram span {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+/* ---------- Hardware experiment ---------- */
+
+.hardwareExperiment {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.hardwareCopy h4 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.hardwareDescription {
+  margin: 0.85rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+.telemetryStates {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 3rem;
+}
+
+.telemetryStates > div {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.telemetryStates strong {
+  color: var(--accent);
+  font: 600 0.75rem/1.4 var(--font-mono);
+  text-transform: uppercase;
+}
+
+.telemetryFlow {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  min-width: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.telemetryFlow li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-soft);
+  font: 0.75rem/1.4 var(--font-mono);
+}
+
+.telemetryFlow li:not(:last-child)::after {
+  content: "→";
+  color: var(--muted-dim);
+}
+
+.hardwareMedia {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.hardwareMedia video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+}
+
+.hardwareMedia p {
+  margin: 0;
+  color: var(--muted-dim);
+  font-size: 0.8rem;
+}
+
+/* ---------- More work ---------- */
 
 .toolsHeader {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
   align-items: end;
-  margin-bottom: 1.4rem;
+  margin-bottom: 2rem;
 }
 
 .toolsHeader h2 {
   margin: 0;
   font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 650;
   letter-spacing: -0.03em;
 }
 
 .toolsHeader p {
-  max-width: 480px;
+  max-width: 440px;
   margin: 0;
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .toolsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.moreGithub {
-  margin: 1.1rem 0 0;
-  color: var(--muted);
-  font: 500 0.85rem/1.5 var(--font-mono);
-}
-
-.moreGithub a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  color: var(--accent);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.moreGithub a:hover {
-  text-decoration: underline;
+  gap: 0.75rem;
 }
 
 .toolItem {
   display: flex;
   flex-direction: column;
-  min-height: 220px;
-  padding: 1.15rem;
-}
-
-.toolItem + .toolItem {
-  border-left: 1px solid var(--line);
+  min-height: 200px;
+  padding: 1.35rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  transition: background 160ms ease;
 }
 
 .toolItem:hover {
-  background: var(--surface);
+  background: #1c1c1e;
 }
 
 .toolCategory {
   color: var(--muted);
-  font-size: 0.72rem;
 }
 
 .toolItem strong {
-  margin-top: 1rem;
-  font-size: 1rem;
+  margin-top: 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .toolItem small {
-  margin-top: 0.5rem;
+  margin-top: 0.45rem;
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: 0.88rem;
   line-height: 1.5;
 }
 
@@ -677,116 +470,125 @@
   align-items: center;
   gap: 0.3rem;
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: 1.25rem;
   color: var(--text-soft);
-  font-size: 0.81rem;
-  font-weight: 700;
+  font-size: 0.84rem;
+  font-weight: 600;
 }
 
+.toolItem:hover .toolLink {
+  color: var(--accent);
+}
+
+.moreGithub {
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.moreGithub a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.moreGithub a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Hover zoom ---------- */
+
+/* Uses `scale` (not `transform`) so it layers on top of the scroll-driven
+   entrance animation instead of being overridden by it. */
+.projectMedia,
+.hardwareMedia video {
+  position: relative;
+  z-index: 0;
+  transition:
+    scale 520ms cubic-bezier(0.33, 1, 0.68, 1),
+    border-color 300ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .projectMedia:hover,
+  .hardwareMedia video:hover {
+    z-index: 20;
+    scale: 1.07;
+  }
+}
+
+/* ---------- Motion ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .projectMedia,
+    .projectDiagram,
+    .hardwareMedia video {
+      animation: media-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+
+    .projectDiagram li {
+      animation: layer-in linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 45%;
+    }
+  }
+}
+
+@keyframes media-in {
+  from {
+    opacity: 0.25;
+    transform: translateY(70px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes layer-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+
 @media (max-width: 980px) {
-  .metricsProject,
   .project_dashboard,
-  .project_product {
-    grid-template-columns: 1fr;
-  }
-
-  .project_compact:has(video),
-  .project_compact:has(img) {
-    grid-template-columns: 1fr;
-  }
-
-  .reconciliationVisual,
-  .project_dashboard .projectVisualColumn,
-  .project_product .projectMedia {
-    border: 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .project_dashboard .projectVisualColumn {
-    order: 0;
-    align-self: auto;
-    display: block;
-  }
-
-  .project_compact .projectVisualColumn {
-    border-right: 0;
-  }
-
-  .project_dashboard .projectVisualColumn .projectMedia {
-    aspect-ratio: 16 / 10;
-    min-height: 0;
-  }
-
+  .project_product,
+  .project_compact,
   .hardwareExperiment {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .hardwareMedia {
-    border-top: 1px solid var(--line);
-    border-left: 0;
+  .project_dashboard > .projectMedia {
+    order: 0;
   }
 
   .hardwareMedia video {
     aspect-ratio: 16 / 9;
-    min-height: 0;
   }
 
   .toolsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .toolItem:nth-child(3) {
-    border-left: 0;
-    border-top: 1px solid var(--line);
-  }
 }
 
 @media (max-width: 760px) {
-  .metricStack,
-  .project_compact,
   .toolsGrid {
     grid-template-columns: 1fr;
-  }
-
-  .project_compact:has(video),
-  .project_compact:has(img) {
-    grid-template-columns: 1fr;
-  }
-
-  .reconciliationVisual {
-    min-height: 0;
-  }
-
-  .projectMedia,
-  .project_product .projectMedia,
-  .project_compact .projectMedia {
-    aspect-ratio: 4 / 3;
-    min-height: 0;
-    margin: 0;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .hardwareStatusGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .project_dashboard .projectVisualColumn .projectMedia,
-  .project_compact .projectVisualColumn:has(img) .projectMedia {
-    aspect-ratio: 4 / 3;
-    min-height: 0;
-  }
-
-  .projectMetaFooter {
-    align-items: flex-start;
-    flex-direction: column;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .projectOutcome {
-    padding-left: 0;
-    border-left: 0;
   }
 
   .toolsHeader {
@@ -795,13 +597,6 @@
   }
 
   .toolItem {
-    min-height: 180px;
-  }
-
-  .toolItem + .toolItem,
-  .toolItem:nth-child(3),
-  .toolItem:nth-child(4) {
-    border-top: 1px solid var(--line);
-    border-left: 0;
+    min-height: 0;
   }
 }

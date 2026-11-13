@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SchoolscapeProjectPage } from "@/components/sections/schoolscape/schoolscape-project-page";
 import { schoolscapeProject } from "@/data/schoolscape";
 import { schoolscapeNavLinks } from "@/data/navigation";
@@ -16,6 +17,7 @@ export default function SchoolscapePage() {
     <>
       <Navbar links={schoolscapeNavLinks} />
       <SchoolscapeProjectPage project={schoolscapeProject} />
+      <SiteFooter />
     </>
   );
 }

@@ -1,50 +1,95 @@
-.company {
-  margin: 0;
-  color: var(--accent);
-  font: 700 0.78rem/1.35 var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .experienceList {
-  display: grid;
-  gap: 1rem;
-}
-
-.experience_lead,
-.experience_substantial,
-.experience_compact {
   position: relative;
+  display: grid;
+  view-timeline: --experience block;
 }
 
-.experience_lead {
-  padding: clamp(1.5rem, 3vw, 2.25rem);
-  background: var(--surface);
-  border: 1px solid var(--line-strong);
-  border-top: 3px solid var(--accent);
+/* A hairline track down the date column that fills with gold as you scroll. */
+.timelineTrack {
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: var(--line-strong);
 }
 
-.experience_substantial {
-  padding: clamp(1.4rem, 3vw, 2rem);
-  background: rgb(17 27 37 / 0.58);
-  border: 1px solid var(--line-strong);
-  border-left: 3px solid var(--accent);
+.timelineTrack::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform-origin: top;
+  transform: scaleY(0);
 }
 
-.experience_substantial .experienceMetrics dd {
-  font-size: 1.15rem;
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .timelineTrack::after {
+      animation: track-fill linear both;
+      animation-timeline: --experience;
+      animation-range: entry 40% exit 30%;
+    }
+  }
 }
 
-.experience_compact {
-  padding: 1.4rem 0 0;
+@media (prefers-reduced-motion: reduce) {
+  .timelineTrack::after {
+    transform: none;
+  }
+}
+
+@keyframes track-fill {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.experienceItem {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 1rem clamp(2rem, 6vw, 5rem);
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
   border-top: 1px solid var(--line);
 }
 
-.experienceHeader {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: start;
+.experienceList > div:first-of-type > .experienceItem {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.experienceWhen {
+  align-self: start;
+  position: sticky;
+  top: calc(var(--navbar-height) + 1.5rem);
+  padding: 0.2rem 0 0 1.5rem;
+}
+
+.experienceWhen::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.experienceWhen p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.experienceWhen p:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.experienceMain {
+  max-width: 720px;
 }
 
 .companyIdentity {
@@ -53,12 +98,16 @@
   align-items: center;
   gap: 0.65rem;
   color: inherit;
-  text-decoration: none;
+}
+
+.company {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 500;
 }
 
 .companyIdentity:hover .company {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  color: var(--accent);
 }
 
 .companyIdentity:focus-visible {
@@ -69,92 +118,56 @@
 .companyLogo {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex: 0 0 auto;
-  height: 32px;
+  height: 28px;
 }
 
 .companyLogo img {
   width: auto;
   max-width: 96px;
-  height: 32px;
+  height: 28px;
   object-fit: contain;
 }
 
 .experienceTitle {
-  margin: 0.35rem 0 0;
-  font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+  margin: 0.75rem 0 0;
+  font-size: clamp(1.4rem, 2.3vw, 1.75rem);
+  font-weight: 650;
   line-height: 1.15;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.03em;
 }
 
-.experienceMeta {
-  flex: 0 0 235px;
-  text-align: right;
+.experienceSummary {
+  margin: 0.85rem 0 0;
   color: var(--text-soft);
-  font: 0.79rem/1.5 var(--font-mono);
-}
-
-.experienceMeta p {
-  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
 .experienceMetrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 1.5rem 0 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  margin: 1.75rem 0 0;
 }
 
 .experienceMetrics div {
   display: flex;
   flex-direction: column-reverse;
-  gap: 0.3rem;
-  padding: 1rem 0;
-}
-
-.experienceMetrics div + div {
-  padding-left: 1rem;
-  border-left: 1px solid var(--line);
+  gap: 0.15rem;
 }
 
 .experienceMetrics dt {
-  color: var(--text-soft);
-  font-size: 0.79rem;
+  color: var(--muted);
+  font-size: 0.8rem;
 }
 
 .experienceMetrics dd {
   margin: 0;
   color: var(--accent);
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.experienceBody {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  margin-top: 1.5rem;
-}
-
-.experience_compact .experienceBody {
-  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
-  margin-top: 1rem;
-}
-
-.experienceSummary {
-  margin: 0;
-  color: var(--text-soft);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.engagement {
-  margin: 0.8rem 0 0;
-  color: var(--muted);
-  font-size: 0.87rem;
-  line-height: 1.55;
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.03em;
 }
 
 .highlightList,
@@ -163,48 +176,61 @@
   gap: 0.55rem;
   margin: 0;
   padding-left: 1.1rem;
-  color: var(--text-soft);
+  color: var(--muted);
+}
+
+.highlightList {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
 }
 
 .highlightList li,
 .ownershipGrid li {
   padding-left: 0.25rem;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .highlightList li::marker,
 .ownershipGrid li::marker {
-  color: var(--accent);
+  color: var(--muted-dim);
+}
+
+.engagement {
+  margin: 1rem 0 0;
+  color: var(--muted-dim);
+  font-size: 0.85rem;
+  line-height: 1.55;
 }
 
 .experienceDetails {
-  margin-top: 1.25rem;
-  border-top: 1px solid var(--line);
+  margin-top: 1rem;
 }
 
 .experienceDetails summary {
-  min-height: 46px;
-  padding: 0.85rem 0;
+  width: fit-content;
+  min-height: 40px;
+  padding: 0.6rem 0;
   cursor: pointer;
-  color: var(--text-soft);
-  font-size: 0.88rem;
-  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 500;
 }
 
 .experienceDetails summary:hover {
-  color: var(--accent);
+  color: var(--text);
 }
 
 .ownershipGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding-bottom: 1.25rem;
+  gap: 1.5rem 2.5rem;
+  padding: 0.75rem 0 0.5rem;
 }
 
 .ownershipGrid h4 {
   margin: 0 0 0.55rem;
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .ownershipGrid ul {
@@ -215,50 +241,60 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 0.7rem;
-  margin: 1.1rem 0 0;
+  margin: 1.25rem 0 0;
   padding: 0;
   list-style: none;
-  color: var(--muted);
+  color: var(--muted-dim);
   font: 0.75rem/1.45 var(--font-mono);
 }
 
 .inlineTech li:not(:last-child)::after {
   content: "·";
   margin-left: 0.7rem;
-  color: var(--line-strong);
+}
+
+.caseStudy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 40px;
+  margin-top: 0.75rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.caseStudy:hover {
+  color: var(--accent);
+}
+
+.caseStudy svg {
+  transition: transform 160ms ease;
+}
+
+.caseStudy:hover svg {
+  transform: translateX(3px);
 }
 
 @media (max-width: 760px) {
-  .experienceBody,
-  .experience_compact .experienceBody {
+  .experienceItem {
     grid-template-columns: 1fr;
   }
 
-  .experienceHeader {
-    display: grid;
-    gap: 0.65rem;
+  .timelineTrack {
+    display: none;
   }
 
-  .experienceMeta {
-    text-align: left;
+  .experienceWhen::before {
+    display: none;
   }
 
-  .experienceMetrics {
-    grid-template-columns: 1fr;
-  }
-
-  .experienceMetrics div,
-  .experienceMetrics div + div {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.75rem 0;
-    border-top: 1px solid var(--line);
-    border-left: 0;
-  }
-
-  .experienceMetrics div:first-child {
-    border-top: 0;
+  .experienceWhen {
+    position: static;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.75rem;
   }
 
   .ownershipGrid {

@@ -1,23 +1,24 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowDownRight, Mail, MapPin } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/brand-icons";
 import { contact, hero } from "@/data/portfolio";
 import styles from "./hero.module.css";
-
-const focusAreas = [
-  "Agent infrastructure and applied AI",
-  "Production product engineering",
-  "Data-intensive systems",
-];
 
 export function HeroSection() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
-      <div className={styles.heroIdentity}>
-        <p className={styles.eyebrow}>Software developer · Applied AI</p>
-      </div>
-
-      <h1 id="hero-title" className={styles.title}>
-        {hero.title}
+      <h1 id="hero-title" className={styles.title} aria-label={hero.title}>
+        {hero.title.split(" ").map((word, index) => (
+          <span
+            key={`${word}-${index}`}
+            className={styles.word}
+            style={{ "--word-index": index } as CSSProperties}
+            aria-hidden="true"
+          >
+            {word}{" "}
+          </span>
+        ))}
       </h1>
 
       <div className={styles.heroLower}>
@@ -33,34 +34,40 @@ export function HeroSection() {
           </div>
         </div>
 
-        <aside
-          className={styles.heroPanel}
-          aria-label="Location and profile links"
-        >
-          <div className={styles.locationLine}>
+        <aside className={styles.heroPanel} aria-label="Location and profiles">
+          <p className={styles.locationLine}>
             <MapPin aria-hidden="true" size={15} />
-            <span>{hero.location}</span>
-          </div>
-          <p className={styles.availability}>{hero.availability}</p>
+            {hero.location}
+          </p>
           <div className={styles.profileLinks}>
-            <a href={contact.github} target="_blank" rel="noreferrer">
-              GitHub <ArrowUpRight aria-hidden="true" size={14} />
+            <a
+              href={contact.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <GithubIcon size={19} />
             </a>
-            <a href={contact.linkedin} target="_blank" rel="noreferrer">
-              LinkedIn <ArrowUpRight aria-hidden="true" size={14} />
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <LinkedinIcon size={18} />
+            </a>
+            <a
+              href={`mailto:${contact.email}`}
+              aria-label={`Email ${contact.email}`}
+              title={contact.email}
+            >
+              <Mail size={20} strokeWidth={1.8} aria-hidden="true" />
             </a>
           </div>
         </aside>
       </div>
-
-      <ul className={styles.heroSignals} aria-label="Engineering focus areas">
-        {focusAreas.map((area, index) => (
-          <li key={area}>
-            <span aria-hidden="true">0{index + 1}</span>
-            {area}
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }

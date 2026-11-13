@@ -48,7 +48,7 @@ const personStructuredData = {
   jobTitle: "Software Developer",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Stellenbosch",
+    addressLocality: "Cape Town",
     addressCountry: "ZA",
   },
   sameAs: [
@@ -84,10 +84,7 @@ export default function RootLayout({
             __html: JSON.stringify(personStructuredData),
           }}
         />
-        <div className="site-shell">
-          <div className="f1-stripe" />
-          {children}
-        </div>
+        <div className="site-shell">{children}</div>
         {process.env.VERCEL ? (
           <>
             <Analytics />

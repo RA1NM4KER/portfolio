@@ -1,8 +1,8 @@
 import { Navbar } from "@/components/layout/navbar";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
-import { ContactSection } from "@/components/sections/contact-section";
 import { CapabilitiesSection } from "@/components/sections/capabilities-section";
 import { EducationSection } from "@/components/sections/education-section";
 import { CurrentFocusSection } from "@/components/sections/current-focus-section";
@@ -19,8 +19,8 @@ export default function HomePage() {
         <CapabilitiesSection />
         <CurrentFocusSection />
         <EducationSection />
-        <ContactSection />
       </main>
+      <SiteFooter />
     </>
   );
 }

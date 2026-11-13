@@ -42,7 +42,7 @@ export default function OpenGraphImage() {
         I like building simple, reliable systems that scale.
       </div>
       <div style={{ display: "flex", color: "#a2aab2", fontSize: 26 }}>
-        Stellenbosch, South Africa · kefas.co.za
+        Cape Town, South Africa · kefas.co.za
       </div>
     </div>,
     size,

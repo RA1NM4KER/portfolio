@@ -17,7 +17,10 @@ export function ProjectMedia({
 }: ProjectMediaProps) {
   if (video) {
     return (
-      <div className={styles.projectMedia}>
+      <div
+        className={styles.projectMedia}
+        style={{ aspectRatio: `${video.width} / ${video.height}` }}
+      >
         <video
           autoPlay
           controls
@@ -39,6 +42,7 @@ export function ProjectMedia({
   if (!image) return null;
 
   const pansOnInteraction = image.motion === "vertical-pan";
+  const frame = { aspectRatio: `${image.width} / ${image.height}` };
   const imageContent = (
     <Image
       src={image.src}
@@ -57,6 +61,7 @@ export function ProjectMedia({
         rel="noreferrer"
         aria-label={`Open ${productName}`}
         className={styles.projectMedia}
+        style={frame}
         data-pan={pansOnInteraction ? "interactive" : undefined}
       >
         {imageContent}
@@ -67,6 +72,7 @@ export function ProjectMedia({
   return (
     <div
       className={styles.projectMedia}
+      style={frame}
       data-pan={pansOnInteraction ? "interactive" : undefined}
     >
       {imageContent}

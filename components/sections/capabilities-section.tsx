@@ -11,11 +11,8 @@ export function CapabilitiesSection() {
       headingLayout="stacked"
     >
       <div className={styles.capabilityList}>
-        {capabilities.map((group, index) => (
+        {capabilities.map((group) => (
           <article key={group.title} className={styles.capabilityRow}>
-            <span className={styles.capabilityIndex} aria-hidden="true">
-              0{index + 1}
-            </span>
             <h3>{group.title}</h3>
             <div className={styles.capabilityDetails}>
               <p>{group.description}</p>

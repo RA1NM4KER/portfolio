@@ -11,8 +11,8 @@ import type {
 export const hero: HeroContent = {
   title: "I like building simple, reliable systems that scale.",
   intro:
-    "I’m a software developer focused on applied AI. Whether I’m working on agent infrastructure, data-intensive products, or production software, I care about making complex systems understandable, dependable, and useful.",
-  location: "Stellenbosch, South Africa",
+    "I’m a software developer working on applied AI. I care most about the unglamorous parts: clean data, clear boundaries, and tools people can actually trust.",
+  location: "Cape Town, South Africa",
   availability:
     "Focused on applied AI, agent infrastructure, and production software.",
 };
@@ -90,6 +90,7 @@ export const experience: readonly ExperienceItem[] = [
     company: "Schoolscape",
     website: "https://schoolscape.co.za/",
     logo: { src: "/companies/schoolscape-mark.svg", height: 26 },
+    caseStudy: { label: "Read the case study", href: "/schoolscape" },
     location: "Stellenbosch, South Africa",
     period: "June to October 2026",
     engagement:
@@ -215,6 +216,8 @@ export const selectedProjects: readonly Project[] = [
     video: {
       src: "/agent-relay/demo.mp4",
       poster: "/agent-relay/demo-poster.jpg",
+      width: 1280,
+      height: 720,
       label:
         "Agent Relay demo showing a managed Claude Code session and Relay ownership state",
     },
@@ -252,23 +255,14 @@ export const selectedProjects: readonly Project[] = [
     presentation: "dashboard",
     image: {
       src: "/home/newinmeter.webp",
+      width: 2940,
+      height: 1746,
       alt: "NewinMeter dashboard showing electricity balance, spend, usage, tariffs, daily charts, and the energy assistant",
     },
     hardwareExperiment: {
       title: "From meter to telemetry",
       description:
-        "I wanted to see whether NewinMeter could eventually read the meter itself. After investigating the meter’s optical interface and finding the richer communication path protected and inaccessible to an independent implementation, I pivoted to its observable pulse output. The current end-to-end proof of concept uses a GL5528 light-dependent resistor to detect the pulses, an Arduino Uno R3 for acquisition, and a laptop as the HTTP bridge, turning physical readings into usable consumption telemetry.",
-      current: [
-        "GL5528 light-dependent resistor detects the meter’s optical pulses",
-        "Arduino Uno R3 acquires and counts the pulse signal",
-        "Laptop bridges measurements to HTTP telemetry",
-        "Pulse counts are converted into consumption measurements",
-      ],
-      planned: [
-        "Replace the Arduino and laptop bridge with an ESP32",
-        "Run continuous pulse acquisition and network telemetry on the ESP32",
-        "Send telemetry to NewinMeter, Home Assistant, or another data consumer",
-      ],
+        "I wanted NewinMeter to read the meter itself. Its data port turned out to be locked, so I used the one thing it does show: a light that blinks for every unit of electricity used. A light sensor catches the blinks, an Arduino counts them, and a laptop sends the readings on as live usage data. It works end to end today.\n\nNext, a single ESP32 replaces the Arduino and laptop, so the sensor runs on its own and sends readings over the network to NewinMeter, Home Assistant, or anything else that wants them.",
       architecture: [
         {
           label: "Current",
@@ -321,6 +315,8 @@ export const selectedProjects: readonly Project[] = [
     presentation: "compact",
     image: {
       src: "/home/learn-mcp.png",
+      width: 4320,
+      height: 2292,
       alt: "Learn MCP homepage showing SUNLearn integration with ChatGPT and Claude, an illustrative module conversation, and supported learning environments",
     },
   },
@@ -338,6 +334,21 @@ export const selectedProjects: readonly Project[] = [
       "Prepare-confirm-execute",
       "MCP and HTTP adapters",
     ],
+    diagram: [
+      { label: "MCP and HTTP adapters", detail: "Thin transports" },
+      {
+        label: "Typed capability registry",
+        detail: "Shared by every transport",
+      },
+      {
+        label: "Prepare → confirm → execute",
+        detail: "Single-use tokens, audit records",
+      },
+      {
+        label: "Mail · Calendar · Commute · Weather · Products",
+        detail: "Deterministic personal context",
+      },
+    ],
     links: [
       {
         purpose: "repository",
@@ -348,32 +359,32 @@ export const selectedProjects: readonly Project[] = [
     presentation: "compact",
   },
   {
-    name: "Schoolscape CRM data engineering",
-    eyebrow: "Client project",
+    name: "GradeLog",
+    eyebrow: "Local-first product",
     description:
-      "A structured data-quality, record-linkage, reconciliation, and migration-preparation programme spanning more than 30,000 education CRM records, paired with a handover dashboard and AI-assisted retrieval interface.",
+      "A private grade tracker for students. No account, works offline, and marks stay on the device by default, with optional sync across devices.",
     outcome:
-      "Made a complex cleanup auditable, reviewable, and transferable without exposing confidential source data.",
-    technologies: ["Python", "Zoho CRM", "Record linkage", "Data validation"],
-    signals: [
-      "Historical sources",
-      "Match and validate",
-      "Preserve relationships",
-      "Migration-ready CRM",
-    ],
+      "Shows the average you need on the rest of a module to reach each grade, with a what-if mode for planning ahead.",
+    technologies: ["Next.js", "TypeScript", "IndexedDB", "PWA", "Capacitor"],
     links: [
       {
-        purpose: "details",
-        label: "View project details",
-        href: "/schoolscape",
+        purpose: "product",
+        label: "Open product",
+        href: "https://www.gradelog.app",
+      },
+      {
+        purpose: "repository",
+        label: "View repository",
+        href: "https://github.com/RA1NM4KER/GradeLog",
       },
     ],
-    presentation: "metrics",
-    metrics: [
-      { value: "31,675", label: "Initial organisations" },
-      { value: "5,301", label: "Rows consolidated" },
-      { value: "2,398", label: "Trusted matches applied" },
-    ],
+    image: {
+      src: "/home/gradelog-courses.webp",
+      width: 2942,
+      height: 1814,
+      alt: "GradeLog module view showing assignments, current standing, and the average needed for each grade",
+    },
+    presentation: "dashboard",
   },
   {
     name: "FineApp",
@@ -403,6 +414,8 @@ export const selectedProjects: readonly Project[] = [
     presentation: "product",
     image: {
       src: "/home/fineapp.webp",
+      width: 1800,
+      height: 1133,
       alt: "FineApp marketplace showing creative discovery, search, categories, profiles, availability, and pricing",
     },
   },
@@ -418,19 +431,19 @@ export const additionalProjects: readonly ToolProject[] = [
     linkLabel: "Open product",
   },
   {
-    name: "GradeLog",
-    category: "Local-first product",
-    description:
-      "Privacy-first grade tracker for web and mobile with offline storage, weighted assessments, and no account requirement.",
-    href: "https://github.com/RA1NM4KER/GradeLog",
-    linkLabel: "Repository",
-  },
-  {
     name: "FineApp MCP",
     category: "Agent integration",
     description:
       "Typed tools for agent-facing creative search, profiles, packages, and client requests over the FineApp marketplace.",
     href: "https://github.com/RA1NM4KER/fineapp-mcp",
+    linkLabel: "Repository",
+  },
+  {
+    name: "Automata Studio",
+    category: "Generative experiment",
+    description:
+      "A dependency-free local studio for discovering cellular automata rules, replaying how they grow, and exporting the results as images.",
+    href: "https://github.com/RA1NM4KER/automata-studio",
     linkLabel: "Repository",
   },
 ];

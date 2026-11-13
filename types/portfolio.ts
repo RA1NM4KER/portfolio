@@ -33,6 +33,7 @@ export type ExperienceItem = {
   technologies: readonly string[];
   presentation: "lead" | "substantial" | "compact";
   metrics?: readonly { value: string; label: string }[];
+  caseStudy?: { label: string; href: string };
 };
 
 type ProjectBase = {
@@ -43,6 +44,7 @@ type ProjectBase = {
   proof?: { value: string; label: string };
   technologies: readonly string[];
   signals?: readonly string[];
+  diagram?: readonly { label: string; detail?: string }[];
   links: readonly LinkItem[];
   note?: string;
   secondaryProject?: {
@@ -53,8 +55,6 @@ type ProjectBase = {
   hardwareExperiment?: {
     title: string;
     description: string;
-    current: readonly string[];
-    planned: readonly string[];
     architecture: readonly {
       label: string;
       nodes: readonly string[];
@@ -69,6 +69,9 @@ type ProjectBase = {
 type ProjectImage = {
   src: string;
   alt: string;
+  /** Intrinsic pixel size, used to keep the frame at the image's real shape. */
+  width: number;
+  height: number;
   motion?: "vertical-pan";
 };
 
@@ -76,21 +79,13 @@ type ProjectVideo = {
   src: string;
   poster: string;
   label: string;
+  width: number;
+  height: number;
 };
 
 type ProjectMedia =
   | { image: ProjectImage; video?: never }
   | { video: ProjectVideo; image?: never };
-
-export type MetricsProject = ProjectBase & {
-  presentation: "metrics";
-  metrics: readonly [
-    { value: string; label: string },
-    ...{ value: string; label: string }[],
-  ];
-  image?: never;
-  video?: never;
-};
 
 export type VisualProject = ProjectBase &
   (
@@ -101,7 +96,7 @@ export type VisualProject = ProjectBase &
       ))
   );
 
-export type Project = MetricsProject | VisualProject;
+export type Project = VisualProject;
 
 export type CurrentFocus = {
   title: string;

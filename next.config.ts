@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ["kefass-macbook-air", "kefass-macbook-air.tail9acdb6.ts.net"],
   images: {
     qualities: [75, 95],
   },

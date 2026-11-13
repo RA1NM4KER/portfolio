@@ -11,9 +11,8 @@ export function CurrentFocusSection() {
           <p>{currentFocus.introduction}</p>
         </div>
         <div className={styles.focusGrid}>
-          {currentFocus.items.map((item, index) => (
+          {currentFocus.items.map((item) => (
             <article key={item.title}>
-              <span aria-hidden="true">0{index + 1}</span>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </article>

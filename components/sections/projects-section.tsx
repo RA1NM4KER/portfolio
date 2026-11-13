@@ -4,10 +4,10 @@ import { additionalProjects, selectedProjects } from "@/data/portfolio";
 import { ContentSection } from "@/components/ui/content-section";
 import { Reveal } from "@/components/ui/reveal";
 import { ProjectMedia } from "@/components/sections/project-media";
+import { CountUp } from "@/components/ui/count-up";
 import type {
   LinkItem,
   Project,
-  MetricsProject as MetricsProjectData,
   VisualProject as VisualProjectData,
 } from "@/types/portfolio";
 import styles from "./projects.module.css";
@@ -56,51 +56,27 @@ function ProjectLinkList({ project }: { project: Project }) {
   );
 }
 
-function ProjectSignalList({
-  project,
-  className,
-}: {
-  project: Project;
-  className?: string;
-}) {
-  if (!project.signals) return null;
-
-  return (
-    <ul
-      className={[styles.projectSignals, className].filter(Boolean).join(" ")}
-    >
-      {project.signals.map((signal) => (
-        <li key={signal}>{signal}</li>
-      ))}
-    </ul>
-  );
-}
-
 function ProjectCopy({
   project,
-  showSignals = true,
   showMeta = true,
 }: {
   project: Project;
-  showSignals?: boolean;
   showMeta?: boolean;
 }) {
   return (
     <div className={styles.projectCopy}>
-      <p className={styles.projectEyebrow}>{project.eyebrow}</p>
       <h3>{project.name}</h3>
       {project.proof ? (
         <p className={styles.projectProof}>
-          <strong>{project.proof.value}</strong>
+          <strong>
+            <CountUp value={project.proof.value} />
+          </strong>
           <span>{project.proof.label}</span>
         </p>
       ) : null}
       <p className={styles.projectDescription}>{project.description}</p>
       {project.outcome ? (
         <p className={styles.projectOutcome}>{project.outcome}</p>
-      ) : null}
-      {project.signals && showSignals ? (
-        <ProjectSignalList project={project} />
       ) : null}
       {project.note ? (
         <p className={styles.projectNote}>{project.note}</p>
@@ -136,43 +112,14 @@ function HardwareExperiment({ project }: { project: Project }) {
       aria-labelledby={`${project.name.toLowerCase()}-hardware-title`}
     >
       <div className={styles.hardwareCopy}>
-        <p className={styles.projectEyebrow}>Hardware experiment</p>
         <h4 id={`${project.name.toLowerCase()}-hardware-title`}>
           {experiment.title}
         </h4>
-        <p className={styles.hardwareDescription}>{experiment.description}</p>
-
-        <div className={styles.hardwareStatusGrid}>
-          <div>
-            <strong>Working now</strong>
-            <ul>
-              {experiment.current.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <strong>Planned</strong>
-            <ul>
-              {experiment.planned.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className={styles.telemetryStates} aria-label="Telemetry paths">
-          {experiment.architecture.map((state) => (
-            <div key={state.label}>
-              <strong>{state.label}</strong>
-              <ol className={styles.telemetryFlow}>
-                {state.nodes.map((node) => (
-                  <li key={node}>{node}</li>
-                ))}
-              </ol>
-            </div>
-          ))}
-        </div>
+        {experiment.description.split("\n\n").map((paragraph) => (
+          <p key={paragraph} className={styles.hardwareDescription}>
+            {paragraph}
+          </p>
+        ))}
       </div>
 
       <div className={styles.hardwareMedia}>
@@ -191,39 +138,40 @@ function HardwareExperiment({ project }: { project: Project }) {
         </video>
         <p>Working optical pulse sensing proof of concept</p>
       </div>
+
+      <div className={styles.telemetryStates} aria-label="Telemetry paths">
+        {experiment.architecture.map((state) => (
+          <div key={state.label}>
+            <strong>{state.label}</strong>
+            <ol className={styles.telemetryFlow}>
+              {state.nodes.map((node) => (
+                <li key={node}>{node}</li>
+              ))}
+            </ol>
+          </div>
+        ))}
+      </div>
     </aside>
   );
 }
 
-function MetricsProject({ project }: { project: MetricsProjectData }) {
+function ProjectDiagram({ project }: { project: Project }) {
+  if (!project.diagram) return null;
+
   return (
-    <article className={styles.metricsProject}>
-      <div className={styles.metricsProjectCopy}>
-        <ProjectCopy project={project} showSignals={false} />
-      </div>
-      <div
-        className={styles.reconciliationVisual}
-        aria-label="Schoolscape reconciliation process"
-      >
-        <div className={styles.metricStack}>
-          {project.metrics.map((metric) => (
-            <div key={metric.label}>
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
-            </div>
-          ))}
-        </div>
-        <ol className={styles.flowSteps}>
-          {project.signals?.map((signal, index) => (
-            <li key={signal}>
-              <span>0{index + 1}</span>
-              {signal}
-            </li>
-          ))}
-        </ol>
-        <p>Audited decisions · ID-based redirects · reproducible delivery</p>
-      </div>
-    </article>
+    <figure
+      className={styles.projectDiagram}
+      aria-label={`${project.name} architecture`}
+    >
+      <ol>
+        {project.diagram.map((layer) => (
+          <li key={layer.label}>
+            <strong>{layer.label}</strong>
+            {layer.detail ? <span>{layer.detail}</span> : null}
+          </li>
+        ))}
+      </ol>
+    </figure>
   );
 }
 
@@ -231,11 +179,6 @@ function VisualProject({ project }: { project: VisualProjectData }) {
   const destinationLink =
     project.links.find((link) => link.purpose === "product") ??
     project.links.find((link) => link.purpose === "site");
-  const signalsUnderMedia =
-    (project.presentation === "dashboard" ||
-      Boolean(project.video) ||
-      (project.presentation === "compact" && Boolean(project.image))) &&
-    Boolean(project.signals?.length);
 
   const media =
     project.image || project.video ? (
@@ -245,38 +188,24 @@ function VisualProject({ project }: { project: VisualProjectData }) {
         productName={project.name}
         productHref={destinationLink?.href}
       />
-    ) : null;
+    ) : (
+      <ProjectDiagram project={project} />
+    );
 
   return (
     <div className={styles.projectStack}>
       <article
         className={[
           styles[`project_${project.presentation}`],
-          !project.image && !project.video ? styles.projectTextOnly : "",
+          !project.image && !project.video && !project.diagram
+            ? styles.projectTextOnly
+            : "",
         ]
           .filter(Boolean)
           .join(" ")}
       >
-        {signalsUnderMedia ? (
-          <div className={styles.projectVisualColumn}>
-            {media}
-            <ProjectSignalList
-              project={project}
-              className={styles.projectMediaSignals}
-            />
-          </div>
-        ) : (
-          media
-        )}
-        <ProjectCopy
-          project={project}
-          showSignals={!signalsUnderMedia}
-          showMeta={false}
-        />
-        <div className={styles.projectMetaFooter}>
-          <ProjectTechnologyList project={project} />
-          <ProjectLinkList project={project} />
-        </div>
+        {media}
+        <ProjectCopy project={project} />
       </article>
       <HardwareExperiment project={project} />
     </div>
@@ -295,11 +224,7 @@ export function ProjectsSection() {
         <div className={styles.featuredProjects}>
           {selectedProjects.map((project, index) => (
             <Reveal key={project.name} delay={index * 55}>
-              {project.presentation === "metrics" ? (
-                <MetricsProject project={project} />
-              ) : (
-                <VisualProject project={project} />
-              )}
+              <VisualProject project={project} />
             </Reveal>
           ))}
         </div>
