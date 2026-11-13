@@ -11,7 +11,7 @@ import type {
 export const hero: HeroContent = {
   title: "I like building simple, reliable systems that scale.",
   intro:
-    "I’m a software developer working on applied AI. I care most about the unglamorous parts: clean data, clear boundaries, and tools people can actually trust.",
+    "I’m Kefas Manda, a software developer in Cape Town working on applied AI. I care most about the unglamorous parts: clean data, clear boundaries, and tools people can actually trust.",
   location: "Cape Town, South Africa",
   availability:
     "Focused on applied AI, agent infrastructure, and production software.",

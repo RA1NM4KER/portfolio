@@ -2,7 +2,9 @@
 
 Personal portfolio for Kefas Manda, a software developer focused on applied AI and building simple, reliable systems that scale.
 
-**Live:** [kefas.co.za](https://kefas.co.za)
+**Live:** [kefas.co.za](https://www.kefas.co.za)
+
+See [SEO.md](./SEO.md) for the SEO audit, verified results, and remaining deployment and content work. Site metadata is configured in `data/seo.ts`.
 
 ## Tech
 

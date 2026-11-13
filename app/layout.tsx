@@ -3,58 +3,33 @@ import "./globals.css";
 import React from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { homeTitle, personId, siteUrl } from "@/data/seo";
+import { contact } from "@/data/portfolio";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kefas.co.za"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Kefas Manda, Software developer",
+    default: homeTitle,
     template: "%s | Kefas Manda",
   },
-  description:
-    "Kefas Manda is a software developer focused on applied AI, building simple, reliable systems across agent infrastructure, data-intensive products, and production software.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    locale: "en_ZA",
-    url: "https://kefas.co.za",
-    siteName: "Kefas Manda",
-    title: "Kefas Manda, Software developer",
-    description:
-      "Simple, reliable systems across applied AI, agent infrastructure, and production software.",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Kefas Manda, software developer focused on applied AI",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kefas Manda, Software developer",
-    description:
-      "Simple, reliable systems across applied AI, agent infrastructure, and production software.",
-    images: ["/opengraph-image"],
-  },
+  authors: [{ name: "Kefas Manda", url: siteUrl }],
+  creator: "Kefas Manda",
 };
 
 const personStructuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": personId,
   name: "Kefas Manda",
-  url: "https://kefas.co.za",
-  email: "mailto:kefasa112@gmail.com",
+  url: `${siteUrl}/`,
+  email: `mailto:${contact.email}`,
   jobTitle: "Software Developer",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Cape Town",
     addressCountry: "ZA",
   },
-  sameAs: [
-    "https://github.com/RA1NM4KER",
-    "https://www.linkedin.com/in/kefas-manda/",
-  ],
+  sameAs: [contact.github, contact.linkedin],
   affiliation: {
     "@type": "Organization",
     name: "Stellenbosch University",
@@ -76,12 +51,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-ZA">
+      <head>
+        <link rel="describedby" href="/llms.txt" type="text/plain" />
+      </head>
       <body className="antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personStructuredData),
+            __html: JSON.stringify(personStructuredData).replace(
+              /</g,
+              "\\u003c",
+            ),
           }}
         />
         <div className="site-shell">{children}</div>

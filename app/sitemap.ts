@@ -1,19 +1,7 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/data/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-08-01");
-  return [
-    {
-      url: "https://kefas.co.za",
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: "https://kefas.co.za/schoolscape",
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-  ];
+  // Omit lastModified until content revision dates are tracked accurately.
+  return [{ url: `${siteUrl}/` }, { url: `${siteUrl}/schoolscape` }];
 }

@@ -1,0 +1,21 @@
+# Kefas Manda
+
+> Kefas Manda is a software developer in Cape Town, South Africa, focused on applied AI, agent infrastructure, backend systems, and data pipelines.
+
+This is Kefas's personal portfolio. It documents professional experience, selected projects, technical capabilities, education, and public contact information. The linked pages are the source of truth for current roles, project scope, and results.
+
+## Portfolio
+
+- [Portfolio](https://www.kefas.co.za/): Introduction, experience, capabilities, education, and selected work.
+- [Selected projects](https://www.kefas.co.za/#case-studies): Agent Relay, NewinMeter, Learn MCP, Beacon, GradeLog, and FineApp.
+- [Schoolscape case study](https://www.kefas.co.za/schoolscape): CRM data reconciliation and migration preparation, including aggregate outcomes, validation, and handover methodology.
+- [Contact](https://www.kefas.co.za/#contact): Public contact information and professional profiles.
+
+## Professional profiles
+
+- [GitHub](https://github.com/RA1NM4KER): Public source code and projects.
+- [LinkedIn](https://www.linkedin.com/in/kefas-manda/): Professional profile.
+
+## Optional
+
+- [CV](https://www.kefas.co.za/Kefas-Aleck-CV.pdf): Downloadable CV; check the portfolio for current information.
