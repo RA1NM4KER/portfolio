@@ -44,6 +44,7 @@ export function ProjectMedia({
       src={image.src}
       alt={image.alt}
       fill
+      quality={95}
       sizes="(max-width: 800px) 100vw, 62vw"
     />
   );
