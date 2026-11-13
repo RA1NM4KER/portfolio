@@ -13,6 +13,7 @@ This is Kefas's personal portfolio. It documents professional experience, select
 
 ## Professional profiles
 
+- [Email Kefas Manda](mailto:kefasa112@gmail.com): Public contact email, kefasa112@gmail.com.
 - [GitHub](https://github.com/RA1NM4KER): Public source code and projects.
 - [LinkedIn](https://www.linkedin.com/in/kefas-manda/): Professional profile.
 

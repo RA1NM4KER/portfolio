@@ -133,8 +133,11 @@ function HardwareExperiment({ project }: { project: Project }) {
           aria-label="NewinMeter optical sensor detecting electricity meter pulses"
         >
           <source src={experiment.video.src} type="video/mp4" />
-          Your browser cannot play this video.{" "}
-          <a href={experiment.video.fallbackHref}>Open the MP4 directly.</a>
+          An optical sensor detects electricity meter pulses, an Arduino counts
+          them, and a laptop sends the readings as live usage data.{" "}
+          <a href={experiment.video.fallbackHref}>
+            Watch the NewinMeter optical sensor demo (MP4).
+          </a>
         </video>
         <p>Working optical pulse sensing proof of concept</p>
       </div>
@@ -239,20 +242,20 @@ export function ProjectsSection() {
         </div>
         <div className={styles.toolsGrid}>
           {additionalProjects.map((tool) => (
-            <a
-              key={tool.name}
-              href={tool.href}
-              target="_blank"
-              rel="noreferrer"
-              className={styles.toolItem}
-            >
+            <article key={tool.name} className={styles.toolItem}>
               <span className={styles.toolCategory}>{tool.category}</span>
-              <strong>{tool.name}</strong>
-              <small>{tool.description}</small>
-              <span className={styles.toolLink}>
+              <h3>{tool.name}</h3>
+              <p>{tool.description}</p>
+              <a
+                href={tool.href}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.toolLink}
+                aria-label={`${tool.linkLabel}: ${tool.name}`}
+              >
                 {tool.linkLabel} <ArrowUpRight aria-hidden="true" size={14} />
-              </span>
-            </a>
+              </a>
+            </article>
           ))}
         </div>
         <p className={styles.moreGithub}>

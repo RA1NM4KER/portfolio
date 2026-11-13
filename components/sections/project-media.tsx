@@ -32,8 +32,8 @@ export function ProjectMedia({
           aria-label={video.label}
         >
           <source src={video.src} type="video/mp4" />
-          Your browser cannot play this video.{" "}
-          <a href={video.src}>Open the MP4 directly.</a>
+          {video.label}.{" "}
+          <a href={video.src}>Watch the {productName} demo (MP4).</a>
         </video>
       </div>
     );
