@@ -247,11 +247,6 @@ export const selectedProjects: readonly Project[] = [
         label: "Open product",
         href: "https://newinmeter.vercel.app",
       },
-      {
-        purpose: "repository",
-        label: "View repository",
-        href: "https://github.com/RA1NM4KER/newinmeter",
-      },
     ],
     presentation: "dashboard",
     image: {
