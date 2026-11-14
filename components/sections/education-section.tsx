@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ContentSection } from "@/components/ui/content-section";
+import { education } from "@/data/portfolio";
 import styles from "./education.module.css";
 
 export function EducationSection() {
@@ -14,13 +15,13 @@ export function EducationSection() {
               width={21}
               height={28}
             />
-            Stellenbosch University
+            {education.institution}
           </p>
-          <h2>BSc Computer Science</h2>
+          <h2>{education.qualification}</h2>
         </div>
         <div className={styles.educationMeta}>
           <p>Focal area</p>
-          <strong>Computer Systems</strong>
+          <strong>{education.focalArea}</strong>
         </div>
       </article>
     </ContentSection>

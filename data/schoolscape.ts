@@ -5,7 +5,8 @@ export const schoolscapeProject: SchoolscapeProject = {
   summary:
     "A large-scale reconciliation and migration-preparation programme that turned fragmented education CRM data into a controlled, validated account base with preserved relationships and an evidence-backed handover.",
   role: "Software Developer, Independent Contractor",
-  engagement: "17 June to 31 July 2026 full-time; part-time from August 2026",
+  engagement:
+    "Full time from 17 June to 31 July 2026; part time from August to October 2026",
   location: "Stellenbosch, South Africa",
   metrics: [
     {

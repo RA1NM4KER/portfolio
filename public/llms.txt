@@ -6,9 +6,13 @@ This is Kefas's personal portfolio. It documents professional experience, select
 
 ## Portfolio
 
+- [Portfolio in Markdown](https://www.kefas.co.za/index.md): Full text of the portfolio, including experience, projects, capabilities, education, and contact details; generated from the website's content data.
+- [Schoolscape case study in Markdown](https://www.kefas.co.za/schoolscape.md): Project outcomes, methodology, validation, handover, and the public information boundary; generated from the website's content data.
+- [FineApp case study in Markdown](https://www.kefas.co.za/fineapp.md): The original marketplace engineering and its change to paid freelancer listings with direct email and WhatsApp enquiries. Platform messaging and payments are historical features that have been removed.
 - [Portfolio](https://www.kefas.co.za/): Introduction, experience, capabilities, education, and selected work.
 - [Selected projects](https://www.kefas.co.za/#case-studies): Agent Relay, NewinMeter, Learn MCP, Beacon, GradeLog, and FineApp.
 - [Schoolscape case study](https://www.kefas.co.za/schoolscape): CRM data reconciliation and migration preparation, including aggregate outcomes, validation, and handover methodology.
+- [FineApp case study](https://www.kefas.co.za/fineapp): Product ownership, historical booking, messaging and payment work, and the decision to simplify the conversion journey.
 - [Contact](https://www.kefas.co.za/#contact): Public contact information and professional profiles.
 
 ## Professional profiles

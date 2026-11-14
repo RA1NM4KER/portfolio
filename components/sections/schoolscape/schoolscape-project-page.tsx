@@ -1,29 +1,11 @@
-import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import type { SchoolscapeProject } from "@/types/schoolscape";
-import styles from "./schoolscape-project.module.css";
-
-function SectionHeading({
-  label,
-  title,
-  description,
-}: {
-  label: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <header className={styles.sectionHeading}>
-      <p className={styles.sectionLabel}>
-        <span aria-hidden="true">/</span> {label}
-      </p>
-      <div>
-        <h2>{title}</h2>
-        <p>{description}</p>
-      </div>
-    </header>
-  );
-}
+import {
+  CaseStudyHero,
+  CaseStudyMetrics,
+  CaseStudyNext,
+  CaseStudySection,
+} from "@/components/sections/case-study/case-study";
+import styles from "@/components/sections/case-study/case-study.module.css";
 
 export function SchoolscapeProjectPage({
   project,
@@ -32,80 +14,48 @@ export function SchoolscapeProjectPage({
 }) {
   return (
     <main className="page-content">
-      <header className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>Client project</p>
-          <h1>{project.title}</h1>
-          <p className={styles.summary}>{project.summary}</p>
-          <div className={styles.heroLinks}>
-            <Link href="/#case-studies">
-              <ArrowLeft aria-hidden="true" size={14} /> Selected work
-            </Link>
-            <a href="#system">
-              System overview <ArrowRight aria-hidden="true" size={14} />
-            </a>
-          </div>
-        </div>
-        <dl className={styles.projectMeta}>
-          <div>
-            <dt>Role</dt>
-            <dd>{project.role}</dd>
-          </div>
-          <div>
-            <dt>Engagement</dt>
-            <dd>{project.engagement}</dd>
-          </div>
-          <div>
-            <dt>Location</dt>
-            <dd>{project.location}</dd>
-          </div>
-          <div>
-            <dt>Scope</dt>
-            <dd>
-              CRM data engineering, handover tooling, and production web
-              delivery
-            </dd>
-          </div>
-        </dl>
-      </header>
+      <CaseStudyHero
+        label="/ Client case study"
+        title="Schoolscape"
+        summary={project.summary}
+        meta={[
+          { label: "Role", value: project.role },
+          { label: "Engagement", value: project.engagement },
+          { label: "Location", value: project.location },
+        ]}
+      />
 
-      <section className={styles.metrics} aria-label="Project outcomes">
-        {project.metrics.map((metric) => (
-          <div key={metric.label}>
-            <strong>{metric.value}</strong>
-            <span>{metric.label}</span>
-            <p>{metric.detail}</p>
-          </div>
-        ))}
-      </section>
+      <CaseStudyMetrics metrics={project.metrics} />
 
-      <section id="system" className={styles.section}>
-        <SectionHeading
-          label="System"
-          title="Identity first, automation second."
-          description="Matching suggestions accelerated the work, but stable CRM identities, evidence, and review thresholds controlled what was allowed into the final dataset."
-        />
-        <ol className={styles.pipeline}>
+      <CaseStudySection
+        id="system"
+        label="/ System"
+        title="Identity first, automation second."
+        description="Matching suggestions accelerated the work, but stable CRM identities, evidence, and review thresholds controlled what was allowed into the final dataset."
+      >
+        <ol className={styles.numberedRows}>
           {project.pipeline.map((step, index) => (
             <li key={step.title}>
-              <span>0{index + 1}</span>
-              <h3>{step.title}</h3>
-              <p>{step.detail}</p>
+              <span aria-hidden="true">0{index + 1}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.detail}</p>
+              </div>
             </li>
           ))}
         </ol>
-      </section>
+      </CaseStudySection>
 
-      <section id="work" className={styles.section}>
-        <SectionHeading
-          label="Work"
-          title="Eight connected workstreams."
-          description="The programme covered more than deduplication: source control, enrichment, relationships, permissions, business taxonomy, and migration readiness were handled together."
-        />
-        <div className={styles.workstreamGrid}>
+      <CaseStudySection
+        id="work"
+        label="/ Work"
+        title="Eight connected workstreams."
+        description="The programme covered more than deduplication: source control, enrichment, relationships, permissions, business taxonomy, and migration readiness were handled together."
+      >
+        <div className={styles.workRows}>
           {project.workstreams.map((workstream, index) => (
             <article key={workstream.title}>
-              <span>0{index + 1}</span>
+              <span aria-hidden="true">0{index + 1}</span>
               <div>
                 <h3>{workstream.title}</h3>
                 <p>{workstream.detail}</p>
@@ -114,46 +64,54 @@ export function SchoolscapeProjectPage({
             </article>
           ))}
         </div>
-      </section>
+      </CaseStudySection>
 
-      <section id="quality" className={styles.section}>
-        <SectionHeading
-          label="Quality"
-          title="Improvement that can be checked."
-          description="Coverage was only used where it was meaningful. Invalid or unsupported values stayed visible instead of being converted into decorative completeness."
-        />
-        <div className={styles.qualityLayout}>
-          <div className={styles.outcomeTable}>
+      <CaseStudySection
+        id="quality"
+        label="/ Quality"
+        title="Improvement that can be checked."
+        description="Coverage was only used where it was meaningful. Invalid or unsupported values stayed visible instead of being converted into decorative completeness."
+      >
+        <table className={styles.qualityTable}>
+          <caption>Field quality after reconciliation</caption>
+          <thead>
+            <tr>
+              <th scope="col">Field</th>
+              <th scope="col">Result</th>
+              <th scope="col">What was checked</th>
+            </tr>
+          </thead>
+          <tbody>
             {project.fieldOutcomes.map((outcome) => (
-              <div key={outcome.field}>
-                <span>{outcome.field}</span>
-                <strong>{outcome.result}</strong>
-                <p>{outcome.detail}</p>
-              </div>
+              <tr key={outcome.field}>
+                <th scope="row">{outcome.field}</th>
+                <td>{outcome.result}</td>
+                <td>{outcome.detail}</td>
+              </tr>
             ))}
-          </div>
-          <aside className={styles.principles}>
-            <p>Validation principles</p>
-            {project.principles.map((principle) => (
-              <div key={principle.title}>
-                <Check aria-hidden="true" size={15} />
-                <span>
-                  <strong>{principle.title}</strong>
-                  {principle.detail}
-                </span>
-              </div>
-            ))}
-          </aside>
-        </div>
-      </section>
+          </tbody>
+        </table>
 
-      <section id="handover" className={styles.section}>
-        <SectionHeading
-          label="Handover"
-          title="The output was designed to be inherited."
-          description="The final files were only one part of the delivery. Stakeholders also received the context, controls, and retrieval tools needed to review and maintain the work."
-        />
-        <div className={styles.handoverGrid}>
+        <aside className={styles.principles}>
+          <h3>Validation principles</h3>
+          <ul>
+            {project.principles.map((principle) => (
+              <li key={principle.title}>
+                <strong>{principle.title}</strong>
+                <span>{principle.detail}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </CaseStudySection>
+
+      <CaseStudySection
+        id="handover"
+        label="/ Handover"
+        title="The output was designed to be inherited."
+        description="The final files were only one part of the delivery. Stakeholders also received the context, controls, and retrieval tools needed to review and maintain the work."
+      >
+        <div className={styles.handoverRows}>
           {project.handover.map((item) => (
             <article key={item.title}>
               <h3>{item.title}</h3>
@@ -161,23 +119,30 @@ export function SchoolscapeProjectPage({
             </article>
           ))}
         </div>
-        <div className={styles.webDelivery}>
-          <div>
-            <p className={styles.eyebrow}>Also delivered</p>
-            <h3>Production web and business-system work</h3>
-          </div>
-          <ul>
+
+        <div className={styles.prose}>
+          <h3>Also delivered: production web and business systems</h3>
+          <ul className={styles.list}>
             {project.webDelivery.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </div>
-      </section>
+      </CaseStudySection>
 
-      <aside className={styles.boundary}>
-        <strong>Public boundary</strong>
-        <p>{project.boundary}</p>
-      </aside>
+      <CaseStudySection
+        id="public-boundary"
+        label="/ Public boundary"
+        title="A public account of the work."
+      >
+        <p className={styles.note}>{project.boundary}</p>
+      </CaseStudySection>
+
+      <CaseStudyNext
+        href="/fineapp"
+        label="Product engineering"
+        title="FineApp: building a marketplace, then simplifying it."
+      />
     </main>
   );
 }

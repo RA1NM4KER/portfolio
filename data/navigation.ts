@@ -9,10 +9,9 @@ export const homeNavLinks: readonly NavbarLink[] = [
 
 export const fineAppNavLinks: readonly NavbarLink[] = [
   { href: "#overview", label: "Overview" },
-  { href: "#flows", label: "Flows" },
-  { href: "#architecture", label: "Architecture" },
-  { href: "#challenges", label: "Challenges" },
-  { href: "#results", label: "Results" },
+  { href: "#evolution", label: "Evolution" },
+  { href: "#engineering", label: "Engineering" },
+  { href: "#reflection", label: "Reflection" },
 ];
 
 export const schoolscapeNavLinks: readonly NavbarLink[] = [

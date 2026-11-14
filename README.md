@@ -17,6 +17,8 @@ See [SEO.md](./SEO.md) for the SEO audit, verified results, and remaining deploy
 
 - `/`: professional experience, selected work, capabilities, education, and contact
 - `/schoolscape`: public, aggregate-only CRM data engineering project
+- `/fineapp`: marketplace product case study, distinguishing the original implementation from the current listings and direct contact model
+- `/index.md`, `/schoolscape.md`, and `/fineapp.md`: Markdown versions generated at build time from the same content data as the pages, with canonical links back to HTML
 
 ## Run locally
 

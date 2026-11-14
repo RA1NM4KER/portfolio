@@ -9,6 +9,7 @@ const siteLinks = [
   { href: "/#case-studies", label: "Systems" },
   { href: "/#capabilities", label: "Capabilities" },
   { href: "/schoolscape", label: "Schoolscape case study" },
+  { href: "/fineapp", label: "FineApp case study" },
 ];
 
 export function SiteFooter() {

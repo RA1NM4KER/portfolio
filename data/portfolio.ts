@@ -7,6 +7,7 @@ import type {
   Project,
   ToolProject,
 } from "@/types/portfolio";
+import { fineAppCaseStudy } from "@/data/fineapp";
 
 export const hero: HeroContent = {
   title: "I like building simple, reliable systems that scale.",
@@ -20,7 +21,7 @@ export const hero: HeroContent = {
 export const experience: readonly ExperienceItem[] = [
   {
     role: "Applied AI Intern",
-    company: "JEM",
+    company: "JEMHR",
     logo: { src: "/companies/jem.svg", height: 32 },
     website: "https://www.jemhr.com/",
     location: "Cape Town, South Africa",
@@ -389,22 +390,26 @@ export const selectedProjects: readonly Project[] = [
   {
     name: "FineApp",
     eyebrow: "Independent product",
-    description:
-      "A creative freelance marketplace that replaced manual email and WhatsApp coordination with secure booking, payment, moderated chat, and operational workflows.",
+    description: fineAppCaseStudy.summary,
     outcome:
-      "Reduced ongoing administration to lightweight moderation after launch.",
+      "Originally built with platform messaging and payments. Now focused on paid freelancer listings and direct email or WhatsApp enquiries to reduce conversion friction.",
     proof: {
       value: "40+",
       label: "creatives onboarded",
     },
-    technologies: ["Spring Boot", "Next.js", "MySQL", "PayFast"],
+    technologies: ["Spring Boot", "Next.js", "MySQL"],
     signals: [
-      "Booking lifecycle",
-      "Verified payment webhooks",
-      "Moderated chat",
-      "Role-based access",
+      "Paid freelancer listings",
+      "Direct client enquiries",
+      "Product evolution",
+      "Full stack ownership",
     ],
     links: [
+      {
+        purpose: "details",
+        label: "Read the case study",
+        href: "/fineapp",
+      },
       {
         purpose: "product",
         label: "Open product",
@@ -575,6 +580,12 @@ export const currentFocus: CurrentFocus = {
         "Design for rate limits, retries, audit trails, privacy, cost, recovery, and the people who still need to trust the result.",
     },
   ],
+};
+
+export const education = {
+  institution: "Stellenbosch University",
+  qualification: "BSc Computer Science",
+  focalArea: "Computer Systems",
 };
 
 export const contact: ContactInfo = {
